@@ -1,12 +1,10 @@
 import React, { useEffect } from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import { Routes, Route, Router } from "react-router-dom";
 import About from "./components/pages/About";
 import Home from "./components/pages/Home";
 import Contact from "./components/pages/Contact";
 import { css } from "@emotion/css";
-import { Box } from "@mui/material";
 import { useAbout } from "./hooks/useAbout";
 import ThankYou from "./components/pages/ThankYou";
 import { Resume } from "./types/typesResume";
