@@ -8,7 +8,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 // const portalDiv = document.getElementById("root")!;
 // const root = ReactDOM.createRoot(portalDiv);
 ReactDOM.createRoot(document.getElementById("root")!).render(
-  <BrowserRouter>
+  <BrowserRouter basename={"/gh-pages"}>
     <App />
   </BrowserRouter>
 );
