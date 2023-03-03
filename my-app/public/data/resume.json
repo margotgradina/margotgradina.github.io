@@ -1,0 +1,363 @@
+{
+  "Resume": {
+    "name": "Margot Gradina de Haas",
+    "label": "Software Developer",
+    "image": "https://drive.google.com/uc?export=view&id=1o31XTBh_Q3H9_Eiv46yNh0mFjSsrEem0",
+    "dateOfBirth": "03-05-1991",
+    "email": "mgpndehaas@outlook.com",
+    "phone": "+31 6 4043 7042",
+    "url": "http://www.margotgradina.com/",
+    "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque nunc turpis, eleifend nec imperdiet volutpat, commodo non est. Nam gravida est sem, vulputate ultricies turpis pellentesque ut. Donec eget facilisis lorem. Suspendisse gravida aliquam nunc, at ultrices magna imperdiet nec. Nunc hendrerit nisl ac lorem faucibus, nec porta diam molestie. Nullam porttitor pharetra lectus, in laoreet sem. Vestibulum volutpat lobortis bibendum. Praesent consequat quam urna, vitae mattis erat commodo sit amet. Donec nec dictum mauris. Pellentesque dignissim lacinia massa, nec ullamcorper purus luctus ac. Donec nulla felis, ultrices id gravida ut, hendrerit dignissim tellus. Duis at egestas arcu. Nulla scelerisque orci lacus, et commodo arcu malesuada iaculis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et placerat nulla. Morbi in quam vel felis eleifend ultricies at in neque.",
+    "location": {
+      "address": "",
+      "postalCode": "5612LC",
+      "city": "Eindhoven",
+      "countryCode": "NL",
+      "region": "NB"
+    },
+    "profiles": [
+      {
+        "network": "Instagram",
+        "username": "margotgradina",
+        "url": "https://instagram.com/margotgradina",
+        "icon": "Instagram"
+      },
+      {
+        "network": "LinkedIn",
+        "username": "margotdehaas",
+        "url": "https://www.linkedin.com/in/margotdehaas/",
+        "icon": "Linkedin"
+      },
+      {
+        "network": "Facebook",
+        "username": "MGdeHaas",
+        "url": "https://www.facebook.com/MGdehaas",
+        "icon": "Facebook"
+      },
+      {
+        "network": "Github",
+        "username": "MargotGradina",
+        "url": "https://github.com/margotgradina",
+        "icon": "Github"
+      }
+    ]
+  },
+  "experience": [
+    {
+      "type": "Employment",
+      "name": "Acconet BV",
+      "location": "Eindhoven",
+      "position": "Junior Software Engineer",
+      "url": "https://acconet.nl",
+      "startDate": "25-07-2022",
+      "endDate": "",
+      "summary": "Front end development in ReactJS and TypeScript. Creating custom accountancy solutions in an app called Tportal, built against the well known accountancy software Exact, Backend Lowcode development in Webdev.",
+      "highlights": [
+        "Building custom solutions for customers to facilitate their working process",
+        "Learning new coding language (React, typescript, Webdev) and putting newly learnt information to practice"
+      ]
+    },
+    {
+      "type": "Employment",
+      "name": "Kazerne",
+      "location": "Eindhoven",
+      "position": "Cultural Program manager",
+      "url": "https://www.kazerne.com",
+      "startDate": "01-10-2014",
+      "endDate": "31-01-2022",
+      "summary": "A diverse position in the cultural program of a hybrid organisation for design, consisting of an art gallery, two restaurants, hotel and shop",
+      "highlights": [
+        "Production of 22 exhibitions, among which the exhibitions on show during Dutch Design Week",
+        "Development and coordination of the cultural program, among others the weekly EHV Innovation Café (96 editions), openings(15), design talks (30), workshops (10), lab projects (5), partnertours (2)",
+        "Over a 100 tours to visitors and important guests",
+        "Design class (8) on the exhibitions for first years of the Design Academy Eindhoven",
+        "Volunteer coordination during Dutch Design Week (5 editions)",
+        "Coordination and guidance of Kazerne Young, where students from TUe and DAE came together to organise a subprogram of events.",
+        "Shopmanagement & -sales, maintenance e-commerce",
+        "Facility management and technical support of the team",
+        "Secretarial and organisational assistance to the Creative Director",
+        "Support of communications; writing texts, translating, website maintenance",
+        "Photo and videography for communication purposes"
+      ]
+    },
+    {
+      "type": "Internship",
+      "name": "Cooks Hill Gallery",
+      "location": "Newcastle, NSW, Australia",
+      "position": "intern communications and program",
+      "url": "",
+      "startDate": "01-01-2007",
+      "endDate": "01-10-2014",
+      "summary": "Multiple sidejobs during my studies, among which waitressing at various restaurants and cafes (2008-2014), administrational work at Radboud Tandheelkunde (2009)”, sales employee at VanLeest (2007-2008), paper rounds at De Brug (2007-2008).",
+      "highlights": []
+    },
+    {
+      "type": "Employment",
+      "name": "Multiple sidejobs",
+      "location": "Nijmegen",
+      "position": "Various",
+      "url": "",
+      "startDate": "01-01-2007",
+      "endDate": "01-10-2014",
+      "summary": "Multiple sidejobs during my studies, among which waitressing at various restaurants and cafes (2008-2014), administrational work at Radboud Tandheelkunde (2009)”, sales employee at VanLeest (2007-2008), paper rounds at De Brug (2007-2008)",
+      "highlights": []
+    }
+  ],
+  "volunteer": [
+    {
+      "organisation": "Boskalis Beach Cleanup",
+      "position": "Volunteer",
+      "url": "https://www.beachcleanuptour.nl",
+      "startDate": "2019-08-14",
+      "endDate": "2019-08-14",
+      "location": "Monster, NL",
+      "summary": "Cleaning up the beach",
+      "highlights": [""]
+    },
+    {
+      "organisation": "Boskalis Beach Cleanup",
+      "position": "Volunteer",
+      "url": "https://www.beachcleanuptour.nl",
+      "startDate": "2018-08-12",
+      "endDate": "2018-08-12",
+      "location": "Kwadehoek, NL",
+      "summary": "Cleaning up the beach",
+      "highlights": [""]
+    },
+    {
+      "organisation": "Kunstnacht",
+      "position": "Host",
+      "url": "https://www.kunstnacht.nl",
+      "startDate": "2013-09-01",
+      "endDate": "2013-09-01",
+      "location": "Nijmegen, NL",
+      "summary": "Information point for visitors",
+      "highlights": [""]
+    },
+    {
+      "organisation": "Go Short Festival",
+      "position": "Host",
+      "url": "https://www.goshort.nl",
+      "startDate": "2012-03-01",
+      "endDate": "2012-03-01",
+      "location": "Nijmegen, NL",
+      "summary": "Information point for visitors",
+      "highlights": [""]
+    },
+    {
+      "organisation": "Campus in Beeld",
+      "position": "Redaction student television",
+      "url": "https://www.campusinbeeld.nl",
+      "startDate": "2011-09-01",
+      "endDate": "2012-06-30",
+      "location": "Nijmegen, NL",
+      "summary": "Interviewing, camerawork and editing",
+      "highlights": [""]
+    },
+    {
+      "organisation": "OddStream Festival",
+      "position": "Host",
+      "url": "https://www.oddstream.nl",
+      "startDate": "2011-11-01",
+      "endDate": "2011-11-01",
+      "location": "Nijmegen, NL",
+      "summary": "Information point for visitors",
+      "highlights": [""]
+    },
+    {
+      "organisation": "Lowlands Festival",
+      "position": "Bar",
+      "url": "https://www.lowlands.nl",
+      "startDate": "2011-08-24",
+      "endDate": "2011-08-26",
+      "location": "Biddinghuizen, NL",
+      "summary": "Bar",
+      "highlights": [""]
+    },
+    {
+      "organisation": "Chezaubernard Family",
+      "position": "Au pair",
+      "url": "",
+      "startDate": "2009-09-01",
+      "endDate": "2010-05-31",
+      "location": "Paris, FR",
+      "summary": "Taking care of 8 year old",
+      "highlights": [""]
+    },
+    {
+      "organisation": "Apcon",
+      "position": "Grape picking",
+      "url": "",
+      "startDate": "2009-09-15",
+      "endDate": "2009-09-22",
+      "summary": "Bar",
+      "location": "Beaujolais, FR",
+      "highlights": [""]
+    }
+  ],
+  "education": [
+    {
+      "institution": "Radboud Universiteit Nijmegen",
+      "url": "https://www.ru.nl/",
+      "area": "Cultural studies",
+      "studyType": "Bachelor",
+      "startDate": "2010-09-01",
+      "endDate": "2013-06-30",
+      "score": "",
+      "courses": ["Minor Journalism", "Minor Art policy"]
+    },
+    {
+      "institution": "Radboud Universiteit Nijmegen",
+      "url": "https://www.ru.nl/",
+      "area": "Art history",
+      "studyType": "Master",
+      "startDate": "2013-09-01",
+      "endDate": "2014-12-31",
+      "score": "",
+      "courses": []
+    },
+    {
+      "institution": "Fontys Eindhoven",
+      "url": "https://www.fontys.nl/",
+      "area": "Make IT Work - Software Engineering",
+      "studyType": "Reschooling trajectory",
+      "startDate": "2022-02-01",
+      "endDate": "2023-01-31",
+      "score": "8.5/10",
+      "courses": []
+    }
+  ],
+  "certificates": [
+    {
+      "name": "Make IT work",
+      "date": "2023-01-26",
+      "issuer": "Fontys Eindhoven",
+      "url": "https://it-omscholing.nl/"
+    },
+    {
+      "name": "BHV",
+      "date": "2021",
+      "issuer": "",
+      "url": "https://www.bhv.nl/l/"
+    }
+  ],
+  "skills": [
+    {
+      "name": "Software development",
+      "keywords": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "Java",
+        "Googling",
+        "SQL",
+        "Git",
+        "Typescript",
+        "React",
+        "Webdev",
+        "Git + Github"
+      ]
+    },
+    {
+      "name": "Hard skills",
+      "keywords": [
+        "E-mail",
+        "MS Office",
+        "Photoshop/Lightroom/Premiere/InDesign",
+        "social media",
+        "presenting",
+        "Wordpress",
+        "Driving a cherrypicker"
+      ]
+    },
+    {
+      "name": "Soft skills",
+      "keywords": [
+        "Project management",
+        "Independence",
+        "Problem Solving",
+        "Flexibility",
+        "Adaptability",
+        "Quick learner",
+        "Time management",
+        "Reliability",
+        "Critical thinking",
+        "Stress management",
+        "Open to criticism",
+        "Eager to learn"
+      ]
+    }
+  ],
+  "languages": [
+    {
+      "language": "Dutch",
+      "fluency": "5"
+    },
+    {
+      "language": "English",
+      "fluency": "4"
+    },
+    {
+      "language": "French",
+      "fluency": "3"
+    },
+    {
+      "language": "German",
+      "fluency": "2"
+    }
+  ],
+  "interests": [
+    {
+      "name": "Plants",
+      "icon": "seedling"
+    },
+    {
+      "name": "Plants",
+      "icon": "seedling"
+    },
+    {
+      "name": "Sewing",
+      "icon": "shirt"
+    },
+    {
+      "name": "Snowboarding",
+      "icon": "person-snowboarding"
+    },
+    {
+      "name": "Plants",
+      "icon": "seedling"
+    },
+    {
+      "name": "Wine",
+      "icon": "wine-glass"
+    },
+    {
+      "name": "Photography",
+      "icon": "camera-retro"
+    },
+    {
+      "name": "Plants",
+      "icon": "seedling"
+    },
+    {
+      "name": "Films",
+      "icon": "film"
+    },
+    {
+      "name": "Cats",
+      "icon": "cat"
+    },
+    {
+      "name": "Reading",
+      "icon": "book"
+    },
+    {
+      "name": "Running",
+      "icon": "person-running"
+    },
+    {
+      "name": "Nature",
+      "icon": "mountain-sun"
+    }
+  ]
+}
