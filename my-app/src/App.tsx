@@ -42,7 +42,7 @@ const App = () => {
         `}
       >
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="gh-pages/" element={<Home />} />
           <Route path="/about" element={<About resume={resume as Resume} />} />
           <Route
             path="/contact"
