@@ -15,6 +15,7 @@ const Home = () => {
   return (
     <div className={css``}>
       <Usermenu />
+      Coming soon.
     </div>
   );
 };
