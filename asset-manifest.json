@@ -1,15 +1,22 @@
 {
   "files": {
-    "main.css": "/static/css/main.a518e672.css",
-    "main.js": "/static/js/main.fbfd7341.js",
+    "main.css": "/static/css/main.af2b7f07.css",
+    "main.js": "/static/js/main.e7105b56.js",
     "static/js/787.28cb0dcd.chunk.js": "/static/js/787.28cb0dcd.chunk.js",
+    "static/media/fontawesome-webfont.svg?v=4.7.0": "/static/media/fontawesome-webfont.c1e38fd9e0e74ba58f7a.svg",
+    "static/media/Montserrat-Italic-VariableFont_wght.ttf": "/static/media/Montserrat-Italic-VariableFont_wght.ef11b720b9a6cfb9a317.ttf",
+    "static/media/fontawesome-webfont.eot": "/static/media/fontawesome-webfont.8b43027f47b20503057d.eot",
+    "static/media/fontawesome-webfont.ttf?v=4.7.0": "/static/media/fontawesome-webfont.1e59d2330b4c6deb84b3.ttf",
+    "static/media/fontawesome-webfont.woff?v=4.7.0": "/static/media/fontawesome-webfont.f691f37e57f04c152e23.woff",
+    "static/media/fontawesome-webfont.woff2?v=4.7.0": "/static/media/fontawesome-webfont.20fd1704ea223900efa9.woff2",
+    "static/media/PoiretOne-Regular.ttf": "/static/media/PoiretOne-Regular.9bf109e97f6294c6fe2b.ttf",
     "index.html": "/index.html",
-    "main.a518e672.css.map": "/static/css/main.a518e672.css.map",
-    "main.fbfd7341.js.map": "/static/js/main.fbfd7341.js.map",
+    "main.af2b7f07.css.map": "/static/css/main.af2b7f07.css.map",
+    "main.e7105b56.js.map": "/static/js/main.e7105b56.js.map",
     "787.28cb0dcd.chunk.js.map": "/static/js/787.28cb0dcd.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a518e672.css",
-    "static/js/main.fbfd7341.js"
+    "static/css/main.af2b7f07.css",
+    "static/js/main.e7105b56.js"
   ]
 }

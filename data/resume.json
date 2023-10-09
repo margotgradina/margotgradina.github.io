@@ -29,6 +29,12 @@
         "icon": "Linkedin"
       },
       {
+        "network": "Facebook",
+        "username": "MGdeHaas",
+        "url": "https://www.facebook.com/MGdehaas",
+        "icon": "Facebook"
+      },
+      {
         "network": "Github",
         "username": "MargotGradina",
         "url": "https://github.com/margotgradina",
