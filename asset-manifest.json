@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.af2b7f07.css",
-    "main.js": "/static/js/main.e7105b56.js",
+    "main.js": "/static/js/main.03934fcc.js",
     "static/js/787.28cb0dcd.chunk.js": "/static/js/787.28cb0dcd.chunk.js",
     "static/media/fontawesome-webfont.svg?v=4.7.0": "/static/media/fontawesome-webfont.c1e38fd9e0e74ba58f7a.svg",
     "static/media/Montserrat-Italic-VariableFont_wght.ttf": "/static/media/Montserrat-Italic-VariableFont_wght.ef11b720b9a6cfb9a317.ttf",
@@ -12,11 +12,11 @@
     "static/media/PoiretOne-Regular.ttf": "/static/media/PoiretOne-Regular.9bf109e97f6294c6fe2b.ttf",
     "index.html": "/index.html",
     "main.af2b7f07.css.map": "/static/css/main.af2b7f07.css.map",
-    "main.e7105b56.js.map": "/static/js/main.e7105b56.js.map",
+    "main.03934fcc.js.map": "/static/js/main.03934fcc.js.map",
     "787.28cb0dcd.chunk.js.map": "/static/js/787.28cb0dcd.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.af2b7f07.css",
-    "static/js/main.e7105b56.js"
+    "static/js/main.03934fcc.js"
   ]
 }
