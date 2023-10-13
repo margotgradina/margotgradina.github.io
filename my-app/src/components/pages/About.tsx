@@ -27,7 +27,7 @@ const About = (props: Props) => {
         align-items: center;
       `}
     >
-      <Usermenu />
+      {/* <Usermenu /> */}
       <Summary resume={resume as Resume} />
       {/* <GeneralSection resume={resume as Resume}/> */}
       {/* <ResumeSection resume={resume as Resume} type={"SUMMARY"}/> */}
