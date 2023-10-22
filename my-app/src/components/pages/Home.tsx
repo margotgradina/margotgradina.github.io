@@ -34,6 +34,9 @@ const Home = () => {
       case "RESUME":
         setCurrentPage(page);
         break;
+      case "HOME":
+        setCurrentPage(page);
+        break;
       default:
         break;
     }
@@ -62,8 +65,6 @@ const Home = () => {
         border: 0px solid yellow;
         overflow-x: hidden;
         overflow-y: hidden;
-        /* gap: 10rem; */
-        /* cursor: url("cursor.cur"), auto; */
       `}
     >
       <div
@@ -73,7 +74,7 @@ const Home = () => {
           width: auto;
         `}
       >
-        <Header />
+        <Header onClick={() => changePage("HOME")} />
       </div>
 
       <div
@@ -86,7 +87,7 @@ const Home = () => {
           flex-direction: row;
           align-items: flex-end;
           justify-content: flex-end;
-          width: ${window.innerWidth + "px"};
+          width: 100vw;
           gap: 0.5rem;
         `}
       >
@@ -94,9 +95,19 @@ const Home = () => {
           key="contentBlock"
           className={css`
             display: flex;
-            border-right: 1px dashed #7cc0a0;
+            /* border-right: 1px dashed #7cc0a0; */
             height: 100%;
             flex: 1;
+            overflow-y: auto;
+            ::-webkit-scrollbar {
+              width: 5px; /* width of the entire scrollbar */
+            }
+
+            ::-webkit-scrollbar-thumb {
+              background-color: #7cc0a0; /* color of the scroll thumb */
+              border-radius: 20px; /* roundness of the scroll thumb */
+              border: 0px solid orange; /* creates padding around scroll thumb */
+            }
             /* padding-right: 1rem; */
           `}
         >

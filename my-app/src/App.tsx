@@ -9,6 +9,7 @@ import { useAbout } from "./hooks/useAbout";
 import ThankYou from "./components/pages/ThankYou";
 import { Resume } from "./types/typesResume";
 import Header from "./components/Header";
+import "./styling/GlobalCSS.css";
 
 const App = () => {
   const { onLoad, resume } = useAbout();

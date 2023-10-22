@@ -9,7 +9,11 @@ import {
   faSquareInstagram,
 } from "@fortawesome/free-brands-svg-icons";
 
-const Header = () => {
+interface headerProps {
+  onClick: () => void;
+}
+
+const Header = (props: headerProps) => {
   const handleClickSocials = (socials: "LI" | "IG" | "GH") => {
     switch (socials) {
       case "LI":
@@ -28,7 +32,7 @@ const Header = () => {
       className={css`
         display: flex;
         flex-direction: row;
-        border: 3px solid #308cdc;
+        border: 0px solid #308cdc;
         width: 100vw;
       `}
     >
@@ -50,6 +54,7 @@ const Header = () => {
             align-items: center;
             gap: 1rem;
           `}
+          onClick={() => props.onClick()}
         >
           <div
             className={css`
@@ -74,6 +79,7 @@ const Header = () => {
           className={css`
             display: flex;
             flex-direction: column;
+            min-width: 20px;
             position: absolute;
             top: 0;
             padding: 5px;

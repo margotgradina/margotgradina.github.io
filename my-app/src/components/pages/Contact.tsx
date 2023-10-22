@@ -23,7 +23,6 @@ const Contact = (props: Props) => {
         align-items: center;
       `}
     >
-      <Usermenu />
       <div
         className={css`
           width: 80vw;

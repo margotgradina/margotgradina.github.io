@@ -30,8 +30,8 @@ const MenuTab = (props: TabProps) => {
         <AlphabetIcon
           letter={item}
           direction="VERTICAL"
-          height={"9vh"}
-          width="9vh"
+          height={"4vw"}
+          width={"4vw"}
           padding={"5px 0px 00px 0px"}
         />
       ))}
