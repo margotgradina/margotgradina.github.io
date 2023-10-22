@@ -7,6 +7,7 @@ import ContactForm from "../ContactForm";
 import About from "./About";
 import { useAbout } from "../../hooks/useAbout";
 import { Resume } from "../../types/typesResume";
+import ImageExplosion from "../ImageExplosion";
 
 const Home = () => {
   const { onLoad, resume } = useAbout();
@@ -38,6 +39,16 @@ const Home = () => {
     }
   };
 
+  const [order, setOrder] = useState([1, 2, 3, 4]);
+
+  const handleClick = (index: any) => {
+    const newOrder = order.slice();
+    // Implement your logic to change the order based on the clicked component
+    // For example, you can move the clicked component to the first position.
+    newOrder.splice(0, 0, newOrder.splice(index, 1)[0]);
+    setOrder(newOrder);
+  };
+
   return (
     <div
       className={css`
@@ -45,8 +56,10 @@ const Home = () => {
         font-family: "Raleway";
         flex-direction: column;
         align-items: center;
-        justify-content: center;
         height: 100vh;
+        width: 100vw;
+        justify-content: center;
+        border: 0px solid yellow;
         overflow-x: hidden;
         overflow-y: hidden;
         /* gap: 10rem; */
@@ -57,14 +70,17 @@ const Home = () => {
         key="headerDiv"
         className={css`
           height: auto;
+          width: auto;
         `}
       >
         <Header />
       </div>
+
       <div
         key="contentDiv"
         className={css`
           display: flex;
+          /* visibility: hidden; //TODO REMOVE */
           flex: 1;
           /* border: 1px dashed #7cc0a0; */
           flex-direction: row;

@@ -28,7 +28,8 @@ const Header = () => {
       className={css`
         display: flex;
         flex-direction: row;
-        width: ${window.innerWidth + "px"};
+        border: 3px solid #308cdc;
+        width: 100vw;
       `}
     >
       <div
@@ -36,15 +37,12 @@ const Header = () => {
           display: flex;
           position: relative;
           flex-direction: row;
-          /* background-color: red; */
-          width: ${window.innerWidth + "px"};
+          width: 100vw;
           gap: 0.2rem;
           padding: 1rem;
           justify-content: center;
         `}
       >
-        {/* <HeaderTitle title={"MARGOT"} />
-        <HeaderTitle title={"GRADINA"} /> */}
         <div
           className={css`
             display: flex;
@@ -133,11 +131,7 @@ export const HeaderTitle = (props: HeaderTitleProps) => {
           );
         } else {
           return (
-            <AlphabetIcon
-              letter={item}
-              maxHeight={window.innerHeight * 0.12 + "px"}
-              height={"20vh"}
-            />
+            <AlphabetIcon letter={item} maxHeight={"5vw"} height={"5vw"} />
           );
         }
       })}

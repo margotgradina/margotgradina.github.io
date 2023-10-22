@@ -18,30 +18,6 @@ const App = () => {
   }, []);
 
   return (
-    // <div
-    //   className={css`
-    //     width: 100%;
-    //     text-align: center;
-    //     display: flex;
-    //     flex-direction: column;
-    //     align-items: center;
-    //     // height: ${window.innerHeight - 40 + "px"};
-    //   `}
-    // >
-    //   <div
-    //     className={css`
-    //       margin-top: 5vh;
-    //       margin-bottom: 1vh;
-    //       width: 80%;
-    //       height: 90vh;
-    //       text-align: center;
-    //       display: flex;
-    //       flex-direction: column;
-    //       align-items: center;
-    //       border: 1px solid;
-    //       // height: ${window.innerHeight - 40 + "px"};
-    //     `}
-    //   >
     <>
       <Routes>
         <Route path="/" element={<Home />} />
@@ -53,9 +29,6 @@ const App = () => {
         <Route path="/thank-you" element={<ThankYou />} />
       </Routes>
     </>
-
-    //   </div>
-    // </div>
   );
 };
 
