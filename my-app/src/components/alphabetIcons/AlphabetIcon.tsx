@@ -7,7 +7,7 @@ interface AlphabetIconProps {
   maxHeight?: string;
   direction?: "HORIZONTAL" | "VERTICAL";
   padding?: string;
-  slowfade?: boolean;
+  fade?: boolean;
 }
 
 /* TODO scale width but keep proportions */

@@ -7,6 +7,7 @@ import ContactForm from "../ContactForm";
 import About from "./About";
 import { useAbout } from "../../hooks/useAbout";
 import { Resume } from "../../types/typesResume";
+import SBlock from "../sBlocks/sBlock";
 
 const Home = () => {
   const { onLoad, resume } = useAbout();
@@ -75,6 +76,7 @@ const Home = () => {
       >
         <Header onClick={() => changePage("HOME")} />
       </div>
+
       <div
         key="contentDiv"
         className={css`
@@ -113,6 +115,14 @@ const Home = () => {
             (currentPage == "ABOUT" && <About resume={resume as Resume} />) || (
               <> </>
             )}
+          <SBlock
+            size={4}
+            sizeUnit={"em"}
+            topLeftBR={true}
+            topRightBR={false}
+            bottomLeftBR={false}
+            bottomRightBR={false}
+          />
         </div>
         <MenuTab
           tabName="ABOUT"
