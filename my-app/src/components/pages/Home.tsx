@@ -7,7 +7,6 @@ import ContactForm from "../ContactForm";
 import About from "./About";
 import { useAbout } from "../../hooks/useAbout";
 import { Resume } from "../../types/typesResume";
-import ImageExplosion from "../ImageExplosion";
 
 const Home = () => {
   const { onLoad, resume } = useAbout();
