@@ -2,37 +2,12 @@ import { css } from "@emotion/css";
 
 interface AlphabetIconProps {
   letter: string;
-  // | "A"
-  // | "B"
-  // | "C"
-  // | "D"
-  // | "E"
-  // | "F"
-  // | "G"
-  // | "H"
-  // | "I"
-  // | "J"
-  // | "K"
-  // | "L"
-  // | "M"
-  // | "N"
-  // | "O"
-  // | "P"
-  // | "Q"
-  // | "R"
-  // | "S"
-  // | "T"
-  // | "U"
-  // | "V"
-  // | "W"
-  // | "X"
-  // | "Y"
-  // | "Z";
   width?: string;
   height?: string;
   maxHeight?: string;
   direction?: "HORIZONTAL" | "VERTICAL";
   padding?: string;
+  slowfade?: boolean;
 }
 
 /* TODO scale width but keep proportions */
@@ -50,6 +25,12 @@ const AlphabetIcon = (props: AlphabetIconProps) => {
             height: ${props?.height || "20vh"};
             max-height: ${props?.maxHeight || null};
             padding: ${props.padding || null};
+
+            transition: opacity 4s;
+          :hover {
+            opacity: 0.2;
+            transition: opacity 0.5s;
+
           `}
         />
       </>
@@ -64,6 +45,11 @@ const AlphabetIcon = (props: AlphabetIconProps) => {
             width: ${props?.width || "auto"};
             height: ${props?.height || "20vh"};
             max-height: ${props?.maxHeight || null};
+
+            transition: opacity 4s;
+          :hover {
+            opacity: 0.2;
+            transition: opacity 0.5s;
           `}
         />
       </>

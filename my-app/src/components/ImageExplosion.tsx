@@ -20,24 +20,15 @@ const ImageExplosion = () => {
     >
       <img
         src="/alphabetIcons/M.png" // Replace with your image path
-        alt="Exploding Image"
+        alt="Disapperaing Image"
         className={css`
-          position: relative;
-          width: 200px; /* Adjust the size as needed */
-          height: 200px; /* Adjust the size as needed */
-          overflow: hidden;
+          transition: opacity 1s;
+          :hover {
+            opacity: 0.2;
+            transition: opacity 1s;
+          }
         `}
       />
-      <div
-        className={css`
-          position: absolute;
-          background-color: #fff; /* Color of the exploding pixels */
-          width: 10px; /* Adjust the size of the pixels */
-          height: 10px; /* Adjust the size of the pixels */
-          transform: scale(1);
-          animation: ${explodeAnimation} 1s ease-in-out forwards;
-        `}
-      ></div>
     </div>
   );
 };

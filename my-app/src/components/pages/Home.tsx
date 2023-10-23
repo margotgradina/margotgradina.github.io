@@ -76,7 +76,6 @@ const Home = () => {
       >
         <Header onClick={() => changePage("HOME")} />
       </div>
-
       <div
         key="contentDiv"
         className={css`
