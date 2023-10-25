@@ -1,13 +1,7 @@
-import { css } from "@emotion/css";
-import AlphabetIcon from "./alphabetIcons/AlphabetIcon";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faGithub,
-  faInstagram,
-  faLinkedin,
-  faSquareGithub,
-  faSquareInstagram,
-} from "@fortawesome/free-brands-svg-icons";
+import {css} from "@emotion/css";
+import AlphabetIcon from "../alphabetIcons/AlphabetIcon";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faGithub, faInstagram, faLinkedin, faSquareGithub, faSquareInstagram} from "@fortawesome/free-brands-svg-icons";
 
 interface headerProps {
   onClick: () => void;
@@ -136,9 +130,7 @@ export const HeaderTitle = (props: HeaderTitleProps) => {
             ></div>
           );
         } else {
-          return (
-            <AlphabetIcon letter={item} maxHeight={"5vw"} height={"5vw"} />
-          );
+          return <AlphabetIcon letter={item} maxHeight={"5vw"} height={"5vw"} />;
         }
       })}
     </>

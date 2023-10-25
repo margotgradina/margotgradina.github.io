@@ -1,7 +1,7 @@
-import { css } from "@emotion/css";
-import { Component, useEffect, useRef } from "react";
-import { useNavigate } from "react-router-dom";
-import { Button } from "@material-ui/core";
+import {css} from "@emotion/css";
+import {Component, useEffect, useRef} from "react";
+import {useNavigate} from "react-router-dom";
+import {Button} from "@material-ui/core";
 
 const ContactForm = () => {
   let submitted: boolean = false;
@@ -49,6 +49,8 @@ const ContactForm = () => {
             padding-left: 1rem;
             height: 2rem;
             font-family: "Raleway";
+            font-size: small;
+            font-weight: 400;
             width: 100%;
             flex-shrink: 0;
             border-radius: 1rem;
@@ -65,6 +67,8 @@ const ContactForm = () => {
             padding-left: 1rem;
             height: 2rem;
             font-family: "Raleway";
+            font-size: small;
+            font-weight: 400;
             width: 100%;
             flex-shrink: 0;
             border-radius: 1rem;
@@ -82,6 +86,8 @@ const ContactForm = () => {
             resize: none;
             height: 10rem;
             font-family: "Raleway";
+            font-size: small;
+            font-weight: 400;
             flex-shrink: 0;
             width: 100%;
             padding-left: 1rem;
@@ -104,7 +110,9 @@ const ContactForm = () => {
 
             justify-content: center;
             align-items: center;
-            font-weight: bold;
+            font-family: "Raleway";
+            font-size: small;
+            font-weight: 600;
             border-radius: 1.5625rem;
             background: #7cc0a0;
             width: 15%;

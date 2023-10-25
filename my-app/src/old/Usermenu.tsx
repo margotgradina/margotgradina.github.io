@@ -1,9 +1,7 @@
 import React from "react";
-import "./../fonts/Montserrat/Montserrat-Italic-VariableFont_wght.ttf";
-import "./../fonts/PoiretOne/PoiretOne-Regular.ttf";
-import { Link, useNavigate } from "react-router-dom";
-import { Button } from "@material-ui/core";
-import { css } from "@emotion/css";
+import {Link, useNavigate} from "react-router-dom";
+import {Button} from "@material-ui/core";
+import {css} from "@emotion/css";
 
 const Usermenu = () => {
   const navigate = useNavigate();
@@ -15,26 +13,12 @@ const Usermenu = () => {
   return (
     <div
       className={css`
-        @font-face {
-          font-family: "Poiret One";
-          src: local("Poiret One"),
-            url("./../fonts/PoiretOne/PoiretOne-Regular.ttf") format("truetype");
-        }
         padding-bottom: 50px;
       `}
     >
       <h1 className={css``}>M A R G O T &nbsp; G R A D I N A</h1>
 
-      <div
-        className={css`
-          @font-face {
-            font-family: "Montserrat";
-            src: local("Montserrat"),
-              url("./../fonts/Montserrat/Montserrat-VariableFont_wght.ttf")
-                format("truetype");
-          }
-        `}
-      >
+      <div className={css``}>
         <div
           className={css`
             display: flex;

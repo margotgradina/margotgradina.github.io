@@ -1,5 +1,4 @@
-import { css } from "@emotion/css";
-import Usermenu from "../Usermenu";
+import {css} from "@emotion/css";
 
 const ThankYou = () => {
   return (
@@ -10,11 +9,7 @@ const ThankYou = () => {
         align-items: center;
       `}
     >
-      <Usermenu />
-
-      <p>
-        Thank you for your message. I will get back to you as soon as possible!
-      </p>
+      <p>Thank you for your message. I will get back to you as soon as possible!</p>
     </div>
   );
 };
