@@ -25,6 +25,12 @@ const AlphabetIcon = (props: AlphabetIconProps) => {
           max-height: ${props?.maxHeight || null};
           padding: ${props.padding || null};
 
+          -webkit-user-drag: none;
+          user-select: none;
+          -moz-user-select: none;
+          -webkit-user-select: none;
+          -ms-user-select: none;
+
           transition: opacity 4s;
           :hover {
             opacity: 0.2;
