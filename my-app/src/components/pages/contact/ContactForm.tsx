@@ -26,7 +26,7 @@ const ContactForm = () => {
         `}
         onLoad={() => {
           if (submitted) {
-            // navigate("/thank-you");
+            navigate("/thank-you");
           }
         }}
       ></iframe>
