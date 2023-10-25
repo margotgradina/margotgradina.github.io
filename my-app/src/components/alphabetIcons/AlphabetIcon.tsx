@@ -1,4 +1,4 @@
-import { css } from "@emotion/css";
+import {css} from "@emotion/css";
 
 interface AlphabetIconProps {
   letter: string;
@@ -8,6 +8,7 @@ interface AlphabetIconProps {
   direction?: "HORIZONTAL" | "VERTICAL";
   padding?: string;
   fade?: boolean;
+  rotate?: 0 | 90 | 180 | 270;
 }
 
 /* TODO scale width but keep proportions */
