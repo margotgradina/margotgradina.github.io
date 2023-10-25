@@ -17,6 +17,7 @@ const MenuTab = (props: TabProps) => {
 
   return (
     <div
+      key={"MenuTab_" + props?.tabName}
       onClick={() => props.onClick()}
       className={css`
         display: flex;
