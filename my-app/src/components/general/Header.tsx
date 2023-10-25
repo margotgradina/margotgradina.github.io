@@ -130,7 +130,7 @@ export const HeaderTitle = (props: HeaderTitleProps) => {
             ></div>
           );
         } else {
-          return <AlphabetIcon letter={item} maxHeight={"5vw"} height={"5vw"} />;
+          return <AlphabetIcon letter={item} maxHeight={"5vw"} height={"4vw"} />;
         }
       })}
     </>
