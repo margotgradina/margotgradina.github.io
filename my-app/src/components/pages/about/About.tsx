@@ -10,33 +10,48 @@ const About = () => {
     <div
       className={css`
         display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 80vw;
-        height: 80vh;
+        flex-direction: row;
+        justify-content: space-around;
+        width: 100%;
+        height: 100%;
       `}
     >
       <div
         className={css`
           display: flex;
           align-items: center;
-          flex-direction: column;
-          width: 60%;
-          /* height: 99%; //TODO FIX HEIGHT OF */
+          flex-direction: row;
+          width: 70%;
+          padding-left: 10vw;
+          gap: 2vw;
+          height: 100%;
         `}
       >
+        <img
+          src="/images/profilepic.jpg"
+          className={css`
+            width: 15vw;
+            border-radius: 30vw;
+          `}
+        />
         <div
           className={css`
-            flex-direction: column;
-            padding: 10px;
-            padding-top: 5vw;
-            padding-bottom: 2vw;
+            padding: 0px 20px 0px 0px;
+            max-height: 100vh;
+            overflow-y: auto;
+            ::-webkit-scrollbar {
+              width: 5px;
+            }
+
+            ::-webkit-scrollbar-thumb {
+              background-color: #7cc0a0;
+              border-radius: 20px;
+              border: 0px solid orange; /* creates padding around scroll thumb */
+            }
           `}
         >
           <p
             className={css`
-              display: flex;
-              flex: 1;
               font-family: "Raleway";
               font-size: medium;
               font-weight: 300;
