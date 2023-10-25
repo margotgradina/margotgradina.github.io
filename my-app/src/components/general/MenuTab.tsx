@@ -28,7 +28,7 @@ const MenuTab = (props: TabProps) => {
       `}
     >
       {array?.map((item) => (
-        <AlphabetIcon letter={item} direction="VERTICAL" height={"4vw"} width={"4vw"} padding={"5px 0px 00px 0px"} />
+        <AlphabetIcon letter={item} rotate={270} height={"4vw"} width={"4vw"} padding={"5px 0px 00px 0px"} />
       ))}
     </div>
   );

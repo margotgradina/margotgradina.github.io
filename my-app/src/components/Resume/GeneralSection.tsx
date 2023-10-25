@@ -1,19 +1,14 @@
-import { css } from "@emotion/css";
-import {
-  faCakeCandles,
-  faAt,
-  faLocationPin,
-  faPhone,
-} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Resume } from "../../types/typesResume";
+import {css} from "@emotion/css";
+import {faCakeCandles, faAt, faLocationPin, faPhone} from "@fortawesome/free-solid-svg-icons";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {Resume} from "../../types/types";
 
 interface Props {
   resume: Resume | null;
 }
 
 export const GeneralSection = (props: Props) => {
-  const { resume } = props;
+  const {resume} = props;
 
   return (
     <div

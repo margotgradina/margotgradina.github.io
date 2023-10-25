@@ -1,5 +1,5 @@
 import {css} from "@emotion/css";
-import {Resume} from "../../types/typesResume";
+import {Resume} from "../../types/types";
 import {GeneralSection} from "./GeneralSection";
 
 interface Props {
