@@ -1,16 +1,17 @@
-import React, { useEffect, useState } from "react";
-import { css } from "@emotion/css";
+import React, {useEffect, useState} from "react";
+import {css} from "@emotion/css";
 import "font-awesome/css/font-awesome.min.css";
 import Header from "../Header";
 import MenuTab from "../MenuTab";
 import ContactForm from "../ContactForm";
 import About from "./About";
-import { useAbout } from "../../hooks/useAbout";
-import { Resume } from "../../types/typesResume";
+import {useAbout} from "../../hooks/useAbout";
+import {Resume} from "../../types/typesResume";
+import SBlockUnit from "../sBlocks/sBlockUnit";
 import SBlock from "../sBlocks/sBlock";
 
 const Home = () => {
-  const { onLoad, resume } = useAbout();
+  const {onLoad, resume} = useAbout();
 
   useEffect(() => {
     onLoad();
@@ -111,19 +112,11 @@ const Home = () => {
             /* padding-right: 1rem; */
           `}
         >
-          {(currentPage == "CONTACT" && <ContactForm />) ||
-            (currentPage == "ABOUT" && <About resume={resume as Resume} />) || (
-              <> </>
-            )}
-          <SBlock
-            size={4}
-            sizeUnit={"em"}
-            topLeftBR={true}
-            topRightBR={false}
-            bottomLeftBR={false}
-            bottomRightBR={false}
-          />
+          {(currentPage == "CONTACT" && <ContactForm />) || (currentPage == "ABOUT" && <About resume={resume as Resume} />) || <> </>}
+
+          {/* <SBlock type={"CIRCLE"} rotate={270} colour={"yellow"} size={10} sizeUnit={"em"} /> */}
         </div>
+
         <MenuTab
           tabName="ABOUT"
           onClick={() => {

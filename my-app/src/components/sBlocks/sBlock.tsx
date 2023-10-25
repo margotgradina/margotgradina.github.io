@@ -1,48 +1,56 @@
-import { css } from "@emotion/css";
+import {useEffect, useState} from "react";
+import SBlockUnit from "./sBlockUnit";
 
-interface sBlockProps {
-  size?: number;
-  sizeUnit?: string;
-  topLeftBR?: boolean; //border radius for each corner on or off;
-  topRightBR?: boolean;
-  bottomLeftBR?: boolean;
-  bottomRightBR?: boolean;
+interface Props {
+  type: "FULL" | "QUARTERCIRCLE" | "HALFSTADIUM" | "ELLIPS" | "DROP" | "CIRCLE";
+  rotate: 0 | 90 | 180 | 270;
+  colour: string;
+  size: number;
+  sizeUnit: string;
 }
 
-const SBlock = (props: sBlockProps) => {
+const SBlock = (props: Props) => {
+  const [rotate, setRotate] = useState<"0deg" | "90deg" | "180deg" | "270deg" | null | undefined>(null);
+
+  useEffect(() => {
+    switch (props.rotate) {
+      case 0:
+        setRotate("0deg");
+        break;
+      case 90:
+        setRotate("90deg");
+        break;
+      case 180:
+        setRotate("180deg");
+        break;
+      case 270:
+        setRotate("270deg");
+        break;
+      default:
+        setRotate(null);
+    }
+  }, [props.rotate]);
+
   return (
     <>
-      <div
-        className={css`
-          background-color: #1a8c8c;
-          width: ${props.size && props.sizeUnit
-            ? props.size + props.sizeUnit
-            : "10em"};
-          height: ${props.size && props.sizeUnit
-            ? props.size + props.sizeUnit
-            : "10em"};
-          border-radius: ${props.topLeftBR
-              ? props.size && props.sizeUnit
-                ? props.size * 0.75 + props.sizeUnit
-                : "7.5em"
-              : ""}
-            ${props.topRightBR
-              ? props.size && props.sizeUnit
-                ? props.size * 0.75 + props.sizeUnit
-                : "7.5em"
-              : ""}
-            ${props.bottomRightBR
-              ? props.size && props.sizeUnit
-                ? props.size * 0.75 + props.sizeUnit
-                : "7.5em"
-              : ""}
-            ${props.bottomLeftBR
-              ? props.size && props.sizeUnit
-                ? props.size * 0.75 + props.sizeUnit
-                : "7.5em"
-              : ""};
-        `}
-      ></div>
+      {props.type == "FULL" && (
+        <SBlockUnit topLeftBR={false} topRightBR={false} bottomRightBR={false} bottomLeftBR={false} colour={props.colour} rotate={rotate} />
+      )}
+      {props.type == "QUARTERCIRCLE" && (
+        <SBlockUnit topLeftBR={true} topRightBR={false} bottomRightBR={false} bottomLeftBR={false} colour={props.colour} rotate={rotate} />
+      )}
+      {props.type == "HALFSTADIUM" && (
+        <SBlockUnit topLeftBR={true} topRightBR={true} bottomRightBR={false} bottomLeftBR={false} colour={props.colour} rotate={rotate} />
+      )}
+      {props.type == "ELLIPS" && (
+        <SBlockUnit topLeftBR={true} topRightBR={false} bottomRightBR={true} bottomLeftBR={false} colour={props.colour} rotate={rotate} />
+      )}
+      {props.type == "DROP" && (
+        <SBlockUnit topLeftBR={false} topRightBR={true} bottomRightBR={true} bottomLeftBR={true} colour={props.colour} rotate={rotate} />
+      )}
+      {props.type == "CIRCLE" && (
+        <SBlockUnit topLeftBR={true} topRightBR={true} bottomRightBR={true} bottomLeftBR={true} colour={props.colour} rotate={rotate} />
+      )}
     </>
   );
 };
