@@ -1,0 +1,19 @@
+{
+  "Projects": [
+    {
+      "image": "/images/Llamabank.png",
+      "text": "Llamabank was the finial project of my Make IT Work course program. \n In a team of 4, we developed this fullstack online banking system within 5 weeks. It included a registeringsystem, the possibility to transfer money to your own accounts and to one another, as well as a pin console to make payments to a imaginary shop.",
+      "tools": ["CSS", "HTML", "Javascript", "Java", "Spring boot", "MySQL", "Git"]
+    },
+    {
+      "image": "/images/T-portal.png",
+      "text": "T-Box is a versatile solution designed for companies seeking to streamline their operations through automation and facilitate seamless data exchange between businesses.T-portal is the web portal to T-Box, a highly adaptable and multifunctional application that empowers clients to effortlessly oversee and customize their data. Within T-portal, I have taken on the role of a full-stack developer, overseeing the entire development process, from the front-end to the back-end, ensuring that both customer-specific features and general functionalities cater to the unique needs of every client.",
+      "tools": ["CSS", "HTML", "Javascript", "Java", "Spring boot", "MySQL"]
+    },
+    {
+      "image": "/images/sBlocks.png",
+      "text": "Within this compact program, I have crafted a user-friendly environment where individuals can unleash their creativity to design quilts, stained glass art, or sewing projects. This is currently Work In Progress.",
+      "tools": ["CSS", "React", "Typescript"]
+    }
+  ]
+}
