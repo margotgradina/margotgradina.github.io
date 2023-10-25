@@ -1,10 +1,10 @@
 import {css} from "@emotion/css";
-import {Component, useEffect, useRef} from "react";
+import {Component, useEffect, useRef, useState} from "react";
 import {useNavigate} from "react-router-dom";
 import {Button} from "@material-ui/core";
 
 const ContactForm = () => {
-  let submitted: boolean = false;
+  const [submitted, setSubmitted] = useState<boolean>(false);
   const navigate = useNavigate();
   const hiddenButtonRef = useRef<HTMLButtonElement | null>(null);
 
@@ -41,7 +41,7 @@ const ContactForm = () => {
         action="https://docs.google.com/forms/u/0/d/e/1FAIpQLScPTql725j6-b1TfDvGeunkcIXk-Vo2aAa6u4F2lk1juMjtNg/formResponse"
         method="post"
         target="hidden_iframe"
-        onSubmit={() => (submitted = true)}
+        onSubmit={() => setSubmitted(true)}
       >
         {/* NAME */}
         <input
@@ -133,17 +133,17 @@ const ContactForm = () => {
             Send
           </label>
         </div>
+
         <Button
           ref={hiddenButtonRef}
-          onClick={() => {
-            console.log("test");
-          }}
+          onClick={() => {}}
           className={css`
             width: 1px;
             visibility: hidden;
           `}
           type={"submit"}
         ></Button>
+
         {/* <input
           className={css`
             margin: 10px;
