@@ -16,7 +16,7 @@
   position: relative;
   transform: translateZ(0) scale(1);
   backface-visibility: hidden;
-  transform-origin: 0 0; /* see note above */
+  transform-origin: 0 0;
 }
 .spinner-element div {
   box-sizing: content-box;
@@ -27,75 +27,75 @@
   height: 28.42px;
   border-radius: 50%;
   background: #7cc0a0;
-  animation: spinner-element 1.75s linear infinite; /* Rounded the animation time */
+  animation: spinner-element 1.75s linear infinite;
 }
 .spinner-element div:nth-child(1) > div {
-  left: 101.5px; /* Rounded to 2 decimals */
-  top: 87.5px; /* Rounded to 2 decimals */
-  animation-delay: -1.5s; /* Rounded the animation delay */
+  left: 101.5px;
+  top: 87.5px;
+  animation-delay: -1.5s;
 }
 .spinner-element > div:nth-child(1) {
   transform: rotate(0deg);
   transform-origin: 115.71px 101.71px;
 }
 .spinner-element div:nth-child(2) > div {
-  left: 96.5px; /* Rounded to 2 decimals */
-  top: 98.5px; /* Rounded to 2 decimals */
-  animation-delay: -1.25s; /* Rounded the animation delay */
+  left: 96.5px;
+  top: 98.5px;
+  animation-delay: -1.25s;
 }
 .spinner-element > div:nth-child(2) {
-  transform: rotate(51.43deg); /* Rounded to 2 decimals */
+  transform: rotate(51.43deg);
   transform-origin: 110.71px 112.71px;
 }
 .spinner-element div:nth-child(3) > div {
-  left: 84.5px; /* Rounded to 2 decimals */
-  top: 101.5px; /* Rounded to 2 decimals */
-  animation-delay: -1s; /* Rounded the animation delay */
+  left: 84.5px;
+  top: 101.5px;
+  animation-delay: -1s;
 }
 .spinner-element > div:nth-child(3) {
-  transform: rotate(102.86deg); /* Rounded to 2 decimals */
+  transform: rotate(102.86deg);
   transform-origin: 98.71px 115.71px;
 }
 .spinner-element div:nth-child(4) > div {
-  left: 74.5px; /* Rounded to 2 decimals */
-  top: 93.5px; /* Rounded to 2 decimals */
-  animation-delay: -0.75s; /* Rounded the animation delay */
+  left: 74.5px;
+  top: 93.5px;
+  animation-delay: -0.75s;
 }
 .spinner-element > div:nth-child(4) {
-  transform: rotate(154.29deg); /* Rounded to 2 decimals */
+  transform: rotate(154.29deg);
   transform-origin: 88.71px 107.71px;
 }
 .spinner-element div:nth-child(5) > div {
-  left: 74.5px; /* Rounded to 2 decimals */
-  top: 81.5px; /* Rounded to 2 decimals */
-  animation-delay: -0.5s; /* Rounded the animation delay */
+  left: 74.5px;
+  top: 81.5px;
+  animation-delay: -0.5s;
 }
 .spinner-element > div:nth-child(5) {
-  transform: rotate(205.71deg); /* Rounded to 2 decimals */
+  transform: rotate(205.71deg);
   transform-origin: 88.71px 95.71px;
 }
 .spinner-element div:nth-child(6) > div {
-  left: 84.5px; /* Rounded to 2 decimals */
-  top: 73.5px; /* Rounded to 2 decimals */
-  animation-delay: -0.25s; /* Rounded the animation delay */
+  left: 84.5px;
+  top: 73.5px;
+  animation-delay: -0.25s;
 }
 .spinner-element > div:nth-child(6) {
-  transform: rotate(257.14deg); /* Rounded to 2 decimals */
+  transform: rotate(257.14deg);
   transform-origin: 98.71px 87.71px;
 }
 .spinner-element div:nth-child(7) > div {
-  left: 96.5px; /* Rounded to 2 decimals */
-  top: 76.5px; /* Rounded to 2 decimals */
+  left: 96.5px;
+  top: 76.5px;
   animation-delay: 0s;
 }
 .spinner-element > div:nth-child(7) {
-  transform: rotate(308.57deg); /* Rounded to 2 decimals */
+  transform: rotate(308.57deg);
   transform-origin: 110.71px 90.71px;
 }
 .spinner-container {
-  width: 203px;
-  height: 203px;
+  width: 200px;
+  height: 200px;
   display: inline-block;
   overflow: hidden;
-  background: #ffffff;
+  background: transparent;
 }
