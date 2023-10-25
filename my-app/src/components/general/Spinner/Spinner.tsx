@@ -1,8 +1,13 @@
+import {css} from "@emotion/css";
 import "./Spinner.css";
 
 const SpinnerComponent = () => {
   return (
-    <>
+    <div
+      className={css`
+        border: 1px solid;
+      `}
+    >
       <div className={"spinner-container"}>
         <div className={"spinner-element"}>
           <div>
@@ -28,7 +33,7 @@ const SpinnerComponent = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
