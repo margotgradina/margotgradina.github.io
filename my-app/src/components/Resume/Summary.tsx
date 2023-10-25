@@ -1,13 +1,13 @@
-import { css } from "@emotion/css";
-import { Resume } from "../../types/typesResume";
-import { GeneralSection } from "./GeneralSection";
+import {css} from "@emotion/css";
+import {Resume} from "../../types/types";
+import {GeneralSection} from "./GeneralSection";
 
 interface Props {
   resume: Resume;
 }
 
 export const Summary = (props: Props) => {
-  const { resume } = props;
+  const {resume} = props;
 
   return (
     <div
