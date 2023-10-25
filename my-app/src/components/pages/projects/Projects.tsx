@@ -12,7 +12,7 @@ const Projects = () => {
   //   ];
   const [projects, setProjects] = useState<Project[]>([]);
   const [currentProject, setCurrentProject] = useState<number>(0);
-  const [loading, setLoading] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     setTimeout(() => fetchProjects(), 1000);
@@ -62,7 +62,6 @@ const Projects = () => {
           gap: 1rem;
         `}
       >
-        <SpinnerComponent />
         {projects?.length > 0 && (
           <>
             <div
@@ -126,7 +125,11 @@ const Projects = () => {
             </div>
           </>
         )}
-        {loading && <></>}
+        {loading && (
+          <>
+            <SpinnerComponent />
+          </>
+        )}
       </div>
     </>
   );
