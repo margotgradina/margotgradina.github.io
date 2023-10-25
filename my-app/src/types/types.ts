@@ -90,6 +90,7 @@ export type Interest = {
 };
 
 export type Project = {
+  title: string;
   image: string;
   text: string;
   tools: string[];
