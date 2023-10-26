@@ -33,8 +33,6 @@ const SBlockUnit = (props: sBlockProps) => {
     }
   }, [props?.topLeftBR, props?.topRightBR, props.bottomLeftBR, props.bottomRightBR]);
 
-  console.log(borderRadius);
-
   return (
     <>
       <div
