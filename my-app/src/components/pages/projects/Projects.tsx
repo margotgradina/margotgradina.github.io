@@ -18,7 +18,7 @@ const Projects = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    setTimeout(() => fetchProjects(), 1000);
+    fetchProjects();
   }, []);
 
   const fetchProjects = () => {
