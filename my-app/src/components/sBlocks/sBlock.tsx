@@ -7,6 +7,7 @@ interface Props {
   colour: string;
   size: number;
   sizeUnit: string;
+  onClick?: Function;
 }
 
 const SBlock = (props: Props) => {
@@ -31,27 +32,87 @@ const SBlock = (props: Props) => {
     }
   }, [props.rotate]);
 
+  const handleClick = () => {
+    if (props.onClick) {
+      props.onClick();
+    }
+  };
+
   return (
-    <>
+    <div onClick={() => handleClick()}>
       {props.type == "FULL" && (
-        <SBlockUnit topLeftBR={false} topRightBR={false} bottomRightBR={false} bottomLeftBR={false} colour={props.colour} rotate={rotate} />
+        <SBlockUnit
+          topLeftBR={false}
+          topRightBR={false}
+          bottomRightBR={false}
+          bottomLeftBR={false}
+          colour={props.colour}
+          rotate={rotate}
+          size={props.size}
+          sizeUnit={props.sizeUnit}
+        />
       )}
       {props.type == "QUARTERCIRCLE" && (
-        <SBlockUnit topLeftBR={true} topRightBR={false} bottomRightBR={false} bottomLeftBR={false} colour={props.colour} rotate={rotate} />
+        <SBlockUnit
+          topLeftBR={true}
+          topRightBR={false}
+          bottomRightBR={false}
+          bottomLeftBR={false}
+          colour={props.colour}
+          rotate={rotate}
+          size={props.size}
+          sizeUnit={props.sizeUnit}
+        />
       )}
       {props.type == "HALFSTADIUM" && (
-        <SBlockUnit topLeftBR={true} topRightBR={true} bottomRightBR={false} bottomLeftBR={false} colour={props.colour} rotate={rotate} />
+        <SBlockUnit
+          topLeftBR={true}
+          topRightBR={true}
+          bottomRightBR={false}
+          bottomLeftBR={false}
+          colour={props.colour}
+          rotate={rotate}
+          size={props.size}
+          sizeUnit={props.sizeUnit}
+        />
       )}
       {props.type == "ELLIPS" && (
-        <SBlockUnit topLeftBR={true} topRightBR={false} bottomRightBR={true} bottomLeftBR={false} colour={props.colour} rotate={rotate} />
+        <SBlockUnit
+          topLeftBR={true}
+          topRightBR={false}
+          bottomRightBR={true}
+          bottomLeftBR={false}
+          colour={props.colour}
+          rotate={rotate}
+          size={props.size}
+          sizeUnit={props.sizeUnit}
+        />
       )}
       {props.type == "DROP" && (
-        <SBlockUnit topLeftBR={false} topRightBR={true} bottomRightBR={true} bottomLeftBR={true} colour={props.colour} rotate={rotate} />
+        <SBlockUnit
+          topLeftBR={false}
+          topRightBR={true}
+          bottomRightBR={true}
+          bottomLeftBR={true}
+          colour={props.colour}
+          rotate={rotate}
+          size={props.size}
+          sizeUnit={props.sizeUnit}
+        />
       )}
       {props.type == "CIRCLE" && (
-        <SBlockUnit topLeftBR={true} topRightBR={true} bottomRightBR={true} bottomLeftBR={true} colour={props.colour} rotate={rotate} />
+        <SBlockUnit
+          topLeftBR={true}
+          topRightBR={true}
+          bottomRightBR={true}
+          bottomLeftBR={true}
+          colour={props.colour}
+          rotate={rotate}
+          size={props.size}
+          sizeUnit={props.sizeUnit}
+        />
       )}
-    </>
+    </div>
   );
 };
 

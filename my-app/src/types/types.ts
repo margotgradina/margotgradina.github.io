@@ -94,4 +94,6 @@ export type Project = {
   image: string;
   text: string;
   tools: string[];
+  url?: string;
+  link: string;
 };

@@ -9,6 +9,7 @@ import {css} from "@emotion/css";
 import Header from "./components/general/Header";
 import MenuTab from "./components/general/MenuTab";
 import Projects from "./components/pages/projects/Projects";
+import SBlocksPage from "./components/pages/projects/SBlocksPage";
 
 const App = () => {
   const navigate = useNavigate();
@@ -83,6 +84,7 @@ const App = () => {
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/projects" element={<Projects />} />
+              <Route path="/projects/sBlocks" element={<SBlocksPage />} />
               <Route path="/thank-you" element={<ThankYou />} />
             </Routes>
           </div>

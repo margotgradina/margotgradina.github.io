@@ -3,6 +3,8 @@ import AlphabetIcon from "../../alphabetIcons/AlphabetIcon";
 import {useEffect, useState} from "react";
 import {Project, Resume} from "../../../types/types";
 import SpinnerComponent from "../../general/Spinner/Spinner";
+import SblockGrid from "../../sBlocks/sBlockGrid";
+import {useNavigate} from "react-router-dom";
 
 const Projects = () => {
   //   const images: string[] = ["/images/Llamabank.png", "/images/T-portal.png"];
@@ -13,6 +15,7 @@ const Projects = () => {
   const [projects, setProjects] = useState<Project[]>([]);
   const [currentProject, setCurrentProject] = useState<number>(0);
   const [loading, setLoading] = useState<boolean>(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
     setTimeout(() => fetchProjects(), 1000);
@@ -138,6 +141,19 @@ const Projects = () => {
                   `}
                 >
                   <p>{projects[currentProject].text}</p>
+                  {projects[currentProject]?.url?.startsWith("/") ? (
+                    <p
+                      className={css`
+                        text-decoration: underline;
+                      `}
+                      onClick={() => navigate(projects[currentProject].url as string)}
+                    >
+                      {" "}
+                      {projects[currentProject]?.link}
+                    </p>
+                  ) : (
+                    projects[currentProject]?.url && <a href={projects[currentProject]?.url}>{projects[currentProject]?.link}</a>
+                  )}
                 </div>
               </div>
               <div
