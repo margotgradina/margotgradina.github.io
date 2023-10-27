@@ -1,12 +1,8 @@
 import React, {useEffect, useState} from "react";
 import {css} from "@emotion/css";
-import {SBlockType} from "./sBlockTypes";
 import {useSBlocks} from "./hooks/useSBlocks";
-import BasicButton from "../general/BasicButton";
-import SBlock from "./sBlock";
-import {SketchPicker} from "react-color";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faCircleXmark} from "@fortawesome/free-solid-svg-icons";
+import SBlockMenu from "./sBlockMenu";
+import ColourPicker from "../general/ColourPicker";
 
 const SblockGrid = () => {
   const {
@@ -138,133 +134,12 @@ const SblockGrid = () => {
         </tbody>
       </table>
       {/* - - - - MENU - - - - -*/}
-      <div
-        className={css`
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          width: 10vw;
-          min-width: 100px;
-          max-width: 200px;
-          height: 90%;
-          border-radius: 10px;
-          border: 2px solid grey;
-          font-family: "Raleway";
-          font-weight: 400;
-          font-size: 1rem;
-          gap: 1vh;
-        `}
-      >
-        <label>Choose a colour:</label>
-        {/* COLOURPICKER */}
-        <div
-          className={css`
-            display: flex;
-            flex-direction: row;
-            gap: 1vw;
-          `}
-        >
-          <div
-            onClick={() => {
-              setShowColourPicker(true);
-            }}
-            className={css`
-              width: 1vw;
-              height: 1vw;
-              border: 0.5px solid grey;
-              border-radius: 5px;
-              background-color: ${currentColour?.hex || "transparent"};
-            `}
-          ></div>
-          <label>{currentColour?.hex}</label>
-        </div>
-
-        {showColourPicker && (
-          <div
-            className={css`
-              height: max-content;
-              width: max-content;
-              position: absolute;
-              z-index: 1000;
-              display: flex;
-              flex-direction: column;
-              gap: 5px;
-            `}
-          >
-            <SketchPicker
-              color={currentColour}
-              onChange={(colour: any) => {
-                setCurrentColour(colour);
-              }}
-              onChangeComplete={() => {
-                // setShowColourPicker(false);
-              }}
-            />
-            <FontAwesomeIcon
-              icon={faCircleXmark}
-              size={"lg"}
-              color="#7CC0A0"
-              onClick={() => {
-                setShowColourPicker(false);
-              }}
-            />
-          </div>
-        )}
-
-        <label>Choose a shape:</label>
-        <div
-          className={css`
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-          `}
-        >
-          <div
-            className={css`
-              display: flex;
-              flex-direction: row;
-              gap: 0.5rem;
-            `}
-          >
-            <SBlock type={"FULL"} rotate={0} colour={currentColour?.hex || "grey"} size={1.5} sizeUnit={"vw"} />
-            <SBlock type={"QUARTERCIRCLE"} rotate={0} colour={currentColour?.hex || "grey"} size={1.5} sizeUnit={"vw"} />
-            <SBlock type={"HALFSTADIUM"} rotate={0} colour={currentColour?.hex || "grey"} size={1.5} sizeUnit={"vw"} />
-          </div>
-          <div
-            className={css`
-              display: flex;
-              flex-direction: row;
-              gap: 0.5rem;
-            `}
-          >
-            <SBlock type={"ELLIPS"} rotate={0} colour={currentColour?.hex || "grey"} size={1.5} sizeUnit={"vw"} />
-            <SBlock type={"DROP"} rotate={0} colour={currentColour?.hex || "grey"} size={1.5} sizeUnit={"vw"} />
-            <SBlock type={"CIRCLE"} rotate={0} colour={currentColour?.hex || "grey"} size={1.5} sizeUnit={"vw"} />
-          </div>
-        </div>
-
-        <BasicButton
-          width="8vw"
-          onClick={() => {
-            console.log("todo rotate");
-          }}
-          label={"Rotate 90Deg"}
-        />
-        <BasicButton
-          width="8vw"
-          onClick={() => {
-            console.log("todo save pdf");
-          }}
-          label={"Save as PDF"}
-        />
-        <BasicButton
-          width="8vw"
-          onClick={() => {
-            console.log("todo save png");
-          }}
-          label={"Save as PNG"}
-        />
-      </div>
+      <SBlockMenu
+        currentColour={currentColour}
+        setCurrentColour={setCurrentColour}
+        showColourPicker={showColourPicker}
+        setShowColourPicker={setShowColourPicker}
+      />
     </div>
   );
 };

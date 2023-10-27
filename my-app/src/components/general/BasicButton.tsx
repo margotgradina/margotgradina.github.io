@@ -25,7 +25,8 @@ const BasicButton = (props: ButtonProps) => {
         border-radius: 1.6rem;
         background: ${props?.backgroundColor || "#7cc0a0"};
         width: ${props?.width || "10vw"};
-        min-width: ${props?.minWidth || "50px"};
+        max-width: 90%;
+        min-width: ${props?.minWidth || ""};
         height: ${props?.height || "2rem"};
       `}
     >
