@@ -53,8 +53,9 @@ export const useSBlocks = () => {
         width: 1,
         height: 1,
         layer: 1,
-        colour: "blue", // Set the desired color
-        rotation: 0,
+        colour: currentColour?.hex, // Set the desired color
+        shape: currentShape,
+        rotation: currentRotation,
       };
 
       // Update the gridData with the new sBlock

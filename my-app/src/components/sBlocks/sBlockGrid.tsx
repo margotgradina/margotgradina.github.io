@@ -3,6 +3,8 @@ import {css} from "@emotion/css";
 import {useSBlocks} from "./hooks/useSBlocks";
 import SBlockMenu from "./sBlockMenu";
 import ColourPicker from "../general/ColourPicker";
+import {SBlockType} from "./sBlockTypes";
+import SBlock from "./sBlock";
 
 const SblockGrid = () => {
   const {
@@ -35,10 +37,6 @@ const SblockGrid = () => {
   useEffect(() => {
     initializeGrid();
   }, []);
-
-  useEffect(() => {
-    console.log(currentColour?.hex);
-  }, [currentColour]);
 
   return (
     <div
@@ -84,7 +82,7 @@ const SblockGrid = () => {
           </tr>
         </thead>
         <tbody>
-          {gridData.map((row, y) => {
+          {gridData?.map((row, y) => {
             return (
               <tr key={y}>
                 <td
@@ -98,7 +96,7 @@ const SblockGrid = () => {
                 >
                   {y + 1}
                 </td>
-                {row.map((cell: any, x: number) => {
+                {row.map((cell: SBlockType, x: number) => {
                   return (
                     <td
                       key={x}
@@ -113,7 +111,29 @@ const SblockGrid = () => {
                         background-color: ${cell ? cell?.colour : "white"};
                       `}
                     >
-                      <div
+                      {cell?.shape && (
+                        <SBlock
+                          onClick={() => {}}
+                          type={cell.shape}
+                          rotate={cell.rotation as 0 | 90 | 180 | 270}
+                          colour={cell?.colour}
+                          size={40}
+                          sizeUnit={"px"}
+                        />
+                      )}
+                      {/* { gridData[y][x]?.map((sBlock: SBlockType) => {
+                        return (
+                          <SBlock
+                            onClick={() => {}}
+                            type={sBlock.shape as "FULL" | "QUARTERCIRCLE" | "HALFSTADIUM" | "ELLIPS" | "DROP" | "CIRCLE"}
+                            rotate={sBlock.rotation as 0 | 90 | 180 | 270}
+                            colour={sBlock.colour}
+                            size={40}
+                            sizeUnit={"px"}
+                          />
+                        );
+                      })} */}
+                      {/* <div
                         className={css`
                           background-color: #ce2355;
                           border-radius: 30px 30px 30px 0px;
@@ -128,8 +148,8 @@ const SblockGrid = () => {
                           height: ${cellSize};
                           width: ${cellSize};
                         `}
-                      > */}
-                      </div>
+                      >
+                      </div> */}
                     </td>
                   );
                 })}

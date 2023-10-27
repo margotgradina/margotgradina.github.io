@@ -1,4 +1,5 @@
 export type SBlockType = {
+  shape: string;
   id: string;
   xPosition: number;
   yPosition: number;

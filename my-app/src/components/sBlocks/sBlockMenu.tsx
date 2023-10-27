@@ -144,7 +144,8 @@ const SBlockMenu = (props: Props) => {
                   onClick={() => {
                     obj.function();
                   }}
-                  type={obj.shape as "FULL" | "QUARTERCIRCLE" | "HALFSTADIUM" | "ELLIPS" | "DROP" | "CIRCLE"}
+                  //prettier-ignore
+                  type={obj.shape as ("FULL" | "QUARTERCIRCLE" | "HALFSTADIUM" | "ELLIPS" | "DROP" | "CIRCLE")}
                   rotate={currentRotation}
                   colour={currentColour?.hex || "grey"}
                   size={1.5}

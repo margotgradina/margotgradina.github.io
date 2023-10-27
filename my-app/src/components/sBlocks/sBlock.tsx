@@ -2,7 +2,7 @@ import {useEffect, useState} from "react";
 import SBlockUnit from "./sBlockUnit";
 
 interface Props {
-  type: "FULL" | "QUARTERCIRCLE" | "HALFSTADIUM" | "ELLIPS" | "DROP" | "CIRCLE";
+  type: "FULL" | "QUARTERCIRCLE" | "HALFSTADIUM" | "ELLIPS" | "DROP" | "CIRCLE" | string;
   rotate: 0 | 90 | 180 | 270;
   colour: string;
   size: number;
@@ -33,7 +33,7 @@ const SBlock = (props: Props) => {
   }, [props.rotate]);
 
   const handleClick = () => {
-    if (props.onClick) {
+    if (props?.onClick) {
       props.onClick();
     }
   };
@@ -46,7 +46,7 @@ const SBlock = (props: Props) => {
           topRightBR={false}
           bottomRightBR={false}
           bottomLeftBR={false}
-          colour={props.colour}
+          colour={props?.colour}
           rotate={rotate}
           size={props.size}
           sizeUnit={props.sizeUnit}
@@ -58,7 +58,7 @@ const SBlock = (props: Props) => {
           topRightBR={false}
           bottomRightBR={false}
           bottomLeftBR={false}
-          colour={props.colour}
+          colour={props?.colour}
           rotate={rotate}
           size={props.size}
           sizeUnit={props.sizeUnit}
@@ -70,7 +70,7 @@ const SBlock = (props: Props) => {
           topRightBR={true}
           bottomRightBR={false}
           bottomLeftBR={false}
-          colour={props.colour}
+          colour={props?.colour}
           rotate={rotate}
           size={props.size}
           sizeUnit={props.sizeUnit}
@@ -82,7 +82,7 @@ const SBlock = (props: Props) => {
           topRightBR={false}
           bottomRightBR={true}
           bottomLeftBR={false}
-          colour={props.colour}
+          colour={props?.colour}
           rotate={rotate}
           size={props.size}
           sizeUnit={props.sizeUnit}
@@ -94,7 +94,7 @@ const SBlock = (props: Props) => {
           topRightBR={true}
           bottomRightBR={true}
           bottomLeftBR={true}
-          colour={props.colour}
+          colour={props?.colour}
           rotate={rotate}
           size={props.size}
           sizeUnit={props.sizeUnit}
@@ -106,7 +106,7 @@ const SBlock = (props: Props) => {
           topRightBR={true}
           bottomRightBR={true}
           bottomLeftBR={true}
-          colour={props.colour}
+          colour={props?.colour}
           rotate={rotate}
           size={props.size}
           sizeUnit={props.sizeUnit}
