@@ -18,12 +18,12 @@ interface Props {
 const SBlockMenu = (props: Props) => {
   const {currentColour, setCurrentShape, currentShape, setCurrentColour, showColourPicker, setShowColourPicker} = props;
   const shapeArray: {shape: string; function: Function}[] = [
-    {shape: "FULL", function: setCurrentShape("FULL")},
-    {shape: "QUARTERCIRCLE", function: setCurrentShape("QUARTERCIRCLE")},
-    {shape: "HALFSTADIUM", function: setCurrentShape("HALFSTADIUM")},
-    {shape: "ELLIPS", function: setCurrentShape("ELLIPS")},
-    {shape: "DROP", function: setCurrentShape("DROP")},
-    {shape: "CIRCLE", function: setCurrentShape("CIRCKE")},
+    {shape: "FULL", function: () => setCurrentShape("FULL")},
+    {shape: "QUARTERCIRCLE", function: () => setCurrentShape("QUARTERCIRCLE")},
+    {shape: "HALFSTADIUM", function: () => setCurrentShape("HALFSTADIUM")},
+    {shape: "ELLIPS", function: () => setCurrentShape("ELLIPS")},
+    {shape: "DROP", function: () => setCurrentShape("DROP")},
+    {shape: "CIRCLE", function: () => setCurrentShape("CIRCLE")},
   ];
 
   return (
@@ -103,11 +103,34 @@ const SBlockMenu = (props: Props) => {
         <div
           className={css`
             display: flex;
-            flex-direction: column;
+            flex-wrap: wrap;
+            flex-direction: row;
+            padding: 0px 0px 0px 1vw;
             gap: 0.5rem;
           `}
         >
-          <div
+          {shapeArray?.map((obj: {shape: string; function: Function}, index: number) => {
+            return (
+              <div
+                className={css`
+                  border: ${currentShape == obj.shape && "1px dashed grey"};
+                  padding: 1px;
+                `}
+              >
+                <SBlock
+                  onClick={() => {
+                    obj.function();
+                  }}
+                  type={obj.shape as "FULL" | "QUARTERCIRCLE" | "HALFSTADIUM" | "ELLIPS" | "DROP" | "CIRCLE"}
+                  rotate={0}
+                  colour={currentColour?.hex || "grey"}
+                  size={1.5}
+                  sizeUnit={"vw"}
+                />
+              </div>
+            );
+          })}
+          {/* <div
             className={css`
               display: flex;
               flex-direction: row;
@@ -182,7 +205,7 @@ const SBlockMenu = (props: Props) => {
               size={1.5}
               sizeUnit={"vw"}
             />
-          </div>
+          </div> */}
         </div>
         {/* BUTTONS FOR ADJUSTING */}
         <div
