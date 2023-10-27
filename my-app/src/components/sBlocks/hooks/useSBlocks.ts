@@ -10,6 +10,7 @@ export const useSBlocks = () => {
   const [border, setBorder] = useState<string>("0px dashed grey");
   const [sBlocks, setSBlocks] = useState<SBlockType[]>([]);
   const [currentColour, setCurrentColour] = useState<any>("#000");
+  const [currentShape, setCurrentShape] = useState<string>("FULL");
   const [showColourPicker, setShowColourPicker] = useState<boolean>(false);
 
   // Initialize the grid with empty cells
@@ -78,5 +79,7 @@ export const useSBlocks = () => {
     setCurrentColour,
     showColourPicker,
     setShowColourPicker,
+    currentShape,
+    setCurrentShape,
   };
 };

@@ -11,10 +11,21 @@ interface Props {
   setCurrentColour: Function;
   showColourPicker: boolean;
   setShowColourPicker: Function;
+  setCurrentShape: Function;
+  currentShape: string;
 }
 
 const SBlockMenu = (props: Props) => {
-  const {currentColour, setCurrentColour: setCurrentColour, showColourPicker, setShowColourPicker} = props;
+  const {currentColour, setCurrentShape, currentShape, setCurrentColour, showColourPicker, setShowColourPicker} = props;
+  const shapeArray: {shape: string; function: Function}[] = [
+    {shape: "FULL", function: setCurrentShape("FULL")},
+    {shape: "QUARTERCIRCLE", function: setCurrentShape("QUARTERCIRCLE")},
+    {shape: "HALFSTADIUM", function: setCurrentShape("HALFSTADIUM")},
+    {shape: "ELLIPS", function: setCurrentShape("ELLIPS")},
+    {shape: "DROP", function: setCurrentShape("DROP")},
+    {shape: "CIRCLE", function: setCurrentShape("CIRCKE")},
+  ];
+
   return (
     <>
       <div
@@ -103,9 +114,36 @@ const SBlockMenu = (props: Props) => {
               gap: 0.5rem;
             `}
           >
-            <SBlock type={"FULL"} rotate={0} colour={currentColour?.hex || "grey"} size={1.5} sizeUnit={"vw"} />
-            <SBlock type={"QUARTERCIRCLE"} rotate={0} colour={currentColour?.hex || "grey"} size={1.5} sizeUnit={"vw"} />
-            <SBlock type={"HALFSTADIUM"} rotate={0} colour={currentColour?.hex || "grey"} size={1.5} sizeUnit={"vw"} />
+            <SBlock
+              onClick={() => {
+                setCurrentShape("FULL");
+              }}
+              type={"FULL"}
+              rotate={0}
+              colour={currentColour?.hex || "grey"}
+              size={1.5}
+              sizeUnit={"vw"}
+            />
+            <SBlock
+              onClick={() => {
+                setCurrentShape("QUARTERCIRCLE");
+              }}
+              type={"QUARTERCIRCLE"}
+              rotate={0}
+              colour={currentColour?.hex || "grey"}
+              size={1.5}
+              sizeUnit={"vw"}
+            />
+            <SBlock
+              onClick={() => {
+                setCurrentShape("HALFSTADIUM");
+              }}
+              type={"HALFSTADIUM"}
+              rotate={0}
+              colour={currentColour?.hex || "grey"}
+              size={1.5}
+              sizeUnit={"vw"}
+            />
           </div>
           <div
             className={css`
@@ -114,9 +152,36 @@ const SBlockMenu = (props: Props) => {
               gap: 0.5rem;
             `}
           >
-            <SBlock type={"ELLIPS"} rotate={0} colour={currentColour?.hex || "grey"} size={1.5} sizeUnit={"vw"} />
-            <SBlock type={"DROP"} rotate={0} colour={currentColour?.hex || "grey"} size={1.5} sizeUnit={"vw"} />
-            <SBlock type={"CIRCLE"} rotate={0} colour={currentColour?.hex || "grey"} size={1.5} sizeUnit={"vw"} />
+            <SBlock
+              onClick={() => {
+                setCurrentShape("ELLIPS");
+              }}
+              type={"ELLIPS"}
+              rotate={0}
+              colour={currentColour?.hex || "grey"}
+              size={1.5}
+              sizeUnit={"vw"}
+            />
+            <SBlock
+              onClick={() => {
+                setCurrentShape("DROP");
+              }}
+              type={"DROP"}
+              rotate={0}
+              colour={currentColour?.hex || "grey"}
+              size={1.5}
+              sizeUnit={"vw"}
+            />
+            <SBlock
+              onClick={() => {
+                setCurrentShape("CIRCLE");
+              }}
+              type={"CIRCLE"}
+              rotate={0}
+              colour={currentColour?.hex || "grey"}
+              size={1.5}
+              sizeUnit={"vw"}
+            />
           </div>
         </div>
         {/* BUTTONS FOR ADJUSTING */}

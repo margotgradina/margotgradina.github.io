@@ -24,6 +24,8 @@ const SblockGrid = () => {
     currentColour,
     showColourPicker,
     setShowColourPicker,
+    currentShape,
+    setCurrentShape,
   } = useSBlocks();
 
   // Initialize the grid when the component mounts
@@ -135,6 +137,8 @@ const SblockGrid = () => {
       </table>
       {/* - - - - MENU - - - - -*/}
       <SBlockMenu
+        currentShape={currentShape}
+        setCurrentShape={setCurrentShape}
         currentColour={currentColour}
         setCurrentColour={setCurrentColour}
         showColourPicker={showColourPicker}
