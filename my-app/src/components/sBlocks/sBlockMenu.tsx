@@ -13,18 +13,39 @@ interface Props {
   setShowColourPicker: Function;
   setCurrentShape: Function;
   currentShape: string;
+  shapeArray: {shape: string; function: Function}[];
+  currentRotation: 0 | 90 | 180 | 270;
+  setCurrentRotation: Function;
 }
 
 const SBlockMenu = (props: Props) => {
-  const {currentColour, setCurrentShape, currentShape, setCurrentColour, showColourPicker, setShowColourPicker} = props;
-  const shapeArray: {shape: string; function: Function}[] = [
-    {shape: "FULL", function: () => setCurrentShape("FULL")},
-    {shape: "QUARTERCIRCLE", function: () => setCurrentShape("QUARTERCIRCLE")},
-    {shape: "HALFSTADIUM", function: () => setCurrentShape("HALFSTADIUM")},
-    {shape: "ELLIPS", function: () => setCurrentShape("ELLIPS")},
-    {shape: "DROP", function: () => setCurrentShape("DROP")},
-    {shape: "CIRCLE", function: () => setCurrentShape("CIRCLE")},
-  ];
+  const {
+    currentColour,
+    setCurrentShape,
+    currentShape,
+    setCurrentColour,
+    showColourPicker,
+    setShowColourPicker,
+    shapeArray,
+    currentRotation,
+    setCurrentRotation,
+  } = props;
+  const rotationArray: number[] = [0, 90, 180, 270];
+
+  //on click of the button, the next rotation is chosen
+  const handleClickRotation = () => {
+    const curr = currentRotation;
+    const index = rotationArray?.findIndex((obj) => obj == curr);
+    let newIndex: number;
+    //if the last item of the array is currenly chosen, start at the begin again, else get the next rotation
+    if (index + 1 == rotationArray?.length) {
+      newIndex = 0;
+    } else {
+      newIndex = index + 1;
+    }
+    const newRotation = rotationArray?.at(newIndex);
+    setCurrentRotation(newRotation);
+  };
 
   return (
     <>
@@ -32,6 +53,7 @@ const SBlockMenu = (props: Props) => {
         className={css`
           display: flex;
           flex-direction: column;
+          align-self: flex-end;
           align-items: center;
 
           width: 10vw;
@@ -42,11 +64,12 @@ const SBlockMenu = (props: Props) => {
           box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.25);
           border: 1px solid grey;
           font-family: "Raleway";
-          font-weight: 400;
+          font-weight: 500;
           font-size: 1rem;
           gap: 1vh;
         `}
       >
+        {/* - - - - COLOURPICKER - - - -  */}
         <label
           className={css`
             padding-left: 1vw;
@@ -55,9 +78,9 @@ const SBlockMenu = (props: Props) => {
             justify-content: flex-start;
           `}
         >
-          Choose a colour:
+          Choose a colour
         </label>
-        {/* COLOURPICKER */}
+
         <div
           className={css`
             padding-left: 1vw;
@@ -89,7 +112,7 @@ const SBlockMenu = (props: Props) => {
             {currentColour?.hex}
           </label>
         </div>
-
+        {/* - - - - SHAPE PICKER - - - -  */}
         <label
           className={css`
             padding-left: 1vw;
@@ -98,7 +121,7 @@ const SBlockMenu = (props: Props) => {
             justify-content: flex-start;
           `}
         >
-          Choose a shape:
+          Choose a shape
         </label>
         <div
           className={css`
@@ -122,7 +145,7 @@ const SBlockMenu = (props: Props) => {
                     obj.function();
                   }}
                   type={obj.shape as "FULL" | "QUARTERCIRCLE" | "HALFSTADIUM" | "ELLIPS" | "DROP" | "CIRCLE"}
-                  rotate={0}
+                  rotate={currentRotation}
                   colour={currentColour?.hex || "grey"}
                   size={1.5}
                   sizeUnit={"vw"}
@@ -130,84 +153,9 @@ const SBlockMenu = (props: Props) => {
               </div>
             );
           })}
-          {/* <div
-            className={css`
-              display: flex;
-              flex-direction: row;
-              gap: 0.5rem;
-            `}
-          >
-            <SBlock
-              onClick={() => {
-                setCurrentShape("FULL");
-              }}
-              type={"FULL"}
-              rotate={0}
-              colour={currentColour?.hex || "grey"}
-              size={1.5}
-              sizeUnit={"vw"}
-            />
-            <SBlock
-              onClick={() => {
-                setCurrentShape("QUARTERCIRCLE");
-              }}
-              type={"QUARTERCIRCLE"}
-              rotate={0}
-              colour={currentColour?.hex || "grey"}
-              size={1.5}
-              sizeUnit={"vw"}
-            />
-            <SBlock
-              onClick={() => {
-                setCurrentShape("HALFSTADIUM");
-              }}
-              type={"HALFSTADIUM"}
-              rotate={0}
-              colour={currentColour?.hex || "grey"}
-              size={1.5}
-              sizeUnit={"vw"}
-            />
-          </div>
-          <div
-            className={css`
-              display: flex;
-              flex-direction: row;
-              gap: 0.5rem;
-            `}
-          >
-            <SBlock
-              onClick={() => {
-                setCurrentShape("ELLIPS");
-              }}
-              type={"ELLIPS"}
-              rotate={0}
-              colour={currentColour?.hex || "grey"}
-              size={1.5}
-              sizeUnit={"vw"}
-            />
-            <SBlock
-              onClick={() => {
-                setCurrentShape("DROP");
-              }}
-              type={"DROP"}
-              rotate={0}
-              colour={currentColour?.hex || "grey"}
-              size={1.5}
-              sizeUnit={"vw"}
-            />
-            <SBlock
-              onClick={() => {
-                setCurrentShape("CIRCLE");
-              }}
-              type={"CIRCLE"}
-              rotate={0}
-              colour={currentColour?.hex || "grey"}
-              size={1.5}
-              sizeUnit={"vw"}
-            />
-          </div> */}
         </div>
         {/* BUTTONS FOR ADJUSTING */}
+        {/* - - - - ROTATE BUTTON - - - -  */}
         <div
           className={css`
             display: flex;
@@ -223,7 +171,7 @@ const SBlockMenu = (props: Props) => {
           <BasicButton
             width={"8.5vw"}
             onClick={() => {
-              console.log("todo rotate");
+              handleClickRotation();
             }}
             label={"Rotate 90Deg"}
           />

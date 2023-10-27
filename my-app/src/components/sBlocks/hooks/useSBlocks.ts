@@ -12,6 +12,15 @@ export const useSBlocks = () => {
   const [currentColour, setCurrentColour] = useState<any>("#000");
   const [currentShape, setCurrentShape] = useState<string>("FULL");
   const [showColourPicker, setShowColourPicker] = useState<boolean>(false);
+  const [currentRotation, setcurrentRotation] = useState<0 | 90 | 180 | 270>(0);
+  const shapeArray: {shape: string; function: Function}[] = [
+    {shape: "FULL", function: () => setCurrentShape("FULL")},
+    {shape: "CIRCLE", function: () => setCurrentShape("CIRCLE")},
+    {shape: "QUARTERCIRCLE", function: () => setCurrentShape("QUARTERCIRCLE")},
+    {shape: "HALFSTADIUM", function: () => setCurrentShape("HALFSTADIUM")},
+    {shape: "ELLIPS", function: () => setCurrentShape("ELLIPS")},
+    {shape: "DROP", function: () => setCurrentShape("DROP")},
+  ];
 
   // Initialize the grid with empty cells
   const initializeGrid = () => {
@@ -81,5 +90,8 @@ export const useSBlocks = () => {
     setShowColourPicker,
     currentShape,
     setCurrentShape,
+    shapeArray,
+    currentRotation,
+    setcurrentRotation,
   };
 };

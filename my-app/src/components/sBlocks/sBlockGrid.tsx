@@ -26,6 +26,9 @@ const SblockGrid = () => {
     setShowColourPicker,
     currentShape,
     setCurrentShape,
+    shapeArray,
+    currentRotation,
+    setcurrentRotation,
   } = useSBlocks();
 
   // Initialize the grid when the component mounts
@@ -43,7 +46,7 @@ const SblockGrid = () => {
         width: 100%;
         height: 90%;
         display: flex;
-        align-items: end;
+        align-items: center;
         justify-content: space-around;
       `}
     >
@@ -137,6 +140,9 @@ const SblockGrid = () => {
       </table>
       {/* - - - - MENU - - - - -*/}
       <SBlockMenu
+        currentRotation={currentRotation}
+        setCurrentRotation={setcurrentRotation}
+        shapeArray={shapeArray}
         currentShape={currentShape}
         setCurrentShape={setCurrentShape}
         currentColour={currentColour}
