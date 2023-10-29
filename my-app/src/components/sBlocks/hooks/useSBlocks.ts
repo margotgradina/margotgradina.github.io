@@ -9,7 +9,29 @@ export const useSBlocks = () => {
   const [cellSize, setCellSize] = useState<string>("40px");
   const [border, setBorder] = useState<string>("0px dashed grey");
   const [sBlocks, setSBlocks] = useState<SBlockType[]>([]);
-  const [currentColour, setCurrentColour] = useState<any>("#000");
+  const [currentColour, setCurrentColour] = useState<any>({
+    hsl: {
+      h: 0,
+      s: 0,
+      l: 0,
+      a: 1,
+    },
+    hex: "#000000",
+    rgb: {
+      r: 0,
+      g: 0,
+      b: 0,
+      a: 1,
+    },
+    hsv: {
+      h: 0,
+      s: 0,
+      v: 0,
+      a: 1,
+    },
+    oldHue: 0,
+    source: "hsv",
+  });
   const [currentShape, setCurrentShape] = useState<string>("FULL");
   const [showColourPicker, setShowColourPicker] = useState<boolean>(false);
   const [currentRotation, setcurrentRotation] = useState<0 | 90 | 180 | 270>(0);
@@ -22,6 +44,7 @@ export const useSBlocks = () => {
     {shape: "DROP", function: () => setCurrentShape("DROP")},
   ];
 
+  console.log(currentColour);
   // Initialize the grid with empty cells
   const initializeGrid = () => {
     const grid: any[] = [];
