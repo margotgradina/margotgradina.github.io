@@ -1,0 +1,28 @@
+TODO
+
+1. KLEUR
+    - toevoegen quick-add kleuren 
+    - veranderen hex in rgba ivm doorzichtigheid(pas nodig wanneer laagjes is geintroduceerd)
+    
+2. KNOPPEN
+    - Implementatie Save buttons
+    - Delete button
+
+3. LAGEN
+    - toevoegen optie lagen, meerdere vakjes in een gridcell.
+    - hele lagen zichtbaar of onzichtbaar maken
+    - 
+
+4. VORMEN EN PATRONEN
+    - toevoegen extra vormen: HALVE CIRKEL UITWAARDS, ROUNDORNER, HALFTRIANGLE, E.A.
+    - toevoegen patronen als vulling
+
+5. VERGROTINGEN
+    - toevoegen 1 shape over meerdere cellen? 
+
+6. EXPORT IMPORT PATTERN
+
+7. TEMPLATES
+ - toevoegen kleurenschema TEMPLATES
+ - toevoegen predefined templates (zie Pinterest voor ideeen)
+ -

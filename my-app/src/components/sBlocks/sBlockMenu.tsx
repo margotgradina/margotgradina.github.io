@@ -18,6 +18,7 @@ interface Props {
   setCurrentRotation: Function;
   showGrid: boolean;
   setShowGrid: Function;
+  handleDownload: Function;
 }
 
 const SBlockMenu = (props: Props) => {
@@ -33,6 +34,7 @@ const SBlockMenu = (props: Props) => {
     shapeArray,
     currentRotation,
     setCurrentRotation,
+    handleDownload,
   } = props;
   const rotationArray: number[] = [0, 90, 180, 270];
 
@@ -205,17 +207,17 @@ const SBlockMenu = (props: Props) => {
           <BasicButton
             width="8.5vw"
             onClick={() => {
-              console.log("todo save pdf");
+              handleDownload("JPG");
             }}
-            label={"Save as PDF"}
+            label={"Save as JPG"}
           />
-          <BasicButton
+          {/* <BasicButton
             width={"8.5vw"}
             onClick={() => {
-              console.log("todo save png");
+              handleDownload("PNG");
             }}
             label={"Save as PNG"}
-          />
+          /> */}
         </div>
 
         {showColourPicker && (

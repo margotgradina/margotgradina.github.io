@@ -1,5 +1,6 @@
 import {useState} from "react";
 import {SBlockType} from "../sBlockTypes";
+import html2canvas from "html2canvas";
 
 const initialColour = {
   hsl: {
@@ -28,7 +29,7 @@ const initialColour = {
 export const useSBlocks = () => {
   const [gridData, setGridData] = useState<any[]>([]);
   const [currentLayer, setCurrentLayer] = useState<number>(0);
-  const [numRows, setNumRows] = useState<number>(10);
+  const [numRows, setNumRows] = useState<number>(20);
   const [numCols, setNumCols] = useState<number>(20);
   const [cellSize, setCellSize] = useState<string>("40px");
   const [border, setBorder] = useState<string>("1px dashed grey");
@@ -93,6 +94,37 @@ export const useSBlocks = () => {
     setGridData(updatedGrid);
   };
 
+  const handleDownload = async (type: "PNG" | "JPG") => {
+    let data;
+
+    const element = document.getElementById("savableGrid");
+
+    if (!element) {
+      return console.log("NO GRID FOUND"); //TODO ADD TOAST FOR ALERTS
+    }
+
+    const canvas = await html2canvas(element);
+
+    if (type == "JPG") {
+      data = canvas.toDataURL("image/jpg");
+    } else {
+      data = canvas.toDataURL("image/png");
+    }
+
+    const link = document.createElement("a");
+    link.href = data;
+
+    if (type == "JPG") {
+      link.download = "sBlocks.jpg";
+    } else {
+      link.download = "sBlocks.png";
+    }
+
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return {
     gridData,
     setGridData,
@@ -119,5 +151,6 @@ export const useSBlocks = () => {
     setcurrentRotation,
     showGrid,
     setShowGrid,
+    handleDownload,
   };
 };

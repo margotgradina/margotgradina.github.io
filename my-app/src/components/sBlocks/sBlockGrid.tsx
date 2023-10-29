@@ -4,6 +4,8 @@ import {useSBlocks} from "./hooks/useSBlocks";
 import SBlockMenu from "./sBlockMenu";
 import {SBlockType} from "./sBlockTypes";
 import SBlock from "./sBlock";
+import html2canvas from "html2canvas";
+import BasicButton from "../general/BasicButton";
 
 const SblockGrid = () => {
   const {
@@ -33,6 +35,7 @@ const SblockGrid = () => {
     showGrid,
     setShowGrid,
     setBorder,
+    handleDownload,
   } = useSBlocks();
 
   // Initialize the grid when the component mounts
@@ -59,6 +62,7 @@ const SblockGrid = () => {
     >
       {/* - - - - GRID - - - - TODO MOVE TO SEPARATE COMPONENT -*/}
       <table
+        id="savableGrid"
         className={css`
           border-collapse: collapse;
           padding: 0;
@@ -149,6 +153,7 @@ const SblockGrid = () => {
       </table>
       {/* - - - - MENU - - - - -*/}
       <SBlockMenu
+        handleDownload={handleDownload}
         showGrid={showGrid}
         setShowGrid={setShowGrid}
         currentRotation={currentRotation}

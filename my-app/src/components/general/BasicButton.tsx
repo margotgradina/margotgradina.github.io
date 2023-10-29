@@ -13,7 +13,7 @@ interface ButtonProps {
   label: string;
   iconEnd?: IconProp;
 }
-
+//TODO FIX OVERFLOW WHEN BUTTON IS SMALL
 const BasicButton = (props: ButtonProps) => {
   return (
     <div
