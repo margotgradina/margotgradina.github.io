@@ -36,6 +36,9 @@ const SblockGrid = () => {
     setShowGrid,
     setBorder,
     handleDownload,
+    handleAddColourPalette,
+    colourPalette,
+    setColourPalette,
   } = useSBlocks();
 
   // Initialize the grid when the component mounts
@@ -165,6 +168,8 @@ const SblockGrid = () => {
         setCurrentColour={setCurrentColour}
         showColourPicker={showColourPicker}
         setShowColourPicker={setShowColourPicker}
+        handleAddColourPalette={handleAddColourPalette}
+        colourPalette={colourPalette}
       />
     </div>
   );

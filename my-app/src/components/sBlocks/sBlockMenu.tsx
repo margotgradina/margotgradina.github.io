@@ -3,7 +3,7 @@ import SBlock from "./sBlock";
 import BasicButton from "../general/BasicButton";
 import {SketchPicker} from "react-color";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faCircleXmark, faEraser, faEye, faRotate, faSave} from "@fortawesome/free-solid-svg-icons";
+import {faCircleXmark, faEraser, faEye, faPalette, faRotate, faSave} from "@fortawesome/free-solid-svg-icons";
 import ColourPicker from "../general/ColourPicker";
 
 interface Props {
@@ -19,6 +19,8 @@ interface Props {
   showGrid: boolean;
   setShowGrid: Function;
   handleDownload: Function;
+  handleAddColourPalette: Function;
+  colourPalette: any[];
 }
 
 const SBlockMenu = (props: Props) => {
@@ -35,6 +37,8 @@ const SBlockMenu = (props: Props) => {
     currentRotation,
     setCurrentRotation,
     handleDownload,
+    handleAddColourPalette,
+    colourPalette,
   } = props;
   const rotationArray: number[] = [0, 90, 180, 270];
 
@@ -72,7 +76,7 @@ const SBlockMenu = (props: Props) => {
           font-family: "Raleway";
           font-weight: 500;
           font-size: 1rem;
-          gap: 1vh;
+          gap: 1.5vh;
         `}
       >
         {/* - - - - COLOUR - - - -  */}
@@ -116,6 +120,50 @@ const SBlockMenu = (props: Props) => {
           >
             {currentColour?.hex}
           </label>
+        </div>
+        {/* COLOUR PALETTE */}
+        <div
+          className={css`
+            display: flex;
+            flex-direction: row;
+            gap: 0.55rem;
+          `}
+        >
+          {colourPalette?.map((colour, index) => {
+            return (
+              <div
+                className={css`
+                  display: flex;
+                  flex-direction: column;
+                  gap: 5px;
+                `}
+              >
+                <div
+                  onClick={() => {
+                    if (colourPalette[index] == "transparent") {
+                      handleAddColourPalette(index, currentColour);
+                    } else {
+                      setCurrentColour(colourPalette[index]);
+                    }
+                  }}
+                  className={css`
+                    width: 1vw;
+                    height: 1vw;
+                    border: 0.5px solid grey;
+                    border-radius: 5px;
+                    background-color: ${colourPalette[index]?.hex};
+                  `}
+                ></div>
+                <FontAwesomeIcon
+                  color="grey"
+                  icon={faCircleXmark}
+                  onClick={() => {
+                    handleAddColourPalette(index, "transparent");
+                  }}
+                />
+              </div>
+            );
+          })}
         </div>
         {/* - - - - SHAPE PICKER - - - -  */}
         <label

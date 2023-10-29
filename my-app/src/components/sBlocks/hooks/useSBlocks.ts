@@ -31,6 +31,7 @@ export const useSBlocks = () => {
   const [currentLayer, setCurrentLayer] = useState<number>(0);
   const [numRows, setNumRows] = useState<number>(20);
   const [numCols, setNumCols] = useState<number>(20);
+  const [colourPalette, setColourPalette] = useState<any[]>(["#ADADAD", "transparent", "transparent", "transparent", "transparent", "transparent"]);
   const [cellSize, setCellSize] = useState<string>("40px");
   const [border, setBorder] = useState<string>("1px dashed grey");
   const [sBlocks, setSBlocks] = useState<SBlockType[]>([]);
@@ -145,6 +146,20 @@ export const useSBlocks = () => {
     document.body.removeChild(link);
   };
 
+  const handleAddColourPalette = (index: number, colour: any) => {
+    if (index >= 0 && index < colourPalette?.length) {
+      // Create a copy of the original array
+      const newColourPalette = [...colourPalette];
+
+      // Replace the color at the specified index and update the state
+      newColourPalette[index] = colour;
+      console.log(newColourPalette);
+      setColourPalette(newColourPalette);
+    } else {
+      console.error(`Invalid index: ${index}`);
+    }
+  };
+
   return {
     gridData,
     setGridData,
@@ -172,5 +187,8 @@ export const useSBlocks = () => {
     showGrid,
     setShowGrid,
     handleDownload,
+    handleAddColourPalette,
+    colourPalette,
+    setColourPalette,
   };
 };
