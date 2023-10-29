@@ -3,7 +3,7 @@ import SBlock from "./sBlock";
 import BasicButton from "../general/BasicButton";
 import {SketchPicker} from "react-color";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faCircleXmark, faEraser, faEye} from "@fortawesome/free-solid-svg-icons";
+import {faCircleXmark, faEraser, faEye, faRotate, faSave} from "@fortawesome/free-solid-svg-icons";
 import ColourPicker from "../general/ColourPicker";
 
 interface Props {
@@ -86,7 +86,6 @@ const SBlockMenu = (props: Props) => {
         >
           Choose a colour
         </label>
-
         <div
           className={css`
             padding-left: 1vw;
@@ -194,7 +193,8 @@ const SBlockMenu = (props: Props) => {
             onClick={() => {
               handleClickRotation();
             }}
-            label={"Rotate 90Deg"}
+            label={"Rotate 90°"}
+            iconEnd={faRotate}
           />
           <BasicButton
             width={"8.5vw"}
@@ -224,6 +224,7 @@ const SBlockMenu = (props: Props) => {
               handleDownload("JPG");
             }}
             label={"Save as JPG"}
+            iconEnd={faSave}
           />
           {/* <BasicButton
             width={"8.5vw"}
