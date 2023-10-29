@@ -112,44 +112,17 @@ const SblockGrid = () => {
                       `}
                     >
                       {cell?.shape && (
-                        <SBlock
-                          onClick={() => {}}
-                          type={cell.shape}
-                          rotate={cell.rotation as 0 | 90 | 180 | 270}
-                          colour={cell?.colour}
-                          size={40}
-                          sizeUnit={"px"}
-                        />
-                      )}
-                      {/* { gridData[y][x]?.map((sBlock: SBlockType) => {
-                        return (
+                        <>
                           <SBlock
                             onClick={() => {}}
-                            type={sBlock.shape as "FULL" | "QUARTERCIRCLE" | "HALFSTADIUM" | "ELLIPS" | "DROP" | "CIRCLE"}
-                            rotate={sBlock.rotation as 0 | 90 | 180 | 270}
-                            colour={sBlock.colour}
+                            type={cell.shape}
+                            rotate={cell.rotation as 0 | 90 | 180 | 270}
+                            colour={cell?.colour}
                             size={40}
                             sizeUnit={"px"}
                           />
-                        );
-                      })} */}
-                      {/* <div
-                        className={css`
-                          background-color: #ce2355;
-                          border-radius: 30px 30px 30px 0px;
-                          height: ${cellSize};
-                          width: ${cellSize};
-                        `}
-                      >
-                        {/* <div
-                        className={css`
-                          background-color: transparent;
-                          border: 1px dashed grey;
-                          height: ${cellSize};
-                          width: ${cellSize};
-                        `}
-                      >
-                      </div> */}
+                        </>
+                      )}
                     </td>
                   );
                 })}

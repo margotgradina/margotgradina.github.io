@@ -6,6 +6,6 @@ export type SBlockType = {
   width: number;
   height: number;
   layer: number;
-  colour: string;
+  colour: any;
   rotation: number;
 };

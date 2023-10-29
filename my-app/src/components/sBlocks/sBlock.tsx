@@ -2,7 +2,7 @@ import {useEffect, useState} from "react";
 import SBlockUnit from "./sBlockUnit";
 
 interface Props {
-  type: "FULL" | "QUARTERCIRCLE" | "HALFSTADIUM" | "ELLIPS" | "DROP" | "CIRCLE" | string;
+  type: string;
   rotate: 0 | 90 | 180 | 270;
   colour: string;
   size: number;
@@ -38,6 +38,22 @@ const SBlock = (props: Props) => {
     }
   };
 
+  const calculateBorderRadius = () => {
+    console.log("test");
+    return "30px 30px 30px 0px";
+  };
+
+  // useEffect(() => {
+  //   if (size && sizeUnit && bR) {
+  //     const TL: string = props.topLeftBR ? bR : "0px";
+  //     const TR: string = props.topRightBR ? bR : "0px";
+  //     const BR: string = props.bottomRightBR ? bR : "0px";
+  //     const BL: string = props.bottomLeftBR ? bR : "0px";
+  //     console.log(TL + " " + TR + " " + BR + " " + BL);
+  //     setBorderRadius(TL + " " + TR + " " + BR + " " + BL);
+  //   }
+  // }, [props?.topLeftBR, props?.topRightBR, props.bottomLeftBR, props.bottomRightBR]);
+
   return (
     <div onClick={() => handleClick()}>
       {props.type == "FULL" && (
@@ -50,6 +66,7 @@ const SBlock = (props: Props) => {
           rotate={rotate}
           size={props.size}
           sizeUnit={props.sizeUnit}
+          borderRadius={calculateBorderRadius()}
         />
       )}
       {props.type == "QUARTERCIRCLE" && (
@@ -62,6 +79,7 @@ const SBlock = (props: Props) => {
           rotate={rotate}
           size={props.size}
           sizeUnit={props.sizeUnit}
+          borderRadius={calculateBorderRadius()}
         />
       )}
       {props.type == "HALFSTADIUM" && (
@@ -74,6 +92,7 @@ const SBlock = (props: Props) => {
           rotate={rotate}
           size={props.size}
           sizeUnit={props.sizeUnit}
+          borderRadius={calculateBorderRadius()}
         />
       )}
       {props.type == "ELLIPS" && (
@@ -86,6 +105,7 @@ const SBlock = (props: Props) => {
           rotate={rotate}
           size={props.size}
           sizeUnit={props.sizeUnit}
+          borderRadius={calculateBorderRadius()}
         />
       )}
       {props.type == "DROP" && (
@@ -98,6 +118,7 @@ const SBlock = (props: Props) => {
           rotate={rotate}
           size={props.size}
           sizeUnit={props.sizeUnit}
+          borderRadius={calculateBorderRadius()}
         />
       )}
       {props.type == "CIRCLE" && (
@@ -110,6 +131,7 @@ const SBlock = (props: Props) => {
           rotate={rotate}
           size={props.size}
           sizeUnit={props.sizeUnit}
+          borderRadius={calculateBorderRadius()}
         />
       )}
     </div>

@@ -57,7 +57,7 @@ export const useSBlocks = () => {
         shape: currentShape,
         rotation: currentRotation,
       };
-
+      console.log(newBlock);
       // Update the gridData with the new sBlock
       const updatedGrid = [...gridData];
       updatedGrid[y][x] = newBlock;
