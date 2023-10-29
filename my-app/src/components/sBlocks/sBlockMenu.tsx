@@ -135,7 +135,8 @@ const SBlockMenu = (props: Props) => {
                 className={css`
                   display: flex;
                   flex-direction: column;
-                  gap: 5px;
+                  width: 80%;
+                  gap: 0.5rem;
                 `}
               >
                 <div
@@ -149,6 +150,9 @@ const SBlockMenu = (props: Props) => {
                   className={css`
                     width: 1vw;
                     height: 1vw;
+                    max-width: 20px;
+                    max-height: 20px;
+
                     border: 0.5px solid grey;
                     border-radius: 5px;
                     background-color: ${colourPalette[index]?.hex};

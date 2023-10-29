@@ -1,12 +1,13 @@
 TODO
 
 1. KLEUR
-    - toevoegen quick-add kleuren 
+    X toevoegen quick-add kleuren 
     - veranderen hex in rgba ivm doorzichtigheid(pas nodig wanneer laagjes is geintroduceerd)
+    - pipetje toevoegen
     
 2. KNOPPEN
-    - Implementatie Save buttons
-    - Delete button
+    X Implementatie Save buttons
+    X Delete button
 
 3. LAGEN
     - toevoegen optie lagen, meerdere vakjes in een gridcell.
