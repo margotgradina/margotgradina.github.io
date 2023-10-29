@@ -3,7 +3,7 @@ import SBlock from "./sBlock";
 import BasicButton from "../general/BasicButton";
 import {SketchPicker} from "react-color";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faCircleXmark, faEye} from "@fortawesome/free-solid-svg-icons";
+import {faCircleXmark, faEraser, faEye} from "@fortawesome/free-solid-svg-icons";
 import ColourPicker from "../general/ColourPicker";
 
 interface Props {
@@ -160,6 +160,20 @@ const SBlockMenu = (props: Props) => {
               </div>
             );
           })}
+          <div
+            onClick={() => setCurrentShape("EMPTY")}
+            className={css`
+              width: 1.5vw;
+              height: 1.5vw;
+              align-items: center;
+              justify-content: center;
+              text-align: center;
+              border: ${currentShape == "EMPTY" && "1px dashed #7cc0a0"};
+              color: ${currentColour?.hex || "grey"};
+            `}
+          >
+            <FontAwesomeIcon icon={faEraser} size={"2x"} />
+          </div>
         </div>
         {/* BUTTONS FOR ADJUSTING */}
         {/* - - - - ROTATE BUTTON - - - -  */}
