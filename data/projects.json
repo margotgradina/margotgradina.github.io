@@ -10,13 +10,17 @@
       "title": "T-portal",
       "image": "/images/T-portal.png",
       "text": "T-Box is a versatile solution designed for companies seeking to streamline their operations through automation and facilitate seamless data exchange between businesses.\n\nT-portal is the web portal to T-Box, a highly adaptable and multifunctional application that empowers clients to effortlessly oversee and customize their data. Within T-portal, I am involved in the entire development process, from the front-end to the back-end, ensuring that both customer-specific features and general functionalities cater to the unique needs of every client.",
-      "tools": ["CSS", "HTML", "Javascript", "Java", "Spring boot", "MySQL", "Windev/Webdev"]
+      "tools": ["CSS", "HTML", "Javascript", "Java", "Spring boot", "MySQL", "Windev/Webdev"],
+      "url": "https://t-box.nl/",
+      "link": "Website T-Box"
     },
     {
       "title": "sBlocks",
       "image": "/images/sBlocks.png",
       "text": "Within this compact program, I have crafted a user-friendly environment where individuals can unleash their creativity to design quilts, stained glass art, or sewing projects. This is currently Work In Progress.",
-      "tools": ["CSS", "React", "Typescript"]
+      "tools": ["CSS", "React", "Typescript"],
+      "url": "/projects/sBlocks",
+      "link": "Try sBlocks"
     }
   ]
 }
