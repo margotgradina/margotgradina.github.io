@@ -3,7 +3,7 @@ import SBlock from "./sBlock";
 import BasicButton from "../general/BasicButton";
 import {SketchPicker} from "react-color";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faCircleXmark} from "@fortawesome/free-solid-svg-icons";
+import {faCircleXmark, faEye} from "@fortawesome/free-solid-svg-icons";
 import ColourPicker from "../general/ColourPicker";
 
 interface Props {
@@ -16,10 +16,14 @@ interface Props {
   shapeArray: {shape: string; function: Function}[];
   currentRotation: 0 | 90 | 180 | 270;
   setCurrentRotation: Function;
+  showGrid: boolean;
+  setShowGrid: Function;
 }
 
 const SBlockMenu = (props: Props) => {
   const {
+    showGrid,
+    setShowGrid,
     currentColour,
     setCurrentShape,
     currentShape,
@@ -175,6 +179,14 @@ const SBlockMenu = (props: Props) => {
               handleClickRotation();
             }}
             label={"Rotate 90Deg"}
+          />
+          <BasicButton
+            width={"8.5vw"}
+            onClick={() => {
+              setShowGrid(!showGrid);
+            }}
+            label={showGrid ? "Hide Grid" : "Show Grid"}
+            iconEnd={showGrid ? faEye : undefined}
           />
         </div>
         {/* BUTTONS FOR EXPORTING */}

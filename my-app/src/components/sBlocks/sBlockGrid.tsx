@@ -30,12 +30,22 @@ const SblockGrid = () => {
     shapeArray,
     currentRotation,
     setcurrentRotation,
+    showGrid,
+    setShowGrid,
+    setBorder,
   } = useSBlocks();
 
   // Initialize the grid when the component mounts
   useEffect(() => {
     initializeGrid();
   }, []);
+  useEffect(() => {
+    if (showGrid) {
+      setBorder("0.5px dashed grey");
+    } else {
+      setBorder("0px dashed transparent");
+    }
+  }, [showGrid]);
 
   return (
     <div
@@ -47,7 +57,7 @@ const SblockGrid = () => {
         justify-content: space-around;
       `}
     >
-      {/* - - - - GRID - - - - -*/}
+      {/* - - - - GRID - - - - TODO MOVE TO SEPARATE COMPONENT -*/}
       <table
         className={css`
           border-collapse: collapse;
@@ -106,7 +116,7 @@ const SblockGrid = () => {
                         padding: 0;
                         margin: 0;
                         border: ${border};
-                        box-sizing: border-box;
+                        /* box-sizing: border-box; */
                       `}
                     >
                       {cell?.shape ? (
@@ -121,16 +131,13 @@ const SblockGrid = () => {
                           />
                         </>
                       ) : (
-                        <></>
+                        <div
+                          className={css`
+                            width: cellSize;
 
-                        // <div
-                        //   className={css`
-                        //     width: cellSize;
-                        //     padding: 0;
-                        //     margin: 0;
-                        //     border: 0.5px dashed grey;
-                        //   `}
-                        // ></div>
+                            /* border: 1px dashed grey; */
+                          `}
+                        ></div>
                       )}
                     </td>
                   );
@@ -141,8 +148,9 @@ const SblockGrid = () => {
         </tbody>
       </table>
       {/* - - - - MENU - - - - -*/}
-
       <SBlockMenu
+        showGrid={showGrid}
+        setShowGrid={setShowGrid}
         currentRotation={currentRotation}
         setCurrentRotation={setcurrentRotation}
         shapeArray={shapeArray}

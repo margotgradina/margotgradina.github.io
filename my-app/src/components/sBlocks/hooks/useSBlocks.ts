@@ -31,12 +31,13 @@ export const useSBlocks = () => {
   const [numRows, setNumRows] = useState<number>(10);
   const [numCols, setNumCols] = useState<number>(20);
   const [cellSize, setCellSize] = useState<string>("40px");
-  const [border, setBorder] = useState<string>("0px dashed grey");
+  const [border, setBorder] = useState<string>("1px dashed grey");
   const [sBlocks, setSBlocks] = useState<SBlockType[]>([]);
   const [currentColour, setCurrentColour] = useState<any>(initialColour);
   const [currentShape, setCurrentShape] = useState<string>("FULL");
   const [showColourPicker, setShowColourPicker] = useState<boolean>(false);
   const [currentRotation, setcurrentRotation] = useState<0 | 90 | 180 | 270>(0);
+  const [showGrid, setShowGrid] = useState<boolean>(true);
   const shapeArray: {shape: string; function: Function}[] = [
     {shape: "FULL", function: () => setCurrentShape("FULL")},
     {shape: "CIRCLE", function: () => setCurrentShape("CIRCLE")},
@@ -116,5 +117,7 @@ export const useSBlocks = () => {
     shapeArray,
     currentRotation,
     setcurrentRotation,
+    showGrid,
+    setShowGrid,
   };
 };

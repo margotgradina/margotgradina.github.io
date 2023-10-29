@@ -1,4 +1,6 @@
 import {css} from "@emotion/css";
+import {IconProp} from "@fortawesome/fontawesome-svg-core";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 interface ButtonProps {
   onClick: Function;
@@ -9,6 +11,7 @@ interface ButtonProps {
   height?: string;
   labelColour?: string;
   label: string;
+  iconEnd?: IconProp;
 }
 
 const BasicButton = (props: ButtonProps) => {
@@ -28,6 +31,7 @@ const BasicButton = (props: ButtonProps) => {
         max-width: 90%;
         min-width: ${props?.minWidth || ""};
         height: ${props?.height || "2rem"};
+        position: relative;
       `}
     >
       <label
@@ -42,6 +46,19 @@ const BasicButton = (props: ButtonProps) => {
       >
         {props?.label}
       </label>
+      {props.iconEnd && (
+        <FontAwesomeIcon
+          icon={props.iconEnd}
+          className={css`
+            color: ${props.labelColour || "white"};
+            margin-right: 1rem; /* Adjust the distance as needed */
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+          `}
+        />
+      )}
     </div>
   );
 };
