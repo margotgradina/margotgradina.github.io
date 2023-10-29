@@ -54,6 +54,7 @@ const Projects = () => {
   return (
     <>
       <div
+        key={"projects_page"}
         className={css`
           display: flex;
           width: 100%;
@@ -73,7 +74,7 @@ const Projects = () => {
                 transform: rotate(270deg);
               `}
             >
-              <AlphabetIcon letter={"M"} height={"2vw"} />
+              <AlphabetIcon letter={"M"} height={"2vw"} label={"arrow_left_projects"} />
             </div>
             <img
               className={css`
@@ -167,11 +168,12 @@ const Projects = () => {
                   padding: 10px;
                 `}
               >
-                {projects[currentProject].tools.map((tool) => {
+                {projects[currentProject].tools.map((tool, index) => {
                   return (
                     <>
                       {" "}
                       <div
+                        key={"toolel" + currentProject + index}
                         className={css`
                           background-color: rgba(67, 151, 112, 0.24);
                           border-radius: 10px;
@@ -199,7 +201,7 @@ const Projects = () => {
                 transform: rotate(90deg);
               `}
             >
-              <AlphabetIcon letter={"M"} height={"2vw"} />
+              <AlphabetIcon letter={"M"} height={"2vw"} label={"arrow_left_projects"} />
             </div>
           </>
         )}

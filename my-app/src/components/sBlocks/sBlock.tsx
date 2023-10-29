@@ -1,5 +1,6 @@
 import {useEffect, useState} from "react";
 import SBlockUnit from "./sBlockUnit";
+import {css} from "@emotion/css";
 
 interface Props {
   type: string;
@@ -12,6 +13,7 @@ interface Props {
 
 const SBlock = (props: Props) => {
   const [rotate, setRotate] = useState<"0deg" | "90deg" | "180deg" | "270deg" | null | undefined>(null);
+  const [bR, setBR] = useState<string>(props?.size && props?.sizeUnit ? props.size * 0.75 + props.sizeUnit : "7.5em"); //the size of the border radius
 
   useEffect(() => {
     switch (props.rotate) {
@@ -32,105 +34,93 @@ const SBlock = (props: Props) => {
     }
   }, [props.rotate]);
 
+  //handles the given function for Onclick
   const handleClick = () => {
     if (props?.onClick) {
       props.onClick();
     }
   };
 
-  const calculateBorderRadius = () => {
-    console.log("test");
-    return "30px 30px 30px 0px";
+  //adjusts the borderRadius based on its shape. The borderRadius is calculated based on the given size *0.75
+  const calculateBorderRadius = (): string => {
+    switch (props.type) {
+      case "FULL":
+        return `0px 0px 0px 0px`;
+        break;
+      case "QUARTERCIRCLE":
+        return `${bR} 0px 0px 0px`;
+        break;
+      case "HALFSTADIUM":
+        return `${bR} ${bR} 0px 0px`;
+        break;
+      case "ELLIPS":
+        return `${bR} 0px ${bR} 0px`;
+        break;
+      case "DROP":
+        return `0px ${bR} ${bR} ${bR}`;
+        break;
+      case "CIRCLE":
+        return `${bR} ${bR} ${bR} ${bR}`;
+        break;
+      default:
+        return "0px 0px 0px 0px";
+        break;
+    }
   };
-
-  // useEffect(() => {
-  //   if (size && sizeUnit && bR) {
-  //     const TL: string = props.topLeftBR ? bR : "0px";
-  //     const TR: string = props.topRightBR ? bR : "0px";
-  //     const BR: string = props.bottomRightBR ? bR : "0px";
-  //     const BL: string = props.bottomLeftBR ? bR : "0px";
-  //     console.log(TL + " " + TR + " " + BR + " " + BL);
-  //     setBorderRadius(TL + " " + TR + " " + BR + " " + BL);
-  //   }
-  // }, [props?.topLeftBR, props?.topRightBR, props.bottomLeftBR, props.bottomRightBR]);
 
   return (
     <div onClick={() => handleClick()}>
       {props.type == "FULL" && (
         <SBlockUnit
-          topLeftBR={false}
-          topRightBR={false}
-          bottomRightBR={false}
-          bottomLeftBR={false}
-          colour={props?.colour}
-          rotate={rotate}
-          size={props.size}
-          sizeUnit={props.sizeUnit}
+          colour={props?.colour || "#000"}
+          rotate={rotate || "0deg"}
+          size={props.size || 10}
+          sizeUnit={props.sizeUnit || "em"}
           borderRadius={calculateBorderRadius()}
         />
       )}
       {props.type == "QUARTERCIRCLE" && (
         <SBlockUnit
-          topLeftBR={true}
-          topRightBR={false}
-          bottomRightBR={false}
-          bottomLeftBR={false}
-          colour={props?.colour}
-          rotate={rotate}
-          size={props.size}
-          sizeUnit={props.sizeUnit}
+          colour={props?.colour || "#000"}
+          rotate={rotate || "0deg"}
+          size={props.size || 10}
+          sizeUnit={props.sizeUnit || "em"}
           borderRadius={calculateBorderRadius()}
         />
       )}
       {props.type == "HALFSTADIUM" && (
         <SBlockUnit
-          topLeftBR={true}
-          topRightBR={true}
-          bottomRightBR={false}
-          bottomLeftBR={false}
-          colour={props?.colour}
-          rotate={rotate}
-          size={props.size}
-          sizeUnit={props.sizeUnit}
+          colour={props?.colour || "#000"}
+          rotate={rotate || "0deg"}
+          size={props.size || 10}
+          sizeUnit={props.sizeUnit || "em"}
           borderRadius={calculateBorderRadius()}
         />
       )}
       {props.type == "ELLIPS" && (
         <SBlockUnit
-          topLeftBR={true}
-          topRightBR={false}
-          bottomRightBR={true}
-          bottomLeftBR={false}
-          colour={props?.colour}
-          rotate={rotate}
-          size={props.size}
-          sizeUnit={props.sizeUnit}
+          colour={props?.colour || "#000"}
+          rotate={rotate || "0deg"}
+          size={props.size || 10}
+          sizeUnit={props.sizeUnit || "em"}
           borderRadius={calculateBorderRadius()}
         />
       )}
       {props.type == "DROP" && (
         <SBlockUnit
-          topLeftBR={false}
-          topRightBR={true}
-          bottomRightBR={true}
-          bottomLeftBR={true}
-          colour={props?.colour}
-          rotate={rotate}
-          size={props.size}
-          sizeUnit={props.sizeUnit}
+          colour={props?.colour || "#000"}
+          rotate={rotate || "0deg"}
+          size={props.size || 10}
+          sizeUnit={props.sizeUnit || "em"}
           borderRadius={calculateBorderRadius()}
         />
       )}
       {props.type == "CIRCLE" && (
         <SBlockUnit
-          topLeftBR={true}
-          topRightBR={true}
-          bottomRightBR={true}
-          bottomLeftBR={true}
-          colour={props?.colour}
-          rotate={rotate}
-          size={props.size}
-          sizeUnit={props.sizeUnit}
+          colour={props?.colour || "#000"}
+          rotate={rotate || "0deg"}
+          size={props.size || 10}
+          sizeUnit={props.sizeUnit || "em"}
           borderRadius={calculateBorderRadius()}
         />
       )}

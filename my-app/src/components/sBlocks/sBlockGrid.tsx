@@ -108,7 +108,7 @@ const SblockGrid = () => {
                         margin: 0;
                         border: ${border};
                         box-sizing: border-box;
-                        background-color: ${cell ? cell?.colour : "white"};
+                        /* background-color: ${cell ? cell?.colour : "white"}; */
                       `}
                     >
                       {cell?.shape && (
