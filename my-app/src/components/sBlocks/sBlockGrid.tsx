@@ -1,25 +1,24 @@
-import React, {useEffect, useState} from "react";
+import {useEffect, useState} from "react";
 import {css} from "@emotion/css";
 import {useSBlocks} from "./hooks/useSBlocks";
 import SBlockMenu from "./sBlockMenu";
-import ColourPicker from "../general/ColourPicker";
 import {SBlockType} from "./sBlockTypes";
 import SBlock from "./sBlock";
 
 const SblockGrid = () => {
   const {
     gridData,
-    setGridData,
-    currentLayer,
-    setCurrentLayer,
-    numRows,
-    setNumRows,
+    // setGridData,
+    // currentLayer,
+    // setCurrentLayer,
+    // numRows,
+    // setNumRows,
     numCols,
-    setNumCols,
+    // setNumCols,
     cellSize,
-    setCellSize,
+    // setCellSize,
     border,
-    setBorder,
+    // setBorder,
     handleCellClick,
     initializeGrid,
     setCurrentColour,
@@ -108,7 +107,6 @@ const SblockGrid = () => {
                         margin: 0;
                         border: ${border};
                         box-sizing: border-box;
-                        /* background-color: ${cell ? cell?.colour : "white"}; */
                       `}
                     >
                       {cell?.shape && (

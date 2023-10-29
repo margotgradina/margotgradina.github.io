@@ -46,25 +46,18 @@ const SBlock = (props: Props) => {
     switch (props.type) {
       case "FULL":
         return `0px 0px 0px 0px`;
-        break;
       case "QUARTERCIRCLE":
         return `${bR} 0px 0px 0px`;
-        break;
       case "HALFSTADIUM":
         return `${bR} ${bR} 0px 0px`;
-        break;
       case "ELLIPS":
         return `${bR} 0px ${bR} 0px`;
-        break;
       case "DROP":
         return `0px ${bR} ${bR} ${bR}`;
-        break;
       case "CIRCLE":
         return `${bR} ${bR} ${bR} ${bR}`;
-        break;
       default:
         return "0px 0px 0px 0px";
-        break;
     }
   };
 

@@ -1,5 +1,4 @@
 import {css} from "@emotion/css";
-import {useState} from "react";
 
 interface sBlockProps {
   size: number;
