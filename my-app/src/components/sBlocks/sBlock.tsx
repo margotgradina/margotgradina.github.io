@@ -1,6 +1,8 @@
 import {useEffect, useState} from "react";
 import SBlockUnit from "./sBlockUnit";
 import {css} from "@emotion/css";
+import SBlockRectangle from "./sBlockRectangle";
+import SBlockTriangle from "./sBlockTriangle";
 
 interface Props {
   type: string;
@@ -56,6 +58,10 @@ const SBlock = (props: Props) => {
         return `0px ${bR} ${bR} ${bR}`;
       case "CIRCLE":
         return `${bR} ${bR} ${bR} ${bR}`;
+      case "RECTANGLE":
+        return `0px 0px 0px 0px`;
+      case "RECTANGLE":
+        return `0px 0px 0px 0px`;
       default:
         return "0px 0px 0px 0px";
     }
@@ -111,11 +117,17 @@ const SBlock = (props: Props) => {
       {props.type == "CIRCLE" && (
         <SBlockUnit
           colour={props?.colour || "#000"}
-          rotate={rotate || "0deg"}
           size={props.size || 10}
           sizeUnit={props.sizeUnit || "em"}
           borderRadius={calculateBorderRadius()}
+          rotate={rotate || "0deg"}
         />
+      )}
+      {props.type == "RECTANGLE" && (
+        <SBlockRectangle size={props.size || 10} sizeUnit={props.sizeUnit || "em"} colour={props?.colour || "#000"} rotate={rotate || "0deg"} />
+      )}
+      {props.type == "TRIANGLE" && (
+        <SBlockTriangle size={props.size || 10} sizeUnit={props.sizeUnit || "em"} colour={props?.colour || "#000"} rotate={rotate || "0deg"} />
       )}
     </div>
   );

@@ -109,17 +109,28 @@ const SblockGrid = () => {
                         box-sizing: border-box;
                       `}
                     >
-                      {cell?.shape && (
+                      {cell?.shape ? (
                         <>
                           <SBlock
                             onClick={() => {}}
                             type={cell.shape}
                             rotate={cell.rotation as 0 | 90 | 180 | 270}
                             colour={cell?.colour}
-                            size={40}
-                            sizeUnit={"px"}
+                            size={40} //TODO replace with cellsize
+                            sizeUnit={"px"} // TODO replace with cellsize
                           />
                         </>
+                      ) : (
+                        <></>
+
+                        // <div
+                        //   className={css`
+                        //     width: cellSize;
+                        //     padding: 0;
+                        //     margin: 0;
+                        //     border: 0.5px dashed grey;
+                        //   `}
+                        // ></div>
                       )}
                     </td>
                   );
@@ -130,6 +141,7 @@ const SblockGrid = () => {
         </tbody>
       </table>
       {/* - - - - MENU - - - - -*/}
+
       <SBlockMenu
         currentRotation={currentRotation}
         setCurrentRotation={setcurrentRotation}

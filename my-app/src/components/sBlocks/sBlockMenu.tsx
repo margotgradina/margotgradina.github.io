@@ -69,7 +69,7 @@ const SBlockMenu = (props: Props) => {
           gap: 1vh;
         `}
       >
-        {/* - - - - COLOURPICKER - - - -  */}
+        {/* - - - - COLOUR - - - -  */}
         <label
           className={css`
             padding-left: 1vw;
@@ -136,7 +136,7 @@ const SBlockMenu = (props: Props) => {
             return (
               <div
                 className={css`
-                  border: ${currentShape == obj.shape && "1px dashed grey"};
+                  border: ${currentShape == obj.shape && "1px dashed #7cc0a0"};
                   padding: 1px;
                 `}
               >
@@ -145,7 +145,7 @@ const SBlockMenu = (props: Props) => {
                     obj.function();
                   }}
                   //prettier-ignore
-                  type={obj.shape as ("FULL" | "QUARTERCIRCLE" | "HALFSTADIUM" | "ELLIPS" | "DROP" | "CIRCLE")}
+                  type={obj.shape}
                   rotate={currentRotation}
                   colour={currentColour?.hex || "grey"}
                   size={1.5}

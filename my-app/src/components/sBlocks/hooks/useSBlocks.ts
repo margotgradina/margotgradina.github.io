@@ -44,6 +44,8 @@ export const useSBlocks = () => {
     {shape: "HALFSTADIUM", function: () => setCurrentShape("HALFSTADIUM")},
     {shape: "ELLIPS", function: () => setCurrentShape("ELLIPS")},
     {shape: "DROP", function: () => setCurrentShape("DROP")},
+    {shape: "RECTANGLE", function: () => setCurrentShape("RECTANGLE")},
+    {shape: "TRIANGLE", function: () => setCurrentShape("TRIANGLE")},
   ];
 
   // Initialize the grid with empty cells
@@ -68,45 +70,26 @@ export const useSBlocks = () => {
   // Handle cell click
   const handleCellClick = (x: number, y: number) => {
     // Check if the clicked cell is empty
-    if (!gridData[y][x]) {
-      // You can create a new sBlock here, for example, using a function to generate a unique ID
-      const newBlock: SBlockType = {
-        id: x + "_" + y + "_" + currentLayer, // Replace with your unique ID generation logic
-        xPosition: x,
-        yPosition: y + 1,
-        width: 1,
-        height: 1,
-        layer: 1,
-        colour: currentColour?.hex, // Set the desired color //TODO REPLACE WITH HEX WHEN LAYERS ARE BEING IMPLEMENTED
-        shape: currentShape,
-        rotation: currentRotation,
-      };
-      // console.log(newBlock);
-      // Update the gridData with the new sBlock
-      const updatedGrid = [...gridData];
-      updatedGrid[y][x] = newBlock;
+    // if (!gridData[y][x]) {
+    // You can create a new sBlock here, for example, using a function to generate a unique ID
+    const newBlock: SBlockType = {
+      id: x + "_" + y + "_" + currentLayer, // Replace with your unique ID generation logic
+      xPosition: x,
+      yPosition: y,
+      width: 1,
+      height: 1,
+      layer: 1,
+      colour: currentColour?.hex, // Set the desired color //TODO REPLACE WITH HEX WHEN LAYERS ARE BEING IMPLEMENTED
+      shape: currentShape,
+      rotation: currentRotation,
+    };
+    // console.log(newBlock);
+    // Update the gridData with the new sBlock
+    const updatedGrid = [...gridData];
+    updatedGrid[y][x] = newBlock;
 
-      // Set the updated grid data
-      setGridData(updatedGrid);
-    } else {
-      // const newBlock: SBlockType = {
-      //   id: x + "_" + y + "_" + currentLayer, // Replace with your unique ID generation logic
-      //   xPosition: x,
-      //   yPosition: y + 1,
-      //   width: 1,
-      //   height: 1,
-      //   layer: 1,
-      //   colour: currentColour?.hex, // Set the desired color //TODO REPLACE WITH HEX WHEN LAYERS ARE BEING IMPLEMENTED
-      //   shape: currentShape,
-      //   rotation: currentRotation,
-      // };
-      // // console.log(newBlock);
-      // // Update the gridData with the new sBlock
-      // const updatedGrid = [...gridData];
-      // updatedGrid[y][x] = newBlock;
-      // Handle the case when the cell is already filled, e.g., deselect or perform some other action
-      // You can implement custom logic for this case
-    }
+    // Set the updated grid data
+    setGridData(updatedGrid);
   };
 
   return {
