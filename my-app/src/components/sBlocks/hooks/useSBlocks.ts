@@ -38,7 +38,8 @@ export const useSBlocks = () => {
   const [currentColour, setCurrentColour] = useState<any>(initialColour);
   const [currentShape, setCurrentShape] = useState<string>("FULL");
   const [showColourPicker, setShowColourPicker] = useState<boolean>(false);
-  const [currentRotation, setcurrentRotation] = useState<0 | 90 | 180 | 270>(0);
+  const [currentRotation, setCurrentRotation] = useState<0 | 90 | 180 | 270>(0);
+  const rotationArray: number[] = [0, 90, 180, 270];
   const [showGrid, setShowGrid] = useState<boolean>(true);
   const shapeArray: {shape: string; function: Function}[] = [
     {shape: "FULL", function: () => setCurrentShape("FULL")},
@@ -160,6 +161,20 @@ export const useSBlocks = () => {
     }
   };
 
+  const handleClickRotation = () => {
+    const curr = currentRotation;
+    const index = rotationArray?.findIndex((obj) => obj == curr);
+    let newIndex: number;
+    //if the last item of the array is currenly chosen, start at the begin again, else get the next rotation
+    if (index + 1 == rotationArray?.length) {
+      newIndex = 0;
+    } else {
+      newIndex = index + 1;
+    }
+    const newRotation = rotationArray?.at(newIndex);
+    setCurrentRotation(newRotation as 0 | 90 | 180 | 270);
+  };
+
   return {
     gridData,
     setGridData,
@@ -183,7 +198,9 @@ export const useSBlocks = () => {
     setCurrentShape,
     shapeArray,
     currentRotation,
-    setcurrentRotation,
+    setCurrentRotation,
+    handleClickRotation,
+    rotationArray,
     showGrid,
     setShowGrid,
     handleDownload,

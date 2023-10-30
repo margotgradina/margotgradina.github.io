@@ -1,7 +1,6 @@
 import {css} from "@emotion/css";
 import SBlock from "./sBlock";
 import BasicButton from "../general/BasicButton";
-import {SketchPicker} from "react-color";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faCircleXmark, faEraser, faEye, faPalette, faRotate, faSave} from "@fortawesome/free-solid-svg-icons";
 import ColourPicker from "../general/ColourPicker";
@@ -21,6 +20,7 @@ interface Props {
   handleDownload: Function;
   handleAddColourPalette: Function;
   colourPalette: any[];
+  handleClickRotation: Function;
 }
 
 const SBlockMenu = (props: Props) => {
@@ -35,27 +35,11 @@ const SBlockMenu = (props: Props) => {
     setShowColourPicker,
     shapeArray,
     currentRotation,
-    setCurrentRotation,
     handleDownload,
     handleAddColourPalette,
     colourPalette,
+    handleClickRotation,
   } = props;
-  const rotationArray: number[] = [0, 90, 180, 270];
-
-  //on click of the button, the next rotation is chosen
-  const handleClickRotation = () => {
-    const curr = currentRotation;
-    const index = rotationArray?.findIndex((obj) => obj == curr);
-    let newIndex: number;
-    //if the last item of the array is currenly chosen, start at the begin again, else get the next rotation
-    if (index + 1 == rotationArray?.length) {
-      newIndex = 0;
-    } else {
-      newIndex = index + 1;
-    }
-    const newRotation = rotationArray?.at(newIndex);
-    setCurrentRotation(newRotation);
-  };
 
   return (
     <>
@@ -82,22 +66,24 @@ const SBlockMenu = (props: Props) => {
         {/* - - - - COLOUR - - - -  */}
         <label
           className={css`
-            padding-left: 1vw;
             padding-top: 0.5vw;
-            width: 100%;
-            justify-content: flex-start;
+            width: 90%;
+            font-weight: 600;
           `}
         >
           Choose a colour
         </label>
         <div
           className={css`
-            padding-left: 1vw;
-            justify-content: flex-start;
-            width: 100%;
+            /* padding-left: 1vw;
+            padding-right: 1vw; */
+            align-items: center;
+            justify-content: space-evenly;
+            width: 90%;
+
             display: flex;
             flex-direction: row;
-            gap: 1vw;
+            /* gap: 1vw; */
           `}
         >
           <div
@@ -120,13 +106,28 @@ const SBlockMenu = (props: Props) => {
           >
             {currentColour?.hex}
           </label>
+          <div
+            onClick={() => {}}
+            className={css`
+              background-color: #7cc0a0;
+              padding: 4px;
+              border-radius: 50%;
+              width: max-content;
+              height: max-content;
+            `}
+          >
+            <FontAwesomeIcon icon={faPalette} color={"white"} />
+          </div>
         </div>
         {/* COLOUR PALETTE */}
         <div
           className={css`
             display: flex;
             flex-direction: row;
-            gap: 0.55rem;
+
+            width: 90%;
+            align-items: center;
+            justify-content: space-evenly;
           `}
         >
           {colourPalette?.map((colour, index) => {
@@ -135,7 +136,6 @@ const SBlockMenu = (props: Props) => {
                 className={css`
                   display: flex;
                   flex-direction: column;
-                  width: 80%;
                   gap: 0.5rem;
                 `}
               >
@@ -172,10 +172,9 @@ const SBlockMenu = (props: Props) => {
         {/* - - - - SHAPE PICKER - - - -  */}
         <label
           className={css`
-            padding-left: 1vw;
             padding-top: 0.5vw;
-            width: 100%;
-            justify-content: flex-start;
+            width: 90%;
+            font-weight: 600;
           `}
         >
           Choose a shape
@@ -278,13 +277,6 @@ const SBlockMenu = (props: Props) => {
             label={"Save as JPG"}
             iconEnd={faSave}
           />
-          {/* <BasicButton
-            width={"8.5vw"}
-            onClick={() => {
-              handleDownload("PNG");
-            }}
-            label={"Save as PNG"}
-          /> */}
         </div>
 
         {showColourPicker && (

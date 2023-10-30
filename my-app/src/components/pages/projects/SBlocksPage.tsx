@@ -10,7 +10,8 @@ const SBlocksPage = () => {
       className={css`
         display: flex;
         width: 100%;
-        height: 97%;
+        height: 90%;
+        flex: 1;
         align-items: center;
         align-self: flex-end;
         justify-content: center;
