@@ -24,11 +24,11 @@ const MenuTab = (props: TabProps) => {
         flex-direction: column-reverse;
         height: 100%;
         width: auto;
-        gap: 0.1rem;
+        gap: 0.01rem;
       `}
     >
       {array?.map((item) => (
-        <AlphabetIcon letter={item} rotate={270} height={"4vw"} width={"4vw"} padding={"5px 0px 00px 0px"} label={"menutab_letter"} />
+        <AlphabetIcon letter={item} rotate={270} height={"2.5vw"} width={"2.5vw"} padding={"5px 0px 00px 0px"} label={"menutab_letter"} />
       ))}
     </div>
   );

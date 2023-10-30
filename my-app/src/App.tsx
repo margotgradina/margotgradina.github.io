@@ -40,6 +40,9 @@ const App = () => {
             height: 5vh;
             min-height: 4vh;
             width: auto;
+            position: absolute;
+            top: 0;
+            left: 0;
           `}
         >
           <Header onClick={() => navigate("/")} />
@@ -76,7 +79,6 @@ const App = () => {
                 border-radius: 20px;
                 border: 0px solid orange; /* creates padding around scroll thumb */
               }
-              /* padding-right: 1rem; */
             `}
           >
             <Routes>
@@ -88,26 +90,36 @@ const App = () => {
               <Route path="/thank-you" element={<ThankYou />} />
             </Routes>
           </div>
+          <div
+            className={css`
+              padding-bottom: 1rem;
+              padding-right: 1rem;
+              display: flex;
+              flex-direction: row;
+              align-items: flex-end;
+              gap: 1rem;
+            `}
+          >
+            <MenuTab
+              tabName="ABOUT"
+              onClick={() => {
+                navigate("/about");
+              }}
+            />
 
-          <MenuTab
-            tabName="ABOUT"
-            onClick={() => {
-              navigate("/about");
-            }}
-          />
-
-          <MenuTab
-            tabName="PROJECTS"
-            onClick={() => {
-              navigate("/projects");
-            }}
-          />
-          <MenuTab
-            tabName="CONTACT"
-            onClick={() => {
-              navigate("/contact");
-            }}
-          />
+            <MenuTab
+              tabName="PROJECTS"
+              onClick={() => {
+                navigate("/projects");
+              }}
+            />
+            <MenuTab
+              tabName="CONTACT"
+              onClick={() => {
+                navigate("/contact");
+              }}
+            />
+          </div>
         </div>
       </div>
     </>
