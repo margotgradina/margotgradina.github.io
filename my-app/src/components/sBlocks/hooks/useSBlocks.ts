@@ -26,21 +26,62 @@ const initialColour = {
   source: "hsv",
 };
 
+export type Colour = {
+  hsl: {
+    h: number;
+    s: number;
+    l: number;
+    a: number;
+  };
+  hex: string;
+  rgb: {
+    r: number;
+    g: number;
+    b: number;
+    a: number;
+  };
+  hsv: {
+    h: number;
+    s: number;
+    v: number;
+    a: number;
+  };
+  oldHue: number;
+  source: string;
+};
+
 export const useSBlocks = () => {
+  //grid states
   const [gridData, setGridData] = useState<any[]>([]);
-  const [currentLayer, setCurrentLayer] = useState<number>(0);
   const [numRows, setNumRows] = useState<number>(20);
   const [numCols, setNumCols] = useState<number>(20);
-  const [colourPalette, setColourPalette] = useState<any[]>(["#ADADAD", "transparent", "transparent", "transparent", "transparent", "transparent"]);
   const [cellSize, setCellSize] = useState<string>("40px");
   const [border, setBorder] = useState<string>("1px dashed grey");
-  const [sBlocks, setSBlocks] = useState<SBlockType[]>([]);
+
+  //settings states
+  const [currentLayer, setCurrentLayer] = useState<number>(0);
   const [currentColour, setCurrentColour] = useState<any>(initialColour);
   const [currentShape, setCurrentShape] = useState<string>("FULL");
-  const [showColourPicker, setShowColourPicker] = useState<boolean>(false);
   const [currentRotation, setCurrentRotation] = useState<0 | 90 | 180 | 270>(0);
-  const rotationArray: number[] = [0, 90, 180, 270];
+
+  //show/hide states
+  const [showColourPicker, setShowColourPicker] = useState<boolean>(false);
   const [showGrid, setShowGrid] = useState<boolean>(true);
+  const [showPaletteTemplates, setShowPaletteTemplates] = useState<boolean>(false);
+
+  //content states
+  const [colourPalette, setColourPalette] = useState<any[]>([
+    "transparent",
+    "transparent",
+    "transparent",
+    "transparent",
+    "transparent",
+    "transparent",
+  ]);
+  const [sBlocks, setSBlocks] = useState<SBlockType[]>([]);
+
+  //arrays for settings
+  const rotationArray: number[] = [0, 90, 180, 270];
   const shapeArray: {shape: string; function: Function}[] = [
     {shape: "FULL", function: () => setCurrentShape("FULL")},
     {shape: "CIRCLE", function: () => setCurrentShape("CIRCLE")},
@@ -175,6 +216,15 @@ export const useSBlocks = () => {
     setCurrentRotation(newRotation as 0 | 90 | 180 | 270);
   };
 
+  const handleSetColourPaletteArray = (newColourPalette?: any[]) => {
+    console.log("yrrdfd");
+    if (newColourPalette) {
+      setColourPalette(newColourPalette);
+    } else {
+      setColourPalette(["transparent", "transparent", "transparent", "transparent", "transparent", "transparent"]);
+    }
+  };
+
   return {
     gridData,
     setGridData,
@@ -207,5 +257,8 @@ export const useSBlocks = () => {
     handleAddColourPalette,
     colourPalette,
     setColourPalette,
+    handleSetColourPaletteArray,
+    showPaletteTemplates,
+    setShowPaletteTemplates,
   };
 };

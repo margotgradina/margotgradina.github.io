@@ -10,17 +10,9 @@ import BasicButton from "../general/BasicButton";
 const SblockGrid = () => {
   const {
     gridData,
-    // setGridData,
-    // currentLayer,
-    // setCurrentLayer,
-    // numRows,
-    // setNumRows,
     numCols,
-    // setNumCols,
     cellSize,
-    // setCellSize,
     border,
-    // setBorder,
     handleCellClick,
     initializeGrid,
     setCurrentColour,
@@ -41,7 +33,12 @@ const SblockGrid = () => {
     handleAddColourPalette,
     colourPalette,
     setColourPalette,
+    handleSetColourPaletteArray,
+    showPaletteTemplates,
+    setShowPaletteTemplates,
   } = useSBlocks();
+
+  console.log(currentColour);
 
   // Initialize the grid when the component mounts
   useEffect(() => {
@@ -194,6 +191,9 @@ const SblockGrid = () => {
         setShowColourPicker={setShowColourPicker}
         handleAddColourPalette={handleAddColourPalette}
         colourPalette={colourPalette}
+        showPaletteTemplates={showPaletteTemplates}
+        setShowPaletteTemplates={setShowPaletteTemplates}
+        handleSetColourPaletteArray={handleSetColourPaletteArray}
       />
     </div>
   );

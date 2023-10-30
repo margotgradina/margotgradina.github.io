@@ -4,6 +4,7 @@ import BasicButton from "../general/BasicButton";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faCircleXmark, faEraser, faEye, faPalette, faRotate, faSave} from "@fortawesome/free-solid-svg-icons";
 import ColourPicker from "../general/ColourPicker";
+import SBlocksColourPalettes from "./sBlocksColourPalettes";
 
 interface Props {
   currentColour: any;
@@ -21,6 +22,9 @@ interface Props {
   handleAddColourPalette: Function;
   colourPalette: any[];
   handleClickRotation: Function;
+  showPaletteTemplates: boolean;
+  setShowPaletteTemplates: Function;
+  handleSetColourPaletteArray: Function;
 }
 
 const SBlockMenu = (props: Props) => {
@@ -39,6 +43,9 @@ const SBlockMenu = (props: Props) => {
     handleAddColourPalette,
     colourPalette,
     handleClickRotation,
+    showPaletteTemplates,
+    setShowPaletteTemplates,
+    handleSetColourPaletteArray,
   } = props;
 
   return (
@@ -107,7 +114,9 @@ const SBlockMenu = (props: Props) => {
             {currentColour?.hex}
           </label>
           <div
-            onClick={() => {}}
+            onClick={() => {
+              setShowPaletteTemplates(true);
+            }}
             className={css`
               background-color: #7cc0a0;
               padding: 4px;
@@ -286,6 +295,9 @@ const SBlockMenu = (props: Props) => {
             setShowColourPicker={setShowColourPicker}
             showColourPicker={showColourPicker}
           />
+        )}
+        {showPaletteTemplates && (
+          <SBlocksColourPalettes handleClick={handleSetColourPaletteArray} handleClose={() => setShowPaletteTemplates(false)} />
         )}
       </div>
     </>
