@@ -3,6 +3,9 @@ import SBlockUnit from "./sBlockUnit";
 import {css} from "@emotion/css";
 import SBlockRectangle from "./sBlockRectangle";
 import SBlockTriangle from "./sBlockTriangle";
+import SBlockRoundCorner from "./sBlockRoundCorner";
+import SBlockHalfCircleOutwards from "./sBlockHalfCircleOutwards";
+import SBlockHalfTriangle from "./sBlockHalfTriangle";
 
 interface Props {
   type: string;
@@ -60,7 +63,13 @@ const SBlock = (props: Props) => {
         return `${bR} ${bR} ${bR} ${bR}`;
       case "RECTANGLE":
         return `0px 0px 0px 0px`;
-      case "RECTANGLE":
+      case "TRIANGLE":
+        return `0px 0px 0px 0px`;
+      case "ROUNDCORNER":
+        return `0px 0px 0px 0px`;
+      case "HALFCIRCLEOUTWARDS":
+        return `0px 0px 0px 0px`;
+      case "HALFTRIANGLE":
         return `0px 0px 0px 0px`;
       default:
         return "0px 0px 0px 0px";
@@ -128,6 +137,27 @@ const SBlock = (props: Props) => {
       )}
       {props.type == "TRIANGLE" && (
         <SBlockTriangle size={props.size || 10} sizeUnit={props.sizeUnit || "em"} colour={props?.colour || "#000"} rotate={rotate || "0deg"} />
+      )}
+      {props.type == "HALFTRIANGLE" && (
+        <SBlockHalfTriangle size={props.size || 10} sizeUnit={props.sizeUnit || "em"} colour={props?.colour || "#000"} rotate={rotate || "0deg"} />
+      )}
+      {props.type == "ROUNDCORNER" && (
+        <SBlockRoundCorner
+          size={props.size || 10}
+          sizeUnit={props.sizeUnit || "em"}
+          colour={props?.colour || "#000"}
+          rotate={rotate || "0deg"}
+          bR={bR}
+        />
+      )}
+      {props.type == "HALFCIRCLEOUTWARDS" && (
+        <SBlockHalfCircleOutwards
+          size={props.size || 10}
+          sizeUnit={props.sizeUnit || "em"}
+          colour={props?.colour || "#000"}
+          rotate={rotate || "0deg"}
+          bR={bR}
+        />
       )}
     </div>
   );

@@ -81,8 +81,10 @@ export const useSBlocks = () => {
   const [sBlocks, setSBlocks] = useState<SBlockType[]>([]); //CHECK WHAT THIS IS FOR
   const [paletteArray, setPaletteArray] = useState<{name: string; colours: Colour[]}[]>([]);
 
-  //arrays for settings
+  //arrays for rotation settings in the menu
   const rotationArray: number[] = [0, 90, 180, 270];
+
+  //Array used to map through all shapes in the menu.
   const shapeArray: {shape: string; function: Function}[] = [
     {shape: "FULL", function: () => setCurrentShape("FULL")},
     {shape: "CIRCLE", function: () => setCurrentShape("CIRCLE")},
@@ -92,6 +94,9 @@ export const useSBlocks = () => {
     {shape: "DROP", function: () => setCurrentShape("DROP")},
     {shape: "RECTANGLE", function: () => setCurrentShape("RECTANGLE")},
     {shape: "TRIANGLE", function: () => setCurrentShape("TRIANGLE")},
+    {shape: "HALFTRIANGLE", function: () => setCurrentShape("HALFTRIANGLE")},
+    {shape: "ROUNDCORNER", function: () => setCurrentShape("ROUNDCORNER")},
+    {shape: "HALFCIRCLEOUTWARDS", function: () => setCurrentShape("HALFCIRCLEOUTWARDS")},
   ];
 
   // Initialize the grid with empty cells

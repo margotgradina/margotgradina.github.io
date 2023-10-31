@@ -61,7 +61,6 @@ const SBlockMenu = (props: Props) => {
           flex-direction: column;
           align-self: flex-end;
           align-items: center;
-
           width: 10vw;
           min-width: 100px;
           max-width: 200px;
@@ -183,10 +182,19 @@ const SBlockMenu = (props: Props) => {
             );
           })}
         </div>
+        <div
+          id={"LINE_1"}
+          className={css`
+            width: 95%;
+            display: flex;
+            /* margin: 1rem 0px 1rem 0px; */
+            border: 1px dashed grey;
+          `}
+        />
         {/* - - - - SHAPE PICKER - - - -  */}
         <label
           className={css`
-            padding-top: 0.5vw;
+            /* padding-top: 0.5vw; */
             width: 90%;
             font-weight: 600;
           `}
@@ -198,7 +206,10 @@ const SBlockMenu = (props: Props) => {
             display: flex;
             flex-wrap: wrap;
             flex-direction: row;
-            padding: 0px 0px 0px 1vw;
+            padding: 0px 5px 0px 5px;
+            align-items: center;
+            justify-content: space-evenly;
+
             gap: 0.5rem;
           `}
         >
@@ -224,21 +235,16 @@ const SBlockMenu = (props: Props) => {
               </div>
             );
           })}
-          <div
-            onClick={() => setCurrentShape("EMPTY")}
-            className={css`
-              width: 1.5vw;
-              height: 1.5vw;
-              align-items: center;
-              justify-content: center;
-              text-align: center;
-              border: ${currentShape == "EMPTY" && "1px dashed #7cc0a0"};
-              color: ${currentColour?.hex || "grey"};
-            `}
-          >
-            <FontAwesomeIcon icon={faEraser} size={"2x"} />
-          </div>
         </div>
+        <div
+          id={"LINE_2"}
+          className={css`
+            width: 95%;
+            display: flex;
+            /* margin: 1rem 0px 1rem 0px; */
+            border: 1px dashed grey;
+          `}
+        />
         {/* BUTTONS FOR ADJUSTING */}
         {/* - - - - ROTATE BUTTON - - - -  */}
         <div
@@ -253,6 +259,19 @@ const SBlockMenu = (props: Props) => {
             justify-content: flex-start;
           `}
         >
+          <BasicButton
+            backgroundColor={currentShape === "EMPTY" ? "#349757" : undefined}
+            width={"8.5vw"}
+            onClick={() => {
+              if (currentShape == "EMPTY") {
+                setCurrentShape(null);
+              } else {
+                setCurrentShape("EMPTY");
+              }
+            }}
+            label={"Delete"}
+            iconEnd={faEraser}
+          />
           <BasicButton
             width={"8.5vw"}
             onClick={() => {

@@ -15,7 +15,7 @@ TODO
     - 
 
 4. VORMEN EN PATRONEN
-    - toevoegen extra vormen: HALVE CIRKEL UITWAARDS, ROUNDORNER, HALFTRIANGLE, E.A.
+    X toevoegen extra vormen
     - toevoegen patronen als vulling
 
 5. VERGROTINGEN
@@ -24,6 +24,6 @@ TODO
 6. EXPORT IMPORT PATTERN
 
 7. TEMPLATES
- - toevoegen kleurenschema TEMPLATES
+ X toevoegen kleurenschema TEMPLATES
  - toevoegen predefined templates (zie Pinterest voor ideeen)
  -
