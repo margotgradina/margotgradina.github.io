@@ -78,7 +78,7 @@ export const useSBlocks = () => {
     "transparent",
     "transparent",
   ]);
-  const [sBlocks, setSBlocks] = useState<SBlockType[]>([]);
+  const [sBlocks, setSBlocks] = useState<SBlockType[]>([]); //CHECK WHAT THIS IS FOR
   const [paletteArray, setPaletteArray] = useState<{name: string; colours: Colour[]}[]>([]);
 
   //arrays for settings
@@ -115,7 +115,7 @@ export const useSBlocks = () => {
 
   // Handle cell click
   const handleCellClick = (x: number, y: number) => {
-    if (currentShape == "EMPTY") {
+    if (currentShape === "EMPTY") {
       const newBlock: SBlockType = {
         id: x + "_" + y + "_" + currentLayer, // Replace with your unique ID generation logic
         xPosition: x,
@@ -169,7 +169,7 @@ export const useSBlocks = () => {
 
     const canvas = await html2canvas(element);
 
-    if (type == "JPG") {
+    if (type === "JPG") {
       data = canvas.toDataURL("image/jpg");
     } else {
       data = canvas.toDataURL("image/png");
@@ -178,7 +178,7 @@ export const useSBlocks = () => {
     const link = document.createElement("a");
     link.href = data;
 
-    if (type == "JPG") {
+    if (type === "JPG") {
       link.download = "sBlocks.jpg";
     } else {
       link.download = "sBlocks.png";
@@ -205,10 +205,10 @@ export const useSBlocks = () => {
 
   const handleClickRotation = () => {
     const curr = currentRotation;
-    const index = rotationArray?.findIndex((obj) => obj == curr);
+    const index = rotationArray?.findIndex((obj) => obj === curr);
     let newIndex: number;
     //if the last item of the array is currenly chosen, start at the begin again, else get the next rotation
-    if (index + 1 == rotationArray?.length) {
+    if (index + 1 === rotationArray?.length) {
       newIndex = 0;
     } else {
       newIndex = index + 1;
@@ -237,9 +237,13 @@ export const useSBlocks = () => {
           return resp.json();
         })
         .then((data) => {
-          const paletteArray: any[] = data.ColourPaletteTemplates;
-          setPaletteArray(paletteArray);
-          console.log(paletteArray);
+          if (data?.ColourPaletteTemplates) {
+            const paletteArray: any[] = data?.ColourPaletteTemplates;
+            setPaletteArray(paletteArray);
+            console.log(paletteArray);
+          } else {
+            console.log("No colour palettes found;");
+          }
         })
         .catch()
         .finally();
