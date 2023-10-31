@@ -79,6 +79,7 @@ export const useSBlocks = () => {
     "transparent",
   ]);
   const [sBlocks, setSBlocks] = useState<SBlockType[]>([]);
+  const [paletteArray, setPaletteArray] = useState<{name: string; colours: Colour[]}[]>([]);
 
   //arrays for settings
   const rotationArray: number[] = [0, 90, 180, 270];
@@ -217,11 +218,31 @@ export const useSBlocks = () => {
   };
 
   const handleSetColourPaletteArray = (newColourPalette?: any[]) => {
-    console.log("yrrdfd");
     if (newColourPalette) {
       setColourPalette(newColourPalette);
     } else {
-      setColourPalette(["transparent", "transparent", "transparent", "transparent", "transparent", "transparent"]);
+      setColourPalette(["transparent", "transparent", "transparent", "transparent", "transparent", "transparent"]); //make empty
+    }
+  };
+
+  const fetchSBlocksColourTemplates = () => {
+    if (paletteArray?.length <= 0) {
+      fetch("/data/sBlocksColourTemplates.json", {
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+      })
+        .then((resp) => {
+          return resp.json();
+        })
+        .then((data) => {
+          const paletteArray: any[] = data.ColourPaletteTemplates;
+          setPaletteArray(paletteArray);
+          console.log(paletteArray);
+        })
+        .catch()
+        .finally();
     }
   };
 
@@ -260,5 +281,8 @@ export const useSBlocks = () => {
     handleSetColourPaletteArray,
     showPaletteTemplates,
     setShowPaletteTemplates,
+    paletteArray,
+    setPaletteArray,
+    fetchSBlocksColourTemplates,
   };
 };

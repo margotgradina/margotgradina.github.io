@@ -5,6 +5,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faCircleXmark, faEraser, faEye, faPalette, faRotate, faSave} from "@fortawesome/free-solid-svg-icons";
 import ColourPicker from "../general/ColourPicker";
 import SBlocksColourPalettes from "./sBlocksColourPalettes";
+import {Colour} from "./hooks/useSBlocks";
 
 interface Props {
   currentColour: any;
@@ -25,6 +26,8 @@ interface Props {
   showPaletteTemplates: boolean;
   setShowPaletteTemplates: Function;
   handleSetColourPaletteArray: Function;
+  paletteArray: {name: string; colours: Colour[]}[];
+  fetchSBlocksColourTemplates: Function;
 }
 
 const SBlockMenu = (props: Props) => {
@@ -46,6 +49,8 @@ const SBlockMenu = (props: Props) => {
     showPaletteTemplates,
     setShowPaletteTemplates,
     handleSetColourPaletteArray,
+    fetchSBlocksColourTemplates,
+    paletteArray,
   } = props;
 
   return (
@@ -297,7 +302,12 @@ const SBlockMenu = (props: Props) => {
           />
         )}
         {showPaletteTemplates && (
-          <SBlocksColourPalettes handleClick={handleSetColourPaletteArray} handleClose={() => setShowPaletteTemplates(false)} />
+          <SBlocksColourPalettes
+            handleClick={handleSetColourPaletteArray}
+            handleClose={() => setShowPaletteTemplates(false)}
+            fetchSBlocksColourTemplates={fetchSBlocksColourTemplates}
+            paletteArray={paletteArray}
+          />
         )}
       </div>
     </>

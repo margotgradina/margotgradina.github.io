@@ -36,9 +36,10 @@ const SblockGrid = () => {
     handleSetColourPaletteArray,
     showPaletteTemplates,
     setShowPaletteTemplates,
+    paletteArray,
+    setPaletteArray,
+    fetchSBlocksColourTemplates,
   } = useSBlocks();
-
-  console.log(currentColour);
 
   // Initialize the grid when the component mounts
   useEffect(() => {
@@ -194,6 +195,8 @@ const SblockGrid = () => {
         showPaletteTemplates={showPaletteTemplates}
         setShowPaletteTemplates={setShowPaletteTemplates}
         handleSetColourPaletteArray={handleSetColourPaletteArray}
+        paletteArray={paletteArray}
+        fetchSBlocksColourTemplates={fetchSBlocksColourTemplates}
       />
     </div>
   );
