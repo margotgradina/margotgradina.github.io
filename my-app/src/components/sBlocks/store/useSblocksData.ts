@@ -1,0 +1,67 @@
+import {useSBlocksStore} from "./sBlocksStore";
+
+export const useSBlocksData = () => {
+  // const {rides} = useRidesGET();
+
+  const {
+    // rides,
+    // selectedRide,
+    // setSelectedRide,
+    // // selectedTruck,
+    // // setSelectedTruck,
+    // selectedRideId,
+    // selectedDate,
+    // setRides,
+    // addRide,
+    // removeRide,
+    // setSelectedRideId,
+    // setSelectedDate,
+    // resetDateToToday,
+    // selectedPlanning,
+    // setSelectedPlanning,
+    // includeSaturday,
+    // toggleIncludeSaturday,
+    // includeSunday,
+    // toggleIncludeSunday,
+  } = useSBlocksStore((state) => ({
+    // rides: state.rides,
+    // selectedRide: state.selectedRide,
+    // setSelectedRide: state.setSelectedRide,
+    // // selectedTruck: state.selectedTruck,
+    // // setSelectedTruck: state.setSelectedTruck,
+    // selectedRideId: state.selectedRideId,
+    // selectedDate: state.selectedDate,
+    // setRides: state.setRides,
+    // addRide: state.addRide,
+    // removeRide: state.removeRide,
+    // setSelectedRideId: state.setSelectedRideId,
+    // setSelectedDate: state.setSelectedDate,
+    // resetDateToToday: state.resetDateToToday,
+    // selectedPlanning: state.selectedPlanning,
+    // setSelectedPlanning: state.setSelectedPlanning,
+    // includeSaturday: state.includeSaturday,
+    // toggleIncludeSaturday: state.toggleIncludeSaturday,
+    // includeSunday: state.includeSunday,
+    // toggleIncludeSunday: state.toggleIncludeSunday,
+  }));
+
+  return {
+    // rides,
+    // selectedRide,
+    // setSelectedRide,
+    // selectedRideId,
+    // selectedDate,
+    // setRides,
+    // addRide,
+    // removeRide,
+    // setSelectedRideId,
+    // setSelectedDate,
+    // resetDateToToday,
+    // selectedPlanning,
+    // setSelectedPlanning,
+    // includeSaturday,
+    // toggleIncludeSaturday,
+    // includeSunday,
+    // toggleIncludeSunday,
+  };
+};
