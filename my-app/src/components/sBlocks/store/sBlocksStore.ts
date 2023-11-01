@@ -27,13 +27,13 @@ const initialColour = {
 
 type State = {
   gridData: any[];
-  numRows: number | null;
-  numCols: number | null;
-  cellSize: string | null;
-  border: string | null;
+  numRows: number;
+  numCols: number;
+  cellSize: string;
+  border: string;
 
   currentLayer: number;
-  currentColour: Colour | string | null;
+  currentColour: Colour | string;
   currentShape: string;
   currentRotation: 0 | 90 | 180 | 270;
 

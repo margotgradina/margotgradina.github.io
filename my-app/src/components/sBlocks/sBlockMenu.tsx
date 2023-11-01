@@ -5,7 +5,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faCircleXmark, faEraser, faEye, faPalette, faRotate, faSave} from "@fortawesome/free-solid-svg-icons";
 import ColourPicker from "../general/ColourPicker";
 import SBlocksColourPalettes from "./sBlocksColourPalettes";
-import {Colour} from "./hooks/useSBlocks";
+import {Colour} from "./sBlockTypes";
 
 interface Props {
   currentColour: any;

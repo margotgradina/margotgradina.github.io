@@ -1,8 +1,8 @@
 import {css} from "@emotion/css";
 import {faCircleXmark} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {Colour} from "./hooks/useSBlocks";
 import {useEffect, useState} from "react";
+import {Colour} from "./sBlockTypes";
 
 interface Props {
   handleClick: Function;
