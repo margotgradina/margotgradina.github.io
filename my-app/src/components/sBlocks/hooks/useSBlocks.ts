@@ -1,5 +1,5 @@
 import {useState} from "react";
-import {SBlockType} from "../sBlockTypes";
+import {Colour, SBlockType} from "../sBlockTypes";
 import html2canvas from "html2canvas";
 
 const initialColour = {
@@ -24,30 +24,6 @@ const initialColour = {
   },
   oldHue: 0,
   source: "hsv",
-};
-
-export type Colour = {
-  hsl: {
-    h: number;
-    s: number;
-    l: number;
-    a: number;
-  };
-  hex: string;
-  rgb: {
-    r: number;
-    g: number;
-    b: number;
-    a: number;
-  };
-  hsv: {
-    h: number;
-    s: number;
-    v: number;
-    a: number;
-  };
-  oldHue: number;
-  source: string;
 };
 
 export const useSBlocks = () => {

@@ -1,5 +1,5 @@
 import {css} from "@emotion/css";
-import SBlockUnit from "./sBlockUnit";
+import SBlockUnit from "../sBlockUnit";
 
 interface sBlockHalfCircleProps {
   size: number;

@@ -1,13 +1,13 @@
 import {css} from "@emotion/css";
-import SBlockUnit from "./sBlockUnit";
+import SBlockUnit from "../sBlockUnit";
 
-interface sBlockTriangleProps {
+interface sBlockHalfTriangleProps {
   size: number;
   sizeUnit: string;
   colour: string;
   rotate: "0deg" | "90deg" | "180deg" | "270deg" | null;
 }
-const SBlockTriangle = (props: sBlockTriangleProps) => {
+const SBlockHalfTriangle = (props: sBlockHalfTriangleProps) => {
   return (
     <>
       <div
@@ -22,8 +22,7 @@ const SBlockTriangle = (props: sBlockTriangleProps) => {
           className={css`
             width: 0;
             height: 0;
-            border-left: ${props.size * 0.5 + props.sizeUnit + " solid transparent"};
-            border-right: ${props.size * 0.5 + props.sizeUnit + " solid transparent"};
+            border-left: ${props.size + props.sizeUnit + " solid transparent"};
             border-bottom: ${props.size + props.sizeUnit + " solid " + props.colour};
             position: absolute;
             top: 0;
@@ -35,4 +34,4 @@ const SBlockTriangle = (props: sBlockTriangleProps) => {
   );
 };
 
-export default SBlockTriangle;
+export default SBlockHalfTriangle;

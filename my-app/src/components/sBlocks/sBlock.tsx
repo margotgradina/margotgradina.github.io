@@ -1,11 +1,11 @@
 import {useEffect, useState} from "react";
 import SBlockUnit from "./sBlockUnit";
 import {css} from "@emotion/css";
-import SBlockRectangle from "./sBlockRectangle";
-import SBlockTriangle from "./sBlockTriangle";
-import SBlockRoundCorner from "./sBlockRoundCorner";
-import SBlockHalfCircleOutwards from "./sBlockHalfCircleOutwards";
-import SBlockHalfTriangle from "./sBlockHalfTriangle";
+import SBlockRectangle from "./shapes/sBlockRectangle";
+import SBlockTriangle from "./shapes/sBlockTriangle";
+import SBlockRoundCorner from "./shapes/sBlockRoundCorner";
+import SBlockHalfCircleOutwards from "./shapes/sBlockHalfCircleOutwards";
+import SBlockHalfTriangle from "./shapes/sBlockHalfTriangle";
 
 interface Props {
   type: string;

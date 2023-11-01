@@ -9,3 +9,27 @@ export type SBlockType = {
   colour: any;
   rotation: number;
 };
+
+export type Colour = {
+  hsl: {
+    h: number;
+    s: number;
+    l: number;
+    a: number;
+  };
+  hex: string;
+  rgb: {
+    r: number;
+    g: number;
+    b: number;
+    a: number;
+  };
+  hsv: {
+    h: number;
+    s: number;
+    v: number;
+    a: number;
+  };
+  oldHue: number;
+  source: string;
+};
