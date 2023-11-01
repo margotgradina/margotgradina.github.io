@@ -1,6 +1,7 @@
 import {useState} from "react";
 import {Colour, SBlockType} from "../sBlockTypes";
 import html2canvas from "html2canvas";
+import {useSBlocksData} from "../store/useSblocksData";
 
 const initialColour = {
   hsl: {
@@ -27,38 +28,71 @@ const initialColour = {
 };
 
 export const useSBlocks = () => {
-  //grid states
-  const [gridData, setGridData] = useState<any[]>([]);
-  const [numRows, setNumRows] = useState<number>(20);
-  const [numCols, setNumCols] = useState<number>(20);
-  const [cellSize, setCellSize] = useState<string>("40px");
-  const [border, setBorder] = useState<string>("1px dashed grey");
+  const {
+    gridData,
+    setGridData,
+    numRows,
+    setNumRows,
+    numCols,
+    setNumCols,
+    cellSize,
+    setCellSize,
+    border,
+    setBorder,
+    currentLayer,
+    setCurrentLayer,
+    currentColour,
+    setCurrentColour,
+    currentShape,
+    setCurrentShape,
+    currentRotation,
+    setCurrentRotation,
+    showColourPicker,
+    setShowColourPicker,
+    showGrid,
+    setShowGrid,
+    showPaletteTemplates,
+    setShowPaletteTemplates,
+    colourPalette,
+    setColourPalette,
+    sBlocks,
+    setSBlocks,
+    paletteArray,
+    setPaletteArray,
+    rotationArray,
+  } = useSBlocksData();
+  // //grid states
+  // const [gridData, setGridData] = useState<any[]>([]);
+  // const [numRows, setNumRows] = useState<number>(20);
+  // const [numCols, setNumCols] = useState<number>(20);
+  // const [cellSize, setCellSize] = useState<string>("40px");
+  // const [border, setBorder] = useState<string>("1px dashed grey");
 
-  //settings states
-  const [currentLayer, setCurrentLayer] = useState<number>(0);
-  const [currentColour, setCurrentColour] = useState<any>(initialColour);
-  const [currentShape, setCurrentShape] = useState<string>("FULL");
-  const [currentRotation, setCurrentRotation] = useState<0 | 90 | 180 | 270>(0);
+  // //settings states
+  // const [currentLayer, setCurrentLayer] = useState<number>(0);
+  // const [currentColour, setCurrentColour] = useState<any>(initialColour);
+  // const [currentShape, setCurrentShape] = useState<string>("FULL");
+  // const [currentRotation, setCurrentRotation] = useState<0 | 90 | 180 | 270>(0);
 
-  //show/hide states
-  const [showColourPicker, setShowColourPicker] = useState<boolean>(false);
-  const [showGrid, setShowGrid] = useState<boolean>(true);
-  const [showPaletteTemplates, setShowPaletteTemplates] = useState<boolean>(false);
+  // //show/hide states
+  // const [showColourPicker, setShowColourPicker] = useState<boolean>(false);
+  // const [showGrid, setShowGrid] = useState<boolean>(true);
+  // const [showPaletteTemplates, setShowPaletteTemplates] = useState<boolean>(false);
 
-  //content states
-  const [colourPalette, setColourPalette] = useState<any[]>([
-    "transparent",
-    "transparent",
-    "transparent",
-    "transparent",
-    "transparent",
-    "transparent",
-  ]);
-  const [sBlocks, setSBlocks] = useState<SBlockType[]>([]); //CHECK WHAT THIS IS FOR
-  const [paletteArray, setPaletteArray] = useState<{name: string; colours: Colour[]}[]>([]);
+  // //content states
+  // const [colourPalette, setColourPalette] = useState<any[]>([
+  //   "transparent",
+  //   "transparent",
+  //   "transparent",
+  //   "transparent",
+  //   "transparent",
+  //   "transparent",
+  // ]);
+  // const [sBlocks, setSBlocks] = useState<SBlockType[]>([]); //CHECK WHAT THIS IS FOR
+  // const [paletteArray, setPaletteArray] = useState<{name: string; colours: Colour[]}[]>([]);
 
-  //arrays for rotation settings in the menu
-  const rotationArray: number[] = [0, 90, 180, 270];
+  // //arrays for rotation settings in the menu
+  // const rotationArray: number[] = [0, 90, 180, 270];
 
   //Array used to map through all shapes in the menu.
   const shapeArray: {shape: string; function: Function}[] = [
@@ -78,6 +112,11 @@ export const useSBlocks = () => {
   // Initialize the grid with empty cells
   const initializeGrid = () => {
     const grid: any[] = [];
+    if (numRows == null || numCols == null) {
+      console.log("amount of columns and/or rows not defined");
+      return;
+    }
+
     for (let y = 1; y <= numRows; y++) {
       const row = [];
       for (let x = 1; x <= numCols; x++) {
@@ -125,7 +164,7 @@ export const useSBlocks = () => {
         width: 1,
         height: 1,
         layer: 1,
-        colour: currentColour?.hex, // Set the desired color //TODO REPLACE WITH HEX WHEN LAYERS ARE BEING IMPLEMENTED
+        colour: typeof currentColour == "string" ? currentColour : currentColour?.hex, // Set the desired color //TODO REPLACE WITH HEX WHEN LAYERS ARE BEING IMPLEMENTED
         shape: currentShape,
         rotation: currentRotation,
       };
