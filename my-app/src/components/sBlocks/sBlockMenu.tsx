@@ -6,6 +6,7 @@ import {faCircleXmark, faEraser, faEye, faPalette, faRotate, faSave} from "@fort
 import ColourPicker from "../general/ColourPicker";
 import SBlocksColourPalettes from "./sBlocksColourPalettes";
 import {useSBlocks} from "./hooks/useSBlocks";
+import SBlockLayers from "./sBlockLayers";
 
 const SBlockMenu = () => {
   const {
@@ -36,7 +37,7 @@ const SBlockMenu = () => {
           align-self: flex-end;
           align-items: center;
           width: 10vw;
-          min-width: 100px;
+          min-width: 150px;
           max-width: 200px;
           height: 90%;
           border-radius: 10px;
@@ -236,6 +237,7 @@ const SBlockMenu = () => {
           <BasicButton
             backgroundColor={currentShape === "EMPTY" ? "#349757" : undefined}
             width={"8.5vw"}
+            minWidth="90%"
             onClick={() => {
               if (currentShape == "EMPTY") {
                 setCurrentShape(null);
@@ -248,24 +250,16 @@ const SBlockMenu = () => {
           />
           <BasicButton
             width={"8.5vw"}
+            minWidth="90%"
             onClick={() => {
               handleClickRotation();
             }}
             label={"Rotate 90°"}
             iconEnd={faRotate}
           />
-          <BasicButton
-            width={"8.5vw"}
-            onClick={() => {
-              setShowGrid(!showGrid);
-            }}
-            label={showGrid ? "Hide Grid" : "Show Grid"}
-            iconEnd={showGrid ? faEye : undefined}
-          />
-          {/* layers section */}
         </div>
 
-        <div></div>
+        <SBlockLayers />
         {/* BUTTONS FOR EXPORTING */}
         <div
           className={css`
@@ -280,7 +274,17 @@ const SBlockMenu = () => {
           `}
         >
           <BasicButton
+            width={"8.5vw"}
+            minWidth="90%"
+            onClick={() => {
+              setShowGrid(!showGrid);
+            }}
+            label={showGrid ? "Hide Grid" : "Show Grid"}
+            iconEnd={showGrid ? faEye : undefined}
+          />
+          <BasicButton
             width="8.5vw"
+            minWidth="90%"
             onClick={() => {
               handleDownload("JPG");
             }}

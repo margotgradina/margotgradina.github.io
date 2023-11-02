@@ -1,5 +1,5 @@
 import {create} from "zustand";
-import {Colour, SBlockType} from "../sBlockTypes";
+import {Colour, SBlockLayer, SBlockType} from "../sBlockTypes";
 
 const initialColour = {
   hsl: {
@@ -32,7 +32,7 @@ type State = {
   cellSize: string;
   border: string;
 
-  currentLayer: number;
+  currentLayer: SBlockLayer;
   currentColour: Colour;
   currentShape: string | null;
   currentRotation: 0 | 90 | 180 | 270;
@@ -45,6 +45,7 @@ type State = {
   sBlocks: SBlockType[];
   paletteArray: {name: string; colours: Colour[]}[];
   rotationArray: number[];
+  layers: SBlockLayer[];
   //   shapeArray: {shape: string; function: Function}[];
 };
 
@@ -55,7 +56,7 @@ const initialState: State = {
   cellSize: "40px",
   border: "1px dashed grey",
 
-  currentLayer: 0,
+  currentLayer: {id: 1, name: "layer 1", index: 0, visible: true, deletable: false},
   currentColour: initialColour,
   currentShape: "FULL",
   currentRotation: 0,
@@ -68,6 +69,7 @@ const initialState: State = {
   sBlocks: [],
   paletteArray: [],
   rotationArray: [0, 90, 180, 270],
+  layers: [{id: 1, name: "layer 1", index: 0, visible: true, deletable: false}],
 };
 
 type Actions = {
@@ -77,7 +79,7 @@ type Actions = {
   setCellsize: (str: string) => void;
   setBorder: (str: string) => void;
 
-  setCurrentLayer: (num: number) => void;
+  setCurrentLayer: (layer: SBlockLayer) => void;
   setCurrentColour: (colour: Colour) => void;
   setCurrentShape: (str: string | null) => void;
   setCurrentRotation: (num: 0 | 90 | 180 | 270) => void;
@@ -89,6 +91,7 @@ type Actions = {
   setColourPalette: (arr: any[]) => void;
   setSBlocks: (arr: SBlockType[]) => void;
   setPaletteArray: (arr: {name: string; colours: Colour[]}[]) => void;
+  setLayers: (arr: SBlockLayer[]) => void;
 };
 
 export const useSBlocksStore = create<State & Actions>((set) => ({
@@ -100,7 +103,7 @@ export const useSBlocksStore = create<State & Actions>((set) => ({
   setCellsize: (str: string) => set(() => ({cellSize: str})),
   setBorder: (str: string) => set(() => ({border: str})),
 
-  setCurrentLayer: (num: number) => set(() => ({currentLayer: num})),
+  setCurrentLayer: (layer: SBlockLayer) => set(() => ({currentLayer: layer})),
   setCurrentColour: (colour: Colour) => set(() => ({currentColour: colour})),
   setCurrentShape: (str: string | null) => set(() => ({currentShape: str})),
   setCurrentRotation: (num: 0 | 90 | 180 | 270) => set(() => ({currentRotation: num})),
@@ -112,4 +115,5 @@ export const useSBlocksStore = create<State & Actions>((set) => ({
   setColourPalette: (arr: any[]) => set(() => ({colourPalette: arr})),
   setSBlocks: (arr: SBlockType[]) => set(() => ({sBlocks: arr})),
   setPaletteArray: (arr: {name: string; colours: Colour[]}[]) => set(() => ({paletteArray: arr})),
+  setLayers: (arr: SBlockLayer[]) => set(() => ({layers: arr})),
 }));

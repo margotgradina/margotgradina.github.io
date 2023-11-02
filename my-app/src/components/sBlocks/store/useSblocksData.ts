@@ -33,6 +33,8 @@ export const useSBlocksData = () => {
     paletteArray,
     setPaletteArray,
     rotationArray,
+    layers,
+    setLayers,
   } = useSBlocksStore((state) => ({
     gridData: state.gridData,
     setGridData: state.setGridData,
@@ -65,6 +67,8 @@ export const useSBlocksData = () => {
     paletteArray: state.paletteArray,
     setPaletteArray: state.setPaletteArray,
     rotationArray: state.rotationArray,
+    layers: state.layers,
+    setLayers: state.setLayers,
   }));
 
   return {
@@ -99,5 +103,7 @@ export const useSBlocksData = () => {
     paletteArray,
     setPaletteArray,
     rotationArray,
+    layers,
+    setLayers,
   };
 };

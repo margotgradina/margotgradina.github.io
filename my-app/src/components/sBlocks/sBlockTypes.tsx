@@ -33,3 +33,11 @@ export type Colour = {
   oldHue: number;
   source: string;
 };
+
+export type SBlockLayer = {
+  id: number;
+  name: string;
+  index: number;
+  visible: boolean;
+  deletable: boolean;
+};

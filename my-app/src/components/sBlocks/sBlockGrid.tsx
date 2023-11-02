@@ -37,11 +37,11 @@ const SblockGrid = () => {
           height: 70%;
           display: flex;
           align-items: flex-start;
-          justify-content: space-evenly;
 
           overflow: auto;
           ::-webkit-scrollbar {
             width: 5px;
+            height: 5px;
           }
 
           ::-webkit-scrollbar-thumb {
@@ -74,6 +74,7 @@ const SblockGrid = () => {
                     key={i}
                     className={css`
                       width: ${cellSize};
+
                       padding: 0;
                       margin: 0;
                     `}
@@ -105,8 +106,8 @@ const SblockGrid = () => {
                         key={x}
                         onClick={() => handleCellClick(x, y)}
                         className={css`
-                          width: max-content;
-                          height: max-content;
+                          width: ${cellSize};
+                          height: ${cellSize};
                           padding: 0;
                           margin: 0;
                           border: ${border};
@@ -127,7 +128,7 @@ const SblockGrid = () => {
                         ) : (
                           <div
                             className={css`
-                              width: cellSize;
+                              width: ${cellSize};
 
                               /* border: 1px dashed grey; */
                             `}

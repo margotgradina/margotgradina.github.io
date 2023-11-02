@@ -35,6 +35,8 @@ export const useSBlocks = () => {
     paletteArray,
     setPaletteArray,
     rotationArray,
+    layers,
+    setLayers,
   } = useSBlocksData();
 
   //Array used to map through all shapes in the menu.
@@ -251,5 +253,7 @@ export const useSBlocks = () => {
     paletteArray,
     setPaletteArray,
     fetchSBlocksColourTemplates,
+    layers,
+    setLayers,
   };
 };
