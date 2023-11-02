@@ -262,7 +262,10 @@ const SBlockMenu = () => {
             label={showGrid ? "Hide Grid" : "Show Grid"}
             iconEnd={showGrid ? faEye : undefined}
           />
+          {/* layers section */}
         </div>
+
+        <div></div>
         {/* BUTTONS FOR EXPORTING */}
         <div
           className={css`
@@ -286,14 +289,7 @@ const SBlockMenu = () => {
           />
         </div>
 
-        {showColourPicker && (
-          <ColourPicker
-          // colour={currentColour}
-          // setColour={setCurrentColour}
-          // setShowColourPicker={setShowColourPicker}
-          // showColourPicker={showColourPicker}
-          />
-        )}
+        {showColourPicker && <ColourPicker />}
         {showPaletteTemplates && <SBlocksColourPalettes />}
       </div>
     </>

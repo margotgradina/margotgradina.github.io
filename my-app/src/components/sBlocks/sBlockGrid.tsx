@@ -41,13 +41,13 @@ const SblockGrid = () => {
 
           overflow: auto;
           ::-webkit-scrollbar {
-            width: 5px; /* width of the entire scrollbar */
+            width: 5px;
           }
 
           ::-webkit-scrollbar-thumb {
-            background-color: #7cc0a0; /* color of the scroll thumb */
-            border-radius: 20px; /* roundness of the scroll thumb */
-            border: 0px solid orange; /* creates padding around scroll thumb */
+            background-color: #7cc0a0;
+            border-radius: 20px;
+            border: 0px solid orange;
           }
         `}
       >
