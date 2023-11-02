@@ -1,17 +1,13 @@
 import {css} from "@emotion/css";
 import {faCircleXmark} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {useEffect, useRef} from "react";
-import {SketchPicker} from "react-color";
+import {useRef} from "react";
+import {SketchPicker, Color} from "react-color";
+import {useSBlocks} from "../sBlocks/hooks/useSBlocks";
 
-interface ColourPickerProps {
-  colour: any;
-  setColour: Function;
-  showColourPicker: boolean;
-  setShowColourPicker: Function;
-}
-const ColourPicker = (props: ColourPickerProps) => {
-  const {colour, setColour, showColourPicker, setShowColourPicker} = props;
+const ColourPicker = () => {
+  const {currentColour, setCurrentColour, showColourPicker, setShowColourPicker} = useSBlocks();
+
   const colourPickerRef = useRef<HTMLDivElement | null>(null);
 
   //FIXME Click outside of colourpicker to go out of it
@@ -52,9 +48,9 @@ const ColourPicker = (props: ColourPickerProps) => {
         `}
       >
         <SketchPicker
-          color={colour}
+          color={currentColour as unknown as Color}
           onChange={(colour: any) => {
-            setColour(colour);
+            setCurrentColour(colour);
           }}
           onChangeComplete={() => {
             // setShowColourPicker(false);

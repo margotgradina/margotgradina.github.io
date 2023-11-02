@@ -1,45 +1,12 @@
-import {useEffect, useState} from "react";
+import {useEffect} from "react";
 import {css} from "@emotion/css";
 import {useSBlocks} from "./hooks/useSBlocks";
 import SBlockMenu from "./sBlockMenu";
 import {SBlockType} from "./sBlockTypes";
 import SBlock from "./sBlock";
-import html2canvas from "html2canvas";
-import BasicButton from "../general/BasicButton";
 
 const SblockGrid = () => {
-  const {
-    gridData,
-    numCols,
-    cellSize,
-    border,
-    handleCellClick,
-    initializeGrid,
-    setCurrentColour,
-    currentColour,
-    showColourPicker,
-    setShowColourPicker,
-    currentShape,
-    setCurrentShape,
-    shapeArray,
-    currentRotation,
-    setCurrentRotation,
-    handleClickRotation,
-    rotationArray,
-    showGrid,
-    setShowGrid,
-    setBorder,
-    handleDownload,
-    handleAddColourPalette,
-    colourPalette,
-    setColourPalette,
-    handleSetColourPaletteArray,
-    showPaletteTemplates,
-    setShowPaletteTemplates,
-    paletteArray,
-    setPaletteArray,
-    fetchSBlocksColourTemplates,
-  } = useSBlocks();
+  const {gridData, numCols, cellSize, border, handleCellClick, initializeGrid, showGrid, setBorder} = useSBlocks();
 
   // Initialize the grid when the component mounts
   useEffect(() => {
@@ -176,28 +143,7 @@ const SblockGrid = () => {
         </table>
       </div>
       {/* - - - - MENU - - - - -*/}
-      <SBlockMenu
-        handleDownload={handleDownload}
-        showGrid={showGrid}
-        setShowGrid={setShowGrid}
-        currentRotation={currentRotation}
-        setCurrentRotation={setCurrentRotation}
-        handleClickRotation={handleClickRotation}
-        shapeArray={shapeArray}
-        currentShape={currentShape}
-        setCurrentShape={setCurrentShape}
-        currentColour={currentColour}
-        setCurrentColour={setCurrentColour}
-        showColourPicker={showColourPicker}
-        setShowColourPicker={setShowColourPicker}
-        handleAddColourPalette={handleAddColourPalette}
-        colourPalette={colourPalette}
-        showPaletteTemplates={showPaletteTemplates}
-        setShowPaletteTemplates={setShowPaletteTemplates}
-        handleSetColourPaletteArray={handleSetColourPaletteArray}
-        paletteArray={paletteArray}
-        fetchSBlocksColourTemplates={fetchSBlocksColourTemplates}
-      />
+      <SBlockMenu />
     </div>
   );
 };

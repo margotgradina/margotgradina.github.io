@@ -5,32 +5,9 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faCircleXmark, faEraser, faEye, faPalette, faRotate, faSave} from "@fortawesome/free-solid-svg-icons";
 import ColourPicker from "../general/ColourPicker";
 import SBlocksColourPalettes from "./sBlocksColourPalettes";
-import {Colour} from "./sBlockTypes";
+import {useSBlocks} from "./hooks/useSBlocks";
 
-interface Props {
-  currentColour: any;
-  setCurrentColour: Function;
-  showColourPicker: boolean;
-  setShowColourPicker: Function;
-  setCurrentShape: Function;
-  currentShape: string;
-  shapeArray: {shape: string; function: Function}[];
-  currentRotation: 0 | 90 | 180 | 270;
-  setCurrentRotation: Function;
-  showGrid: boolean;
-  setShowGrid: Function;
-  handleDownload: Function;
-  handleAddColourPalette: Function;
-  colourPalette: any[];
-  handleClickRotation: Function;
-  showPaletteTemplates: boolean;
-  setShowPaletteTemplates: Function;
-  handleSetColourPaletteArray: Function;
-  paletteArray: {name: string; colours: Colour[]}[];
-  fetchSBlocksColourTemplates: Function;
-}
-
-const SBlockMenu = (props: Props) => {
+const SBlockMenu = () => {
   const {
     showGrid,
     setShowGrid,
@@ -48,10 +25,7 @@ const SBlockMenu = (props: Props) => {
     handleClickRotation,
     showPaletteTemplates,
     setShowPaletteTemplates,
-    handleSetColourPaletteArray,
-    fetchSBlocksColourTemplates,
-    paletteArray,
-  } = props;
+  } = useSBlocks();
 
   return (
     <>
@@ -314,20 +288,13 @@ const SBlockMenu = (props: Props) => {
 
         {showColourPicker && (
           <ColourPicker
-            colour={currentColour}
-            setColour={setCurrentColour}
-            setShowColourPicker={setShowColourPicker}
-            showColourPicker={showColourPicker}
+          // colour={currentColour}
+          // setColour={setCurrentColour}
+          // setShowColourPicker={setShowColourPicker}
+          // showColourPicker={showColourPicker}
           />
         )}
-        {showPaletteTemplates && (
-          <SBlocksColourPalettes
-            handleClick={handleSetColourPaletteArray}
-            handleClose={() => setShowPaletteTemplates(false)}
-            fetchSBlocksColourTemplates={fetchSBlocksColourTemplates}
-            paletteArray={paletteArray}
-          />
-        )}
+        {showPaletteTemplates && <SBlocksColourPalettes />}
       </div>
     </>
   );

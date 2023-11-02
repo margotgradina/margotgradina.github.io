@@ -33,8 +33,8 @@ type State = {
   border: string;
 
   currentLayer: number;
-  currentColour: Colour | string;
-  currentShape: string;
+  currentColour: Colour;
+  currentShape: string | null;
   currentRotation: 0 | 90 | 180 | 270;
 
   showColourPicker: boolean;
@@ -78,8 +78,8 @@ type Actions = {
   setBorder: (str: string) => void;
 
   setCurrentLayer: (num: number) => void;
-  setCurrentColour: (colour: string | Colour) => void;
-  setCurrentShape: (str: string) => void;
+  setCurrentColour: (colour: Colour) => void;
+  setCurrentShape: (str: string | null) => void;
   setCurrentRotation: (num: 0 | 90 | 180 | 270) => void;
 
   setShowColourPicker: (bool: boolean) => void;
@@ -101,8 +101,8 @@ export const useSBlocksStore = create<State & Actions>((set) => ({
   setBorder: (str: string) => set(() => ({border: str})),
 
   setCurrentLayer: (num: number) => set(() => ({currentLayer: num})),
-  setCurrentColour: (colour: string | Colour) => set(() => ({currentColour: colour})),
-  setCurrentShape: (str: string) => set(() => ({currentShape: str})),
+  setCurrentColour: (colour: Colour) => set(() => ({currentColour: colour})),
+  setCurrentShape: (str: string | null) => set(() => ({currentShape: str})),
   setCurrentRotation: (num: 0 | 90 | 180 | 270) => set(() => ({currentRotation: num})),
 
   setShowColourPicker: (bool: boolean) => set(() => ({showColourPicker: bool})),

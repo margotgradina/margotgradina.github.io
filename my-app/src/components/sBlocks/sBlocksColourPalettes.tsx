@@ -1,17 +1,12 @@
 import {css} from "@emotion/css";
 import {faCircleXmark} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {useEffect, useState} from "react";
-import {Colour} from "./sBlockTypes";
+import {useEffect} from "react";
+import {useSBlocks} from "./hooks/useSBlocks";
 
-interface Props {
-  handleClick: Function;
-  handleClose: Function;
-  fetchSBlocksColourTemplates: Function;
-  paletteArray: {name: string; colours: Colour[]}[];
-}
+export const SBlocksColourPalettes = () => {
+  const {handleSetColourPaletteArray, setShowPaletteTemplates, fetchSBlocksColourTemplates, paletteArray} = useSBlocks();
 
-export const SBlocksColourPalettes = ({handleClick, handleClose, fetchSBlocksColourTemplates, paletteArray}: Props) => {
   useEffect(() => {
     fetchSBlocksColourTemplates();
   }, []);
@@ -31,7 +26,7 @@ export const SBlocksColourPalettes = ({handleClick, handleClose, fetchSBlocksCol
           border-radius: 15px;
         `}
       >
-        <FontAwesomeIcon icon={faCircleXmark} color={"#7cc0a0"} onClick={() => handleClose()} />
+        <FontAwesomeIcon icon={faCircleXmark} color={"#7cc0a0"} onClick={() => setShowPaletteTemplates(false)} />
         <div
           className={css`
             height: 200px;
@@ -57,7 +52,7 @@ export const SBlocksColourPalettes = ({handleClick, handleClose, fetchSBlocksCol
             return (
               <div
                 onClick={() => {
-                  handleClick(palette.colours);
+                  handleSetColourPaletteArray(palette.colours);
                 }}
                 className={css`
                   display: flex;

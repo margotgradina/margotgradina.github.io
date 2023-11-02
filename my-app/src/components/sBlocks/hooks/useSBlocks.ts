@@ -1,31 +1,6 @@
-import {useState} from "react";
-import {Colour, SBlockType} from "../sBlockTypes";
+import {SBlockType} from "../sBlockTypes";
 import html2canvas from "html2canvas";
 import {useSBlocksData} from "../store/useSblocksData";
-
-const initialColour = {
-  hsl: {
-    h: 0,
-    s: 0,
-    l: 0,
-    a: 1,
-  },
-  hex: "#000000",
-  rgb: {
-    r: 0,
-    g: 0,
-    b: 0,
-    a: 1,
-  },
-  hsv: {
-    h: 0,
-    s: 0,
-    v: 0,
-    a: 1,
-  },
-  oldHue: 0,
-  source: "hsv",
-};
 
 export const useSBlocks = () => {
   const {
@@ -61,38 +36,6 @@ export const useSBlocks = () => {
     setPaletteArray,
     rotationArray,
   } = useSBlocksData();
-  // //grid states
-  // const [gridData, setGridData] = useState<any[]>([]);
-  // const [numRows, setNumRows] = useState<number>(20);
-  // const [numCols, setNumCols] = useState<number>(20);
-  // const [cellSize, setCellSize] = useState<string>("40px");
-  // const [border, setBorder] = useState<string>("1px dashed grey");
-
-  // //settings states
-  // const [currentLayer, setCurrentLayer] = useState<number>(0);
-  // const [currentColour, setCurrentColour] = useState<any>(initialColour);
-  // const [currentShape, setCurrentShape] = useState<string>("FULL");
-  // const [currentRotation, setCurrentRotation] = useState<0 | 90 | 180 | 270>(0);
-
-  // //show/hide states
-  // const [showColourPicker, setShowColourPicker] = useState<boolean>(false);
-  // const [showGrid, setShowGrid] = useState<boolean>(true);
-  // const [showPaletteTemplates, setShowPaletteTemplates] = useState<boolean>(false);
-
-  // //content states
-  // const [colourPalette, setColourPalette] = useState<any[]>([
-  //   "transparent",
-  //   "transparent",
-  //   "transparent",
-  //   "transparent",
-  //   "transparent",
-  //   "transparent",
-  // ]);
-  // const [sBlocks, setSBlocks] = useState<SBlockType[]>([]); //CHECK WHAT THIS IS FOR
-  // const [paletteArray, setPaletteArray] = useState<{name: string; colours: Colour[]}[]>([]);
-
-  // //arrays for rotation settings in the menu
-  // const rotationArray: number[] = [0, 90, 180, 270];
 
   //Array used to map through all shapes in the menu.
   const shapeArray: {shape: string; function: Function}[] = [
@@ -165,7 +108,7 @@ export const useSBlocks = () => {
         height: 1,
         layer: 1,
         colour: typeof currentColour == "string" ? currentColour : currentColour?.hex, // Set the desired color //TODO REPLACE WITH HEX WHEN LAYERS ARE BEING IMPLEMENTED
-        shape: currentShape,
+        shape: currentShape as string,
         rotation: currentRotation,
       };
       // console.log(newBlock);
