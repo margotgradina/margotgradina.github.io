@@ -3,6 +3,7 @@ export type SBlockType = {
   id: string;
   xPosition: number;
   yPosition: number;
+  zPosition: number;
   width: number;
   height: number;
   layer: number;

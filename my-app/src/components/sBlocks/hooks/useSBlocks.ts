@@ -1,6 +1,8 @@
 import {SBlockType} from "../sBlockTypes";
 import html2canvas from "html2canvas";
 import {useSBlocksData} from "../store/useSblocksData";
+import {layer} from "@fortawesome/fontawesome-svg-core";
+import zIndex from "@material-ui/core/styles/zIndex";
 
 export const useSBlocks = () => {
   const {
@@ -85,9 +87,10 @@ export const useSBlocks = () => {
         id: x + "_" + y + "_" + currentLayer, // Replace with your unique ID generation logic
         xPosition: x,
         yPosition: y,
+        zPosition: currentLayer.id,
         width: 1,
         height: 1,
-        layer: 1,
+        layer: currentLayer.id,
         colour: "transparent", // Set the desired color //TODO REPLACE WITH HEX WHEN LAYERS ARE BEING IMPLEMENTED
         shape: "FULL",
         rotation: 0,
@@ -106,9 +109,10 @@ export const useSBlocks = () => {
         id: x + "_" + y + "_" + currentLayer, // Replace with your unique ID generation logic
         xPosition: x,
         yPosition: y,
+        zPosition: currentLayer.id,
         width: 1,
         height: 1,
-        layer: 1,
+        layer: currentLayer.id,
         colour: typeof currentColour == "string" ? currentColour : currentColour?.hex, // Set the desired color //TODO REPLACE WITH HEX WHEN LAYERS ARE BEING IMPLEMENTED
         shape: currentShape as string,
         rotation: currentRotation,

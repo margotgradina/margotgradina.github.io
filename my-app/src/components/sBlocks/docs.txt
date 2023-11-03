@@ -1,21 +1,17 @@
 TODO
 
 1. KLEUR
-    X toevoegen quick-add kleuren 
     - veranderen hex in rgba ivm doorzichtigheid(pas nodig wanneer laagjes is geintroduceerd)
     - pipetje toevoegen
     
 2. KNOPPEN
-    X Implementatie Save buttons
-    X Delete button
-
+   
 3. LAGEN
     - toevoegen optie lagen, meerdere vakjes in een gridcell.
     - hele lagen zichtbaar of onzichtbaar maken
     - Lagen kunnen drag en droppen in volgorde
 
 4. VORMEN EN PATRONEN
-    X toevoegen extra vormen
     - toevoegen patronen als vulling
 
 5. VERGROTINGEN
@@ -24,6 +20,17 @@ TODO
 6. EXPORT IMPORT PATTERN
 
 7. TEMPLATES
- X toevoegen kleurenschema TEMPLATES
  - toevoegen predefined templates (zie Pinterest voor ideeen)
  -
+
+ 8. TOOLS
+ - Bij hover op cell : top menutje om te kunnen draaien
+ 
+
+
+DONE
+    X toevoegen quick-add kleuren 
+    X Implementatie Save buttons
+    X Delete button
+    X toevoegen extra vormen
+    X toevoegen kleurenschema TEMPLATES
