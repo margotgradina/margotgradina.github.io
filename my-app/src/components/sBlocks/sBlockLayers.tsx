@@ -1,9 +1,9 @@
 import {css} from "@emotion/css";
 import {useSBlocks} from "./hooks/useSBlocks";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faMinus, faPlus} from "@fortawesome/free-solid-svg-icons";
+import {faEye, faEyeSlash, faMinus, faPlus} from "@fortawesome/free-solid-svg-icons";
 import useEnhancedEffect from "@mui/material/utils/useEnhancedEffect";
-import {SBlockLayer} from "./sBlockTypes";
+import {SBlockLayer, SBlockLayer} from "./sBlockTypes";
 import {getRandomNumber} from "../../helpers/GetRandomNumber";
 
 const SBlockLayers = () => {
@@ -76,6 +76,10 @@ const SBlockLayers = () => {
     }
   };
 
+  const handleSetLayerVisibility = (layer: SBlockLayer, index: number) => {
+    // const updatedLayers
+  };
+
   return (
     <div
       className={css`
@@ -134,17 +138,19 @@ const SBlockLayers = () => {
           {
             layers?.map((layer, index) => {
               return (
-                <>
-                  <label
-                    className={css`
-                      font-size: 14px;
-                      background-color: ${currentLayer == layer ? "#7cc0a0" : ""};
-                    `}
-                    onClick={() => setCurrentLayer(layer)}
-                  >
-                    {layer.name}
-                  </label>
-                </>
+                <div
+                  className={css`
+                    display: flex;
+                    flex-direction: row;
+                    font-size: 14px;
+                    gap: 1rem;
+                    padding: 0.1rem 0px 0.1rem 0px;
+                    background-color: ${currentLayer == layer ? "#7cc0a0" : ""};
+                  `}
+                >
+                  <FontAwesomeIcon icon={layer.visible ? faEye : faEyeSlash} onClick={handleSetLayerVisibility(layer, index)} />
+                  <label onClick={() => setCurrentLayer(layer)}>{layer.name}</label>
+                </div>
               );
             })
             //TODO MAP LAYERS
