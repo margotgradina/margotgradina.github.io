@@ -12,7 +12,7 @@ TODO
 3. LAGEN
     - toevoegen optie lagen, meerdere vakjes in een gridcell.
     - hele lagen zichtbaar of onzichtbaar maken
-    - 
+    - Lagen kunnen drag en droppen in volgorde
 
 4. VORMEN EN PATRONEN
     X toevoegen extra vormen

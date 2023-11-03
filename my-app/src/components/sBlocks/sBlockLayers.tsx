@@ -1,48 +1,42 @@
 import {css} from "@emotion/css";
 import {useSBlocks} from "./hooks/useSBlocks";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faEye, faEyeSlash, faMinus, faPlus} from "@fortawesome/free-solid-svg-icons";
-import useEnhancedEffect from "@mui/material/utils/useEnhancedEffect";
-import {SBlockLayer, SBlockLayer} from "./sBlockTypes";
+import {faCancel, faEye, faEyeSlash, faMinus, faPlus, faSave} from "@fortawesome/free-solid-svg-icons";
+import {SBlockLayer} from "./sBlockTypes";
 import {getRandomNumber} from "../../helpers/GetRandomNumber";
+import {useEffect, useState} from "react";
 
 const SBlockLayers = () => {
   const {layers, setLayers, currentLayer, setCurrentLayer} = useSBlocks();
+  const [changeName, setChangeName] = useState<number | null>(null);
+  const [nameInput, setNameInput] = useState<string>("");
 
-  useEnhancedEffect(() => {
+  useEffect(() => {
     setCurrentLayer(layers[0]);
   }, []);
 
   const handleAddLayer = () => {
     if (currentLayer) {
-      // Calculate the newLayer values based on the currentLayer
+      //create a new layer
       const newLayer: SBlockLayer = {
-        id: getRandomNumber(1, 10000000000), // Generate a new id TODO REPLACE WITH UNIQUE
-        name: `Layer ${currentLayer.index + 2}`, // Generate a new name
-        index: currentLayer.index + 1, // Increment the index
-        visible: true, // You can set this to true or false as needed
-        deletable: true, // You can set this to true or false as needed
+        id: getRandomNumber(1, 10000000000),
+        name: `Layer ${currentLayer.index + 2}`,
+        index: currentLayer.index + 1,
+        visible: true,
+        deletable: true,
       };
 
-      // Clone the current layers array
-      const newLayers = [...layers];
-
-      // Find the index of the currentLayer
-      const currentIndex = newLayers.findIndex((layer) => layer.id === currentLayer.id);
-
-      // Insert the newLayer after the currentLayer
-      newLayers.splice(currentIndex + 1, 0, newLayer);
+      const newLayers = [...layers]; // Clone the current layers array
+      const currentIndex = newLayers.findIndex((layer) => layer.id === currentLayer.id); // Find the index of the currentLayer
+      newLayers.splice(currentIndex + 1, 0, newLayer); // Insert the newLayer after the currentLayer
 
       // Update the index property of layers that come after the newLayer
       for (let i = currentIndex + 2; i < newLayers.length; i++) {
         newLayers[i].index++;
       }
 
-      // Update the state with the new layers array
+      // console.log(newLayers);
       setLayers(newLayers);
-      console.log(newLayers);
-
-      // Set the currentLayer to the newly added layer
       setCurrentLayer(newLayer);
     }
   };
@@ -77,7 +71,25 @@ const SBlockLayers = () => {
   };
 
   const handleSetLayerVisibility = (layer: SBlockLayer, index: number) => {
-    // const updatedLayers
+    const updatedLayers = [...layers];
+    updatedLayers[index].visible = !updatedLayers[index].visible;
+    setLayers(updatedLayers);
+  };
+
+  const handleSaveName = (layer: SBlockLayer, index: number) => {
+    if (nameInput != "") {
+      const updatedLayers = [...layers];
+      updatedLayers[index].name = nameInput;
+      setLayers(updatedLayers);
+    }
+
+    setChangeName(0);
+    setNameInput("");
+  };
+
+  const handleCancelName = () => {
+    setChangeName(0);
+    setNameInput("");
   };
 
   return (
@@ -118,7 +130,8 @@ const SBlockLayers = () => {
         <div
           className={css`
             width: 100%;
-            height: 100%;
+            height: 10vh;
+            max-height: 10vh;
             display: flex;
             flex-direction: column;
             overflow-y: auto;
@@ -143,13 +156,44 @@ const SBlockLayers = () => {
                     display: flex;
                     flex-direction: row;
                     font-size: 14px;
-                    gap: 1rem;
-                    padding: 0.1rem 0px 0.1rem 0px;
+                    gap: 0.5rem;
+
+                    padding: 0.1rem 0.2rem 0.1rem 0.2rem;
+                    align-items: center;
                     background-color: ${currentLayer == layer ? "#7cc0a0" : ""};
                   `}
                 >
-                  <FontAwesomeIcon icon={layer.visible ? faEye : faEyeSlash} onClick={handleSetLayerVisibility(layer, index)} />
-                  <label onClick={() => setCurrentLayer(layer)}>{layer.name}</label>
+                  <FontAwesomeIcon
+                    icon={layer.visible ? faEye : faEyeSlash}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleSetLayerVisibility(layer, index);
+                    }}
+                  />
+                  {changeName == layer.id ? (
+                    <>
+                      <input
+                        className={css`
+                          width: 99%;
+                        `}
+                        onChange={(e) => setNameInput(e.target.value)}
+                      ></input>
+                      <FontAwesomeIcon icon={faSave} onClick={() => handleSaveName(layer, index)} />
+                      <FontAwesomeIcon icon={faCancel} onClick={() => handleCancelName()} />
+                    </>
+                  ) : (
+                    <label
+                      className={css`
+                        width: 99%;
+                      `}
+                      onDoubleClick={() => {
+                        setChangeName(layer.id);
+                      }}
+                      onClick={() => setCurrentLayer(layer)}
+                    >
+                      {layer.name}
+                    </label>
+                  )}
                 </div>
               );
             })
