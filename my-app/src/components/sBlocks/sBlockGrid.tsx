@@ -6,13 +6,38 @@ import {SBlockType} from "./sBlockTypes";
 import SBlock from "./sBlock";
 
 const SblockGrid = () => {
-  const {gridData, numCols, cellSize, border, handleCellClick, initializeGrid, showGrid, setBorder} = useSBlocks();
+  const {gridData, numCols, cellSize, border, handleCellClick, initializeGrid, showGrid, setBorder, layers} = useSBlocks();
 
-  console.log(gridData);
+  //returns a number for the z-index of a shape based on what layer it is in.
+  const determineZIndexBasedOnLayerId = (layerId: number): number => {
+    // console.log("layers");
+    // console.log(layers);
+
+    const foundLayer = layers?.find((l) => l.id == layerId);
+    if (foundLayer) {
+      return foundLayer.index * 5;
+    } else {
+      return 0;
+    }
+  };
+
+  const determineVisibilityBasedOnLayerId = (layerId: number): boolean => {
+    console.log("test");
+    const foundLayer = layers?.find((l) => l.id == layerId);
+    if (foundLayer) {
+      console.log("found");
+      return foundLayer.visible;
+    } else {
+      console.log("notfound");
+      return false;
+    }
+  };
+
   // Initialize the grid when the component mounts
   useEffect(() => {
     initializeGrid();
   }, []);
+
   useEffect(() => {
     if (showGrid) {
       setBorder("0.5px dashed grey");
@@ -125,7 +150,8 @@ const SblockGrid = () => {
                                   position: absolute;
                                   top: 0;
                                   left: 0;
-                                  z-index: ${shape?.zPosition};
+                                  visibility: ${determineVisibilityBasedOnLayerId(shape.zPosition) ? "visible" : "hidden"};
+                                  z-index: ${determineZIndexBasedOnLayerId(shape?.zPosition)};
                                 `}
                               >
                                 <SBlock
