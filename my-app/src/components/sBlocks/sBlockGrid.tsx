@@ -112,20 +112,33 @@ const SblockGrid = () => {
                           padding: 0;
                           margin: 0;
                           border: ${border};
+                          position: relative;
                           /* box-sizing: border-box; */
                         `}
                       >
                         {cell?.length > 0 ? (
-                          <>
-                            <SBlock
-                              onClick={() => {}}
-                              type={cell[0].shape}
-                              rotate={cell[0].rotation as 0 | 90 | 180 | 270}
-                              colour={cell[0]?.colour}
-                              size={40} //TODO replace with cellsize
-                              sizeUnit={"px"} // TODO replace with cellsize
-                            />
-                          </>
+                          cell?.map((shape: SBlockType, index) => {
+                            return (
+                              <div
+                                key={"div_shape_" + shape.id}
+                                className={css`
+                                  position: absolute;
+                                  top: 0;
+                                  left: 0;
+                                  z-index: ${shape?.zPosition};
+                                `}
+                              >
+                                <SBlock
+                                  onClick={() => {}}
+                                  type={shape.shape}
+                                  rotate={shape.rotation as 0 | 90 | 180 | 270}
+                                  colour={shape?.colour}
+                                  size={40} //TODO replace with cellsize
+                                  sizeUnit={"px"} // TODO replace with cellsize
+                                />
+                              </div>
+                            );
+                          })
                         ) : (
                           <div
                             className={css`
