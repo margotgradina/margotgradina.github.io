@@ -314,7 +314,29 @@ export const useSBlocks = () => {
     }
   };
 
+  //returns a number for the z-index of a shape based on what layer it is in.
+  const determineZIndexBasedOnLayerId = (layerId: number): number => {
+    const foundLayer = layers?.find((l) => l.id == layerId);
+    if (foundLayer) {
+      return foundLayer.index * 5;
+    } else {
+      return 0;
+    }
+  };
+
+  //returns true of false based on the layer of the shape. if this has a prop visible = true, then return true. Else return false.
+  const determineVisibilityBasedOnLayerId = (layerId: number): boolean => {
+    const foundLayer = layers?.find((l) => l.id == layerId);
+    if (foundLayer) {
+      return foundLayer.visible;
+    } else {
+      return false;
+    }
+  };
+
   return {
+    determineZIndexBasedOnLayerId,
+    determineVisibilityBasedOnLayerId,
     gridData,
     setGridData,
     currentLayer,
