@@ -100,7 +100,7 @@ const SblockGrid = () => {
                   >
                     {y + 1}
                   </td>
-                  {row.map((cell: SBlockType, x: number) => {
+                  {row.map((cell: SBlockType[], x: number) => {
                     return (
                       <td
                         key={x}
@@ -114,13 +114,13 @@ const SblockGrid = () => {
                           /* box-sizing: border-box; */
                         `}
                       >
-                        {cell?.shape ? (
+                        {cell?.length > 0 ? (
                           <>
                             <SBlock
                               onClick={() => {}}
-                              type={cell.shape}
-                              rotate={cell.rotation as 0 | 90 | 180 | 270}
-                              colour={cell?.colour}
+                              type={cell[0].shape}
+                              rotate={cell[0].rotation as 0 | 90 | 180 | 270}
+                              colour={cell[0]?.colour}
                               size={40} //TODO replace with cellsize
                               sizeUnit={"px"} // TODO replace with cellsize
                             />

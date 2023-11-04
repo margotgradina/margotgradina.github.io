@@ -81,50 +81,100 @@ export const useSBlocks = () => {
   };
 
   // Handle cell click
-  const handleCellClick = (x: number, y: number) => {
-    if (currentShape === "EMPTY") {
-      const newBlock: SBlockType = {
-        id: x + "_" + y + "_" + currentLayer, // Replace with your unique ID generation logic
-        xPosition: x,
-        yPosition: y,
-        zPosition: currentLayer.id,
-        width: 1,
-        height: 1,
-        layer: currentLayer.id,
-        colour: "transparent", // Set the desired color //TODO REPLACE WITH HEX WHEN LAYERS ARE BEING IMPLEMENTED
-        shape: "FULL",
-        rotation: 0,
-      };
-      // console.log(newBlock);
-      // Update the gridData with the new sBlock
-      const updatedGrid = [...gridData];
-      updatedGrid[y][x] = newBlock;
+  // const handleCellClick = (x: number, y: number) => {
+  //   console.log(gridData);
+  //   const updatedGrid = [...gridData];
 
-      // Set the updated grid data
-      setGridData(updatedGrid);
+  //   if (currentShape === "EMPTY") {
+  //     //== DELETE KNOP
+  //     const newBlock: SBlockType = {
+  //       id: x + "_" + y + "_" + currentLayer, // Replace with your unique ID generation logic
+  //       xPosition: x,
+  //       yPosition: y,
+  //       zPosition: currentLayer.id,
+  //       width: 1,
+  //       height: 1,
+  //       layer: currentLayer.id,
+  //       colour: "transparent", // Set the desired color //TODO REPLACE WITH HEX WHEN LAYERS ARE BEING IMPLEMENTED
+  //       shape: "FULL",
+  //       rotation: 0,
+  //     };
+
+  //     // Update the gridData with the new sBlock
+  //     updatedGrid[y][x] = newBlock;
+  //   } else {
+  //     // if (!gridData[y][x]) {
+  //     // You can create a new sBlock here, for example, using a function to generate a unique ID
+  //     const newBlock: SBlockType = {
+  //       id: x + "_" + y + "_" + currentLayer, // Replace with your unique ID generation logic
+  //       xPosition: x,
+  //       yPosition: y,
+  //       zPosition: currentLayer.id,
+  //       width: 1,
+  //       height: 1,
+  //       layer: currentLayer.id,
+  //       colour: typeof currentColour == "string" ? currentColour : currentColour?.hex, // Set the desired color //TODO REPLACE WITH HEX WHEN LAYERS ARE BEING IMPLEMENTED
+  //       shape: currentShape as string,
+  //       rotation: currentRotation,
+  //     };
+  //     // console.log(newBlock);
+  //     // Update the gridData with the new sBlock
+  //     updatedGrid[y][x] = newBlock;
+  //   }
+
+  //   // Set the updated grid data
+  //   setGridData(updatedGrid);
+  // };
+
+  // Handle cell click
+  const handleCellClick = (x: number, y: number) => {
+    console.log(gridData);
+    const updatedGrid = [...gridData];
+
+    if (currentShape === "EMPTY") {
+      //== DELETE KNOP
+      const newBlock: SBlockType[] = [
+        {
+          id: x + "_" + y + "_" + currentLayer, // Replace with your unique ID generation logic
+          xPosition: x,
+          yPosition: y,
+          zPosition: currentLayer.id,
+          width: 1,
+          height: 1,
+          layer: currentLayer.id,
+          colour: "transparent", // Set the desired color //TODO REPLACE WITH HEX WHEN LAYERS ARE BEING IMPLEMENTED
+          shape: "FULL",
+          rotation: 0,
+        },
+      ];
+
+      // Update the gridData with the new sBlock
+      updatedGrid[y][x] = newBlock;
     } else {
       // if (!gridData[y][x]) {
       // You can create a new sBlock here, for example, using a function to generate a unique ID
-      const newBlock: SBlockType = {
-        id: x + "_" + y + "_" + currentLayer, // Replace with your unique ID generation logic
-        xPosition: x,
-        yPosition: y,
-        zPosition: currentLayer.id,
-        width: 1,
-        height: 1,
-        layer: currentLayer.id,
-        colour: typeof currentColour == "string" ? currentColour : currentColour?.hex, // Set the desired color //TODO REPLACE WITH HEX WHEN LAYERS ARE BEING IMPLEMENTED
-        shape: currentShape as string,
-        rotation: currentRotation,
-      };
+      const newBlock: SBlockType[] = [
+        {
+          id: x + "_" + y + "_" + currentLayer, // Replace with your unique ID generation logic
+          xPosition: x,
+          yPosition: y,
+          zPosition: currentLayer.id,
+          width: 1,
+          height: 1,
+          layer: currentLayer.id,
+          colour: typeof currentColour == "string" ? currentColour : currentColour?.hex, // Set the desired color //TODO REPLACE WITH HEX WHEN LAYERS ARE BEING IMPLEMENTED
+          shape: currentShape as string,
+          rotation: currentRotation,
+        },
+      ];
+
       // console.log(newBlock);
       // Update the gridData with the new sBlock
-      const updatedGrid = [...gridData];
       updatedGrid[y][x] = newBlock;
-
-      // Set the updated grid data
-      setGridData(updatedGrid);
     }
+
+    // Set the updated grid data
+    setGridData(updatedGrid);
   };
 
   const handleDownload = async (type: "PNG" | "JPG") => {
