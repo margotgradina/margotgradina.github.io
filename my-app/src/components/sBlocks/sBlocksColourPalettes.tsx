@@ -53,6 +53,7 @@ export const SBlocksColourPalettes = () => {
               <div
                 onClick={() => {
                   handleSetColourPaletteArray(palette.colours);
+                  setShowPaletteTemplates(false);
                 }}
                 className={css`
                   display: flex;

@@ -94,6 +94,7 @@ const SBlockLayers = () => {
 
   return (
     <div
+      key={"sBlock_layers_block"}
       className={css`
         display: flex;
         flex-direction: column;
@@ -128,6 +129,7 @@ const SBlockLayers = () => {
           Layers
         </label>
         <div
+          key={"sBlock_layers_scroll"}
           className={css`
             width: 100%;
             height: 10vh;
@@ -152,7 +154,7 @@ const SBlockLayers = () => {
             layers?.map((layer, index) => {
               return (
                 <div
-                  key={"div_" + layer.id}
+                  key={"div_layer" + index}
                   className={css`
                     display: flex;
                     flex-direction: row;
