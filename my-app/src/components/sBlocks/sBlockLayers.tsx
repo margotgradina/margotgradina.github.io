@@ -152,6 +152,7 @@ const SBlockLayers = () => {
             layers?.map((layer, index) => {
               return (
                 <div
+                  key={"div_" + layer.id}
                   className={css`
                     display: flex;
                     flex-direction: row;
@@ -173,6 +174,7 @@ const SBlockLayers = () => {
                   {changeName == layer.id ? (
                     <>
                       <input
+                        key={"nampeinput_" + layer.id}
                         className={css`
                           width: 99%;
                         `}
@@ -183,6 +185,7 @@ const SBlockLayers = () => {
                     </>
                   ) : (
                     <label
+                      key={"label_" + layer.id}
                       className={css`
                         width: 99%;
                       `}

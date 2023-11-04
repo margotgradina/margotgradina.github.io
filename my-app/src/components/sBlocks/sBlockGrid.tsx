@@ -6,12 +6,25 @@ import {SBlockType} from "./sBlockTypes";
 import SBlock from "./sBlock";
 
 const SblockGrid = () => {
-  const {gridData, numCols, cellSize, border, handleCellClick, initializeGrid, showGrid, setBorder} = useSBlocks();
+  const {
+    gridData,
+    numCols,
+    cellSize,
+    border,
+    handleCellClick,
+    initializeGrid,
+    showGrid,
+    setBorder,
+    layers,
+    determineZIndexBasedOnLayerId,
+    determineVisibilityBasedOnLayerId,
+  } = useSBlocks();
 
   // Initialize the grid when the component mounts
   useEffect(() => {
     initializeGrid();
   }, []);
+
   useEffect(() => {
     if (showGrid) {
       setBorder("0.5px dashed grey");
@@ -100,7 +113,7 @@ const SblockGrid = () => {
                   >
                     {y + 1}
                   </td>
-                  {row.map((cell: SBlockType, x: number) => {
+                  {row.map((cell: SBlockType[], x: number) => {
                     return (
                       <td
                         key={x}
@@ -111,20 +124,34 @@ const SblockGrid = () => {
                           padding: 0;
                           margin: 0;
                           border: ${border};
+                          position: relative;
                           /* box-sizing: border-box; */
                         `}
                       >
-                        {cell?.shape ? (
-                          <>
-                            <SBlock
-                              onClick={() => {}}
-                              type={cell.shape}
-                              rotate={cell.rotation as 0 | 90 | 180 | 270}
-                              colour={cell?.colour}
-                              size={40} //TODO replace with cellsize
-                              sizeUnit={"px"} // TODO replace with cellsize
-                            />
-                          </>
+                        {cell?.length > 0 ? (
+                          cell?.map((shape: SBlockType, index) => {
+                            return (
+                              <div
+                                key={"div_shape_" + shape.id}
+                                className={css`
+                                  position: absolute;
+                                  top: 0;
+                                  left: 0;
+                                  visibility: ${determineVisibilityBasedOnLayerId(shape.zPosition) ? "visible" : "hidden"};
+                                  z-index: ${determineZIndexBasedOnLayerId(shape?.zPosition)};
+                                `}
+                              >
+                                <SBlock
+                                  onClick={() => {}}
+                                  type={shape.shape}
+                                  rotate={shape.rotation as 0 | 90 | 180 | 270}
+                                  colour={shape?.colour}
+                                  size={40} //TODO replace with cellsize
+                                  sizeUnit={"px"} // TODO replace with cellsize
+                                />
+                              </div>
+                            );
+                          })
                         ) : (
                           <div
                             className={css`
