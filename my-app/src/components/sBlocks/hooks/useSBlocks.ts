@@ -128,14 +128,58 @@ export const useSBlocks = () => {
 
   // Handle cell click
   const handleCellClick = (x: number, y: number) => {
-    console.log(gridData);
+    // console.log(gridData);
     const updatedGrid = [...gridData];
 
-    if (currentShape === "EMPTY") {
-      //== DELETE KNOP
-      const newBlock: SBlockType[] = [
-        {
-          id: x + "_" + y + "_" + currentLayer, // Replace with your unique ID generation logic
+    //CHECK IF THERE IS ALREADY ANYTHING IN THAT CELL, IF NOT, THEN ADD A NEW ARRAY
+    if (!gridData[y][x]) {
+      if (currentShape === "EMPTY") {
+        //DO NOTHING - there is no shapes yet and therfore nothing to delete
+        // //== DELETE KNOP
+        // const newBlock: SBlockType = {
+        //     id: x + "_" + y + "_" + currentLayer, // Replace with your unique ID generation logic
+        //     xPosition: x,
+        //     yPosition: y,
+        //     zPosition: currentLayer.id,
+        //     width: 1,
+        //     height: 1,
+        //     layer: currentLayer.id,
+        //     colour: "transparent", // Set the desired color //TODO REPLACE WITH HEX WHEN LAYERS ARE BEING IMPLEMENTED
+        //     shape: "FULL",
+        //     rotation: 0,
+        //   },
+        // ;
+        // // Update the gridData with the new sBlock in an array
+        // updatedGrid[y][x] = [newBlock];
+      } else {
+        // You can create a new sBlock here, for example, using a function to generate a unique ID
+        const newBlock: SBlockType = {
+          id: x + "_" + y + "_" + currentLayer.id, // Replace with your unique ID generation logic
+          xPosition: x,
+          yPosition: y,
+          zPosition: currentLayer?.id,
+          width: 1,
+          height: 1,
+          layer: currentLayer?.id,
+          colour: typeof currentColour == "string" ? currentColour : currentColour?.hex, // Set the desired color //TODO REPLACE WITH HEX WHEN LAYERS ARE BEING IMPLEMENTED
+          shape: currentShape as string,
+          rotation: currentRotation,
+        };
+        // Update the gridData with the new sBlock in an array
+        updatedGrid[y][x] = [newBlock];
+      }
+
+      // Set the updated grid data
+      setGridData(updatedGrid);
+    } else {
+      //THERE IS ALREADY SHAPES IN THE CELL. If there is already a shape with this layer.id, then replace, else, add.
+      const newArray: SBlockType[] = [...gridData[y][x]];
+      let newBlock: SBlockType;
+
+      //The to add shape
+      if (currentShape == "EMPTY") {
+        newBlock = {
+          id: x + "_" + y + "_" + currentLayer.id, // Replace with your unique ID generation logic
           xPosition: x,
           yPosition: y,
           zPosition: currentLayer.id,
@@ -145,36 +189,37 @@ export const useSBlocks = () => {
           colour: "transparent", // Set the desired color //TODO REPLACE WITH HEX WHEN LAYERS ARE BEING IMPLEMENTED
           shape: "FULL",
           rotation: 0,
-        },
-      ];
-
-      // Update the gridData with the new sBlock
-      updatedGrid[y][x] = newBlock;
-    } else {
-      // if (!gridData[y][x]) {
-      // You can create a new sBlock here, for example, using a function to generate a unique ID
-      const newBlock: SBlockType[] = [
-        {
-          id: x + "_" + y + "_" + currentLayer, // Replace with your unique ID generation logic
+        };
+      } else {
+        newBlock = {
+          id: x + "_" + y + "_" + currentLayer.id, // Replace with your unique ID generation logic
           xPosition: x,
           yPosition: y,
-          zPosition: currentLayer.id,
+          zPosition: currentLayer?.id,
           width: 1,
           height: 1,
-          layer: currentLayer.id,
+          layer: currentLayer?.id,
           colour: typeof currentColour == "string" ? currentColour : currentColour?.hex, // Set the desired color //TODO REPLACE WITH HEX WHEN LAYERS ARE BEING IMPLEMENTED
           shape: currentShape as string,
           rotation: currentRotation,
-        },
-      ];
+        };
+      }
 
-      // console.log(newBlock);
-      // Update the gridData with the new sBlock
-      updatedGrid[y][x] = newBlock;
+      // const existingShapeOnLayer : SBlockType | undefined = newArray?.find((shape: SBlockType) => shape.zPosition == currentLayer.id)
+      const index: number = newArray.findIndex((shape: SBlockType) => {
+        //TODO DOES NOT YET WORK!!!
+        return shape.zPosition == currentLayer.id;
+      });
+      console.log(index);
+      //check if there is already a shape on the current layer, if so: replace. If not, add.
+      if (index >= 0) {
+        newArray.splice(index, 1, newBlock);
+      } else {
+        newArray.push(newBlock);
+      }
+      updatedGrid[y][x] = newArray;
+      setGridData(updatedGrid);
     }
-
-    // Set the updated grid data
-    setGridData(updatedGrid);
   };
 
   const handleDownload = async (type: "PNG" | "JPG") => {

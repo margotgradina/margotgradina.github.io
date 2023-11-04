@@ -8,6 +8,7 @@ import SBlock from "./sBlock";
 const SblockGrid = () => {
   const {gridData, numCols, cellSize, border, handleCellClick, initializeGrid, showGrid, setBorder} = useSBlocks();
 
+  console.log(gridData);
   // Initialize the grid when the component mounts
   useEffect(() => {
     initializeGrid();
