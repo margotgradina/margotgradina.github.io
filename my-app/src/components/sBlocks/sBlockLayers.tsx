@@ -1,13 +1,13 @@
 import {css} from "@emotion/css";
 import {useSBlocks} from "./hooks/useSBlocks";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faCancel, faEye, faEyeSlash, faMinus, faPlus, faSave} from "@fortawesome/free-solid-svg-icons";
+import {faCancel, faEye, faEyeSlash, faLock, faLockOpen, faMinus, faPlus, faSave} from "@fortawesome/free-solid-svg-icons";
 import {SBlockLayer} from "./sBlockTypes";
 import {getRandomNumber} from "../../helpers/GetRandomNumber";
 import {useEffect, useState} from "react";
 
 const SBlockLayers = () => {
-  const {layers, setLayers, currentLayer, setCurrentLayer} = useSBlocks();
+  const {layers, setLayers, currentLayer, setCurrentLayer, setShowSnackBar} = useSBlocks();
   const [changeName, setChangeName] = useState<number | null>(null);
   const [nameInput, setNameInput] = useState<string>("");
 
@@ -43,36 +43,46 @@ const SBlockLayers = () => {
 
   const handleDeleteLayer = () => {
     if (currentLayer.deletable) {
-      // Find the index of the currentLayer in the layers array
-      const currentIndex = layers.findIndex((layer) => layer.id === currentLayer.id);
+      if (layers.length >= 2) {
+        // Find the index of the currentLayer in the layers array
+        const currentIndex = layers.findIndex((layer) => layer.id === currentLayer.id);
 
-      if (currentIndex !== -1) {
-        // Create a new layers array
-        const newLayers = layers
-          .filter((layer) => layer.id !== currentLayer.id)
-          .map((layer) => {
-            if (layer.index > currentIndex) {
-              // Decrement the index of layers above the currentLayer
-              return {...layer, index: layer.index - 1};
-            } else {
-              return layer;
-            }
-          });
+        if (currentIndex !== -1) {
+          // Create a new layers array
+          const newLayers = layers
+            .filter((layer) => layer.id !== currentLayer.id)
+            .map((layer) => {
+              if (layer.index > currentIndex) {
+                // Decrement the index of layers above the currentLayer
+                return {...layer, index: layer.index - 1};
+              } else {
+                return layer;
+              }
+            });
 
-        // Set the currentLayer to the layer below
-        const newCurrentLayer = newLayers[currentIndex - 1] || null;
+          // Set the currentLayer to the layer below
+          const newCurrentLayer = newLayers[currentIndex - 1] || null;
 
-        // Update the state with the new layers array and currentLayer
-        console.log(newLayers);
-        setLayers(newLayers);
-        setCurrentLayer(newCurrentLayer);
+          // Update the state with the new layers array and currentLayer
+          console.log(newLayers);
+          setLayers(newLayers);
+          setCurrentLayer(newCurrentLayer);
+        }
       }
+    } else {
+      setShowSnackBar(true);
     }
   };
 
   const handleSetLayerVisibility = (layer: SBlockLayer, index: number) => {
     const updatedLayers = [...layers];
     updatedLayers[index].visible = !updatedLayers[index].visible;
+    setLayers(updatedLayers);
+  };
+
+  const handleSetLayerDeletability = (layer: SBlockLayer, index: number) => {
+    const updatedLayers = [...layers];
+    updatedLayers[index].deletable = !updatedLayers[index].deletable;
     setLayers(updatedLayers);
   };
 
@@ -186,18 +196,27 @@ const SBlockLayers = () => {
                       <FontAwesomeIcon icon={faCancel} onClick={() => handleCancelName()} />
                     </>
                   ) : (
-                    <label
-                      key={"label_" + layer.id}
-                      className={css`
-                        width: 99%;
-                      `}
-                      onDoubleClick={() => {
-                        setChangeName(layer.id);
-                      }}
-                      onClick={() => setCurrentLayer(layer)}
-                    >
-                      {layer.name}
-                    </label>
+                    <>
+                      <label
+                        key={"label_" + layer.id}
+                        className={css`
+                          width: 99%;
+                        `}
+                        onDoubleClick={() => {
+                          setChangeName(layer.id);
+                        }}
+                        onClick={() => setCurrentLayer(layer)}
+                      >
+                        {layer.name}
+                      </label>
+                      <FontAwesomeIcon
+                        icon={layer.deletable ? faLockOpen : faLock}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleSetLayerDeletability(layer, index);
+                        }}
+                      />
+                    </>
                   )}
                 </div>
               );

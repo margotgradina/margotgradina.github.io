@@ -39,6 +39,8 @@ export const useSBlocks = () => {
     rotationArray,
     layers,
     setLayers,
+    showSnackBar,
+    setShowSnackBar,
   } = useSBlocksData();
 
   //Array used to map through all shapes in the menu.
@@ -81,52 +83,6 @@ export const useSBlocks = () => {
   };
 
   // Handle cell click
-  // const handleCellClick = (x: number, y: number) => {
-  //   console.log(gridData);
-  //   const updatedGrid = [...gridData];
-
-  //   if (currentShape === "EMPTY") {
-  //     //== DELETE KNOP
-  //     const newBlock: SBlockType = {
-  //       id: x + "_" + y + "_" + currentLayer, // Replace with your unique ID generation logic
-  //       xPosition: x,
-  //       yPosition: y,
-  //       zPosition: currentLayer.id,
-  //       width: 1,
-  //       height: 1,
-  //       layer: currentLayer.id,
-  //       colour: "transparent", // Set the desired color //TODO REPLACE WITH HEX WHEN LAYERS ARE BEING IMPLEMENTED
-  //       shape: "FULL",
-  //       rotation: 0,
-  //     };
-
-  //     // Update the gridData with the new sBlock
-  //     updatedGrid[y][x] = newBlock;
-  //   } else {
-  //     // if (!gridData[y][x]) {
-  //     // You can create a new sBlock here, for example, using a function to generate a unique ID
-  //     const newBlock: SBlockType = {
-  //       id: x + "_" + y + "_" + currentLayer, // Replace with your unique ID generation logic
-  //       xPosition: x,
-  //       yPosition: y,
-  //       zPosition: currentLayer.id,
-  //       width: 1,
-  //       height: 1,
-  //       layer: currentLayer.id,
-  //       colour: typeof currentColour == "string" ? currentColour : currentColour?.hex, // Set the desired color //TODO REPLACE WITH HEX WHEN LAYERS ARE BEING IMPLEMENTED
-  //       shape: currentShape as string,
-  //       rotation: currentRotation,
-  //     };
-  //     // console.log(newBlock);
-  //     // Update the gridData with the new sBlock
-  //     updatedGrid[y][x] = newBlock;
-  //   }
-
-  //   // Set the updated grid data
-  //   setGridData(updatedGrid);
-  // };
-
-  // Handle cell click
   const handleCellClick = (x: number, y: number) => {
     // console.log(gridData);
     const updatedGrid = [...gridData];
@@ -135,22 +91,6 @@ export const useSBlocks = () => {
     if (!gridData[y][x]) {
       if (currentShape === "EMPTY") {
         //DO NOTHING - there is no shapes yet and therfore nothing to delete
-        // //== DELETE KNOP
-        // const newBlock: SBlockType = {
-        //     id: x + "_" + y + "_" + currentLayer, // Replace with your unique ID generation logic
-        //     xPosition: x,
-        //     yPosition: y,
-        //     zPosition: currentLayer.id,
-        //     width: 1,
-        //     height: 1,
-        //     layer: currentLayer.id,
-        //     colour: "transparent", // Set the desired color //TODO REPLACE WITH HEX WHEN LAYERS ARE BEING IMPLEMENTED
-        //     shape: "FULL",
-        //     rotation: 0,
-        //   },
-        // ;
-        // // Update the gridData with the new sBlock in an array
-        // updatedGrid[y][x] = [newBlock];
       } else {
         // You can create a new sBlock here, for example, using a function to generate a unique ID
         const newBlock: SBlockType = {
@@ -222,6 +162,7 @@ export const useSBlocks = () => {
     }
   };
 
+  //Download a jpg of the current grid
   const handleDownload = async (type: "PNG" | "JPG") => {
     let data;
 
@@ -267,6 +208,7 @@ export const useSBlocks = () => {
     }
   };
 
+  //sets the current rotation. Moves through the array of rotations.
   const handleClickRotation = () => {
     const curr = currentRotation;
     const index = rotationArray?.findIndex((obj) => obj === curr);
@@ -281,6 +223,7 @@ export const useSBlocks = () => {
     setCurrentRotation(newRotation as 0 | 90 | 180 | 270);
   };
 
+  //when clicking a colour palette, it sets it as the new colour palette array.
   const handleSetColourPaletteArray = (newColourPalette?: any[]) => {
     if (newColourPalette) {
       setColourPalette(newColourPalette);
@@ -289,6 +232,7 @@ export const useSBlocks = () => {
     }
   };
 
+  //upon opening the colour palettes menu, it fetches the colour palettes from the json in public folder
   const fetchSBlocksColourTemplates = () => {
     if (paletteArray?.length <= 0) {
       fetch("/data/sBlocksColourTemplates.json", {
@@ -376,5 +320,7 @@ export const useSBlocks = () => {
     fetchSBlocksColourTemplates,
     layers,
     setLayers,
+    showSnackBar,
+    setShowSnackBar,
   };
 };

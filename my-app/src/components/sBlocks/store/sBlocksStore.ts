@@ -46,6 +46,7 @@ type State = {
   paletteArray: {name: string; colours: Colour[]}[];
   rotationArray: number[];
   layers: SBlockLayer[];
+  showSnackBar: boolean;
   //   shapeArray: {shape: string; function: Function}[];
 };
 
@@ -70,6 +71,7 @@ const initialState: State = {
   paletteArray: [],
   rotationArray: [0, 90, 180, 270],
   layers: [{id: 1, name: "layer 1", index: 0, visible: true, deletable: false}],
+  showSnackBar: false,
 };
 
 type Actions = {
@@ -87,6 +89,7 @@ type Actions = {
   setShowColourPicker: (bool: boolean) => void;
   setShowGrid: (bool: boolean) => void;
   setShowPaletteTemplates: (bool: boolean) => void;
+  setShowSnackBar: (bool: boolean) => void;
 
   setColourPalette: (arr: any[]) => void;
   setSBlocks: (arr: SBlockType[]) => void;
@@ -111,6 +114,7 @@ export const useSBlocksStore = create<State & Actions>((set) => ({
   setShowColourPicker: (bool: boolean) => set(() => ({showColourPicker: bool})),
   setShowGrid: (bool: boolean) => set(() => ({showGrid: bool})),
   setShowPaletteTemplates: (bool: boolean) => set(() => ({showPaletteTemplates: bool})),
+  setShowSnackBar: (bool: boolean) => set(() => ({showSnackBar: bool})),
 
   setColourPalette: (arr: any[]) => set(() => ({colourPalette: arr})),
   setSBlocks: (arr: SBlockType[]) => set(() => ({sBlocks: arr})),

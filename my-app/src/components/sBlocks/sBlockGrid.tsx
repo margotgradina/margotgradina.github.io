@@ -1,9 +1,10 @@
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 import {css} from "@emotion/css";
 import {useSBlocks} from "./hooks/useSBlocks";
 import SBlockMenu from "./sBlockMenu";
 import {SBlockType} from "./sBlockTypes";
 import SBlock from "./sBlock";
+// import Toast from "../general/Toast/Toast";
 
 const SblockGrid = () => {
   const {
@@ -18,6 +19,8 @@ const SblockGrid = () => {
     layers,
     determineZIndexBasedOnLayerId,
     determineVisibilityBasedOnLayerId,
+    showSnackBar,
+    setShowSnackBar,
   } = useSBlocks();
 
   // Initialize the grid when the component mounts
@@ -172,6 +175,21 @@ const SblockGrid = () => {
       </div>
       {/* - - - - MENU - - - - -*/}
       <SBlockMenu />
+      {/* <Toast type={"Info"} autohideDuration={6000} message={"Cannot delete"} onClose={() => setShowSnackBar(false)} show={showSnackBar} /> */}
+      {/* <div
+        className={css`
+          z-index: 10000000;
+        `}
+      >
+        <Snackbar
+          anchorOrigin={{vertical, horizontal}}
+          open={showSnackBar}
+          autoHideDuration={6000}
+          onClose={() => setShowSnackBar(false)}
+          message="Note archived"
+          action={null}
+        />
+      </div> */}
     </div>
   );
 };

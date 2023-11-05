@@ -35,6 +35,8 @@ export const useSBlocksData = () => {
     rotationArray,
     layers,
     setLayers,
+    showSnackBar,
+    setShowSnackBar,
   } = useSBlocksStore((state) => ({
     gridData: state.gridData,
     setGridData: state.setGridData,
@@ -69,6 +71,8 @@ export const useSBlocksData = () => {
     rotationArray: state.rotationArray,
     layers: state.layers,
     setLayers: state.setLayers,
+    showSnackBar: state.showSnackBar,
+    setShowSnackBar: state.setShowSnackBar,
   }));
 
   return {
@@ -105,5 +109,7 @@ export const useSBlocksData = () => {
     rotationArray,
     layers,
     setLayers,
+    showSnackBar,
+    setShowSnackBar,
   };
 };
