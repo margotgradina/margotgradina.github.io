@@ -153,7 +153,11 @@ const Projects = () => {
                       {projects[currentProject]?.link}
                     </p>
                   ) : (
-                    projects[currentProject]?.url && <a href={projects[currentProject]?.url}>{projects[currentProject]?.link}</a>
+                    projects[currentProject]?.url && (
+                      <a href={projects[currentProject]?.url} target="_blank">
+                        {projects[currentProject]?.link}
+                      </a>
+                    )
                   )}
                 </div>
               </div>

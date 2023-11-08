@@ -3,8 +3,10 @@
     {
       "title": "Llamabank",
       "image": "/images/Llamabank.png",
-      "text": "Llamabank was the final project of my Make IT Work course program.\n\nIn a team of 4, we developed this fullstack online banking system within 5 weeks. It included a registeringsystem, the possibility to transfer money to your own accounts and to one another, as well as a pin console to make payments to an imaginary shop.",
-      "tools": ["CSS", "HTML", "Javascript", "Java", "Spring boot", "MySQL", "Git"]
+      "text": "Llamabank was the final project of my Make IT Work course program.\n\nIn a team of 4, we developed this fullstack online banking system within 5 weeks. It included a fully functioning database, registering system, overviews of bankaccounts, the possibility to transfer money to your own accounts and to one another, as well as a pin console to make payments to an imaginary shop. We designed the full application from scratcg, from ERD to functioning app.",
+      "tools": ["CSS", "HTML", "Javascript", "Java", "Spring boot", "MySQL", "Git"],
+      "url": "https://github.com/margotgradina/Llamabank",
+      "link": "Check the code on Github"
     },
     {
       "title": "T-portal",
@@ -15,12 +17,12 @@
       "link": "Website T-Box"
     },
     {
-      "title": "sBlocks",
+      "title": "QOOOB",
       "image": "/images/sBlocks.png",
-      "text": "Within this compact program, I have crafted a user-friendly environment where individuals can unleash their creativity to design quilts, stained glass art, or sewing projects. This is currently Work In Progress.",
+      "text": "I created a user-friendly environment where people can unleash their creativity to design quilts, stained glass art or patterns by organising geometric shapes in a grid. It then allows the user to download their creation in JPG format.",
       "tools": ["CSS", "React", "Typescript"],
-      "url": "/projects/sBlocks",
-      "link": "Try sBlocks"
+      "url": "https://qooob.netlify.app",
+      "link": "Try QOOOB"
     }
   ]
 }
