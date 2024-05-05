@@ -1,6 +1,6 @@
 import {css} from "@emotion/css";
-import SblockGrid from "../../sBlocks/sBlockGrid";
-import BasicButton from "../../general/BasicButton";
+import SblockGrid from "./sBlockGrid";
+import BasicButton from "../general/BasicButton";
 import {useNavigate} from "react-router-dom";
 
 const SBlocksPage = () => {

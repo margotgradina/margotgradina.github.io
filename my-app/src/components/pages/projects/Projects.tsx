@@ -109,8 +109,8 @@ const Projects = () => {
                   font-family: "Raleway";
                   font-weight: 500;
                   font-size: calc(0.7rem + 0.5vw);
-                  padding-left: 10px;
-                  padding-top: 10px;
+                  padding-left: 1rem;
+                  padding-top: 1rem;
                 `}
               >
                 {projects[currentProject].title}
@@ -133,7 +133,7 @@ const Projects = () => {
               >
                 <div
                   className={css`
-                    padding: 15px;
+                    padding: 1rem;
                     font-family: "Raleway";
                     font-weight: 400;
                     font-size: calc(0.5rem + 0.5vw);

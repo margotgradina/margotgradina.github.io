@@ -34,6 +34,7 @@ const About = () => {
             border-radius: 30vw;
           `}
         />
+
         <div
           className={css`
             padding: 0px 20px 0px 0px;
