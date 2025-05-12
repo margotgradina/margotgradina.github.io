@@ -23,6 +23,8 @@ const App = () => {
 
   //these are the observers for the fading effects for header +sections
   useEffect(() => {
+    document.title = "Margot Gradina";
+
     const sections = document.querySelectorAll("section");
 
     const observerCurrent = new IntersectionObserver(
@@ -44,7 +46,7 @@ const App = () => {
           }
         });
       },
-      {threshold: 0.1} // 60% visible = active
+      {threshold: 0.2} // 10% visible = active
     );
 
     sections.forEach((section) => {
@@ -55,10 +57,6 @@ const App = () => {
       observerCurrent.disconnect();
       observerUpcoming.disconnect();
     };
-  }, []);
-
-  useEffect(() => {
-    document.title = "Margot Gradina";
   }, []);
 
   const scrollToSection = (ref: React.RefObject<HTMLDivElement>) => {
@@ -87,7 +85,7 @@ const App = () => {
           z-index: 10;
         `}
       >
-        <Header onClick={() => scrollToSection(homeRef)} currentSection={currentSection} />
+        <Header onClick={() => scrollToSection(homeRef)} currentSection={currentSection} upcomingSection={upcomingSection} />
       </div>
 
       <div
@@ -105,9 +103,8 @@ const App = () => {
           <HomeSection />
         </div>
         <div ref={aboutRef}>
-          {/* <About /> */}
-          <SectionWrapper id="about" title="test" upcomingSection={upcomingSection} currentSection={currentSection}>
-            <></>
+          <SectionWrapper id="about" title="About me" upcomingSection={upcomingSection} currentSection={currentSection}>
+            <About />
           </SectionWrapper>
         </div>
         <div ref={projectsRef}>

@@ -7,6 +7,7 @@ import {useEffect, useState} from "react";
 interface headerProps {
   onClick: () => void;
   currentSection: string;
+  upcomingSection: string;
 }
 
 const Header = (props: headerProps) => {
@@ -59,7 +60,7 @@ const Header = (props: headerProps) => {
         flex-direction: row;
         width: 100vw;
         transition: opacity 1s;
-        opacity: ${props.currentSection == "home" ? 1 : 0};
+        opacity: ${props.currentSection == "home" && props.upcomingSection == "home" ? 1 : 0};
         :hover {
           opacity: 1;
           transition: opacity 2s;

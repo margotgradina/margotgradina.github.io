@@ -16,23 +16,22 @@ const SectionWrapper = ({
 }) => {
   useEffect(() => {}, [upcomingSection]);
 
-  console.log(upcomingSection, currentSection);
-
   return (
     <section
       id={id}
       className={css`
-        height: 100vh; /* Full height of the viewport */
-        width: 100vw; /* Full width of the viewport */
+        /* height: 100vh; */
+
+        width: 100vw;
         display: flex;
         flex-direction: column;
-        justify-content: center; /* Center content vertically */
-        align-items: center; /* Center content horizontally */
-        background-color: #f0f0f0; /* Light background color */
-        padding: 2rem; /* Padding around the section */
+        justify-content: center;
+        align-items: center;
+        /* background-color: #434343; */
+        padding: 0 3rem 2rem 2rem;
         box-sizing: border-box;
-        overflow-y: auto; /* Allow scrolling if content overflows */
-        transition: opacity 1.5s ease;
+
+        transition: opacity 1.8s ease;
         opacity: ${upcomingSection == id || currentSection == id ? 1 : 0}; /* Fade-in/out based on active section */
         visibility: ${upcomingSection == id || currentSection == id ? "visible" : "hidden"}; /* Hide section when not ac*/
       `}
@@ -41,14 +40,20 @@ const SectionWrapper = ({
         className={css`
           font-size: 2.5rem;
           margin-bottom: 1rem;
+          /* background-color: yellow; */
+          height: 20%;
+          align-content: center;
         `}
       >
         {title}
       </h2>
       <div
         className={css`
-          width: 100%;
+          /* width: 100%; */
           height: 100%;
+          margin-right: 15rem;
+          margin-left: 15rem;
+          /* background-color: aqua; */
           overflow-y: auto;
         `}
       >

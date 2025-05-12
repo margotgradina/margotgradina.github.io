@@ -13,7 +13,6 @@ const HomeSection = () => {
         min-height: 100vh;
         box-sizing: border-box;
         width: 100%;
-
         gap: 3rem;
 
         @media (max-width: 768px) {
@@ -51,7 +50,7 @@ const HomeSection = () => {
             margin: 0;
           `}
         >
-          I'm a Software Developer
+          I'm a Full-stack Software Developer.
         </h2>
         <p
           className={css`
