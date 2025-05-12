@@ -119,16 +119,17 @@ const App = () => {
         className={css`
           position: fixed;
           bottom: 1rem;
-          width: 15rem;
+          width: vw;
 
           right: 1rem;
           display: flex;
+          flex-direction: row;
           gap: 1rem;
           z-index: 10;
-          flex-wrap: wrap;
+          /* flex-wrap: wrap; */
 
           @media (max-width: 768px) {
-            flex-direction: column;
+            flex-direction: row;
             right: 0.5rem;
             bottom: 0.5rem;
           }

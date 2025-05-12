@@ -1,5 +1,6 @@
 import {useState} from "react";
 import {css} from "@emotion/css";
+import AlphabetIcon from "../alphabetIcons/AlphabetIcon";
 
 interface Project {
   title: string;
@@ -47,7 +48,7 @@ const Projects = () => {
       id="projects"
       className={css`
         width: 100%;
-        min-height: 100vh;
+        min-height: 80vh;
         padding: 4rem 2rem;
         box-sizing: border-box;
         background-color: #fff;
@@ -76,18 +77,14 @@ const Projects = () => {
           width: 100%;
         `}
       >
-        <button
-          onClick={handlePrev}
+        <div
+          onClick={() => handlePrev()}
           className={css`
-            font-size: 2rem;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 1rem;
+            transform: rotate(270deg);
           `}
         >
-          ‹
-        </button>
+          <AlphabetIcon letter={"M"} height={"1.5vw"} label={"arrow_left_projects"} />
+        </div>
 
         <div
           className={css`
@@ -138,19 +135,14 @@ const Projects = () => {
             More Info
           </button>
         </div>
-
-        <button
-          onClick={handleNext}
+        <div
+          onClick={() => handleNext()}
           className={css`
-            font-size: 2rem;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 1rem;
+            transform: rotate(90deg);
           `}
         >
-          ›
-        </button>
+          <AlphabetIcon letter={"M"} height={"1.5vw"} label={"arrow_left_projects"} />
+        </div>
       </div>
 
       {/* Modal */}
