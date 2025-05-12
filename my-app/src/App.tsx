@@ -1,128 +1,116 @@
-import {useEffect} from "react";
+import {useEffect, useRef, useState} from "react";
 import "./App.css";
-import {Routes, Route, useNavigate} from "react-router-dom";
-import About from "./components/pages/about/About";
-import Home from "./components/pages/Home";
-import Contact from "./components/pages/contact/Contact";
-import ThankYou from "./components/pages/contact/ThankYou";
 import {css} from "@emotion/css";
-import Header from "./components/general/Header";
 import MenuTab from "./components/general/MenuTab";
-import Projects from "./components/pages/projects/Projects";
-import SBlocksPage from "./components/sBlocks/SBlocksPage";
+import About from "./components/scrollsections/about";
+import Projects from "./components/scrollsections/projects";
+import Contact from "./components/scrollsections/contact";
+import HomeSection from "./components/scrollsections/home";
+import Header from "./components/general/Header_v2";
 
 const App = () => {
-  const navigate = useNavigate();
+  const homeRef = useRef<HTMLDivElement>(null);
+  const aboutRef = useRef<HTMLDivElement>(null);
+  const projectsRef = useRef<HTMLDivElement>(null);
+  const contactRef = useRef<HTMLDivElement>(null);
+  const [currentSection, setCurrentSection] = useState<string>("home");
+
+  useEffect(() => {
+    const sections = document.querySelectorAll("section");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setCurrentSection(entry.target.id);
+          }
+        });
+      },
+      {threshold: 0.6} // 60% visible = active
+    );
+
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     document.title = "Margot Gradina";
   }, []);
 
+  const scrollToSection = (ref: React.RefObject<HTMLDivElement>) => {
+    ref.current?.scrollIntoView({behavior: "smooth"});
+  };
+
   return (
-    <>
+    <div
+      className={css`
+        font-family: "Raleway", sans-serif;
+        height: 100vh;
+        width: 100vw;
+        overflow: hidden;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+      `}
+    >
+      <div
+        className={css`
+          position: fixed;
+          top: 0;
+          width: 100%;
+          z-index: 10;
+        `}
+      >
+        <Header onClick={() => scrollToSection(homeRef)} currentSection={currentSection} />
+      </div>
+
       <div
         className={css`
           display: flex;
-          font-family: "Raleway";
           flex-direction: column;
-          align-items: center;
+          overflow-y: auto;
+          scroll-behavior: smooth;
+          padding-top: 5vh;
           height: 100vh;
-          width: 100vw;
-          justify-content: center;
-          border: 0px solid yellow;
-          overflow-x: hidden;
-          overflow-y: hidden;
         `}
       >
-        <div
-          key="headerDiv"
-          className={css`
-            height: 5vh;
-            min-height: 4vh;
-            width: auto;
-            position: absolute;
-            top: 0;
-            left: 0;
-          `}
-        >
-          <Header onClick={() => navigate("/")} />
+        <div ref={homeRef}>
+          <HomeSection />
         </div>
-
-        <div
-          key="contentDiv"
-          className={css`
-            display: flex;
-            /* visibility: hidden; //TODO REMOVE */
-            flex: 1;
-            /* border: 1px dashed #7cc0a0; */
-            flex-direction: row;
-            align-items: flex-end;
-            justify-content: flex-end;
-            width: 100vw;
-            gap: 0.5rem;
-          `}
-        >
-          <div
-            key="contentBlock"
-            className={css`
-              display: flex;
-              /* border-right: 1px dashed #7cc0a0; */
-              height: 100%;
-              flex: 1;
-              overflow-y: auto;
-              ::-webkit-scrollbar {
-                width: 5px;
-              }
-
-              ::-webkit-scrollbar-thumb {
-                background-color: #7cc0a0;
-                border-radius: 20px;
-                border: 0px solid orange; /* creates padding around scroll thumb */
-              }
-            `}
-          >
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/projects" element={<Projects />} />
-              <Route path="/projects/sBlocks" element={<SBlocksPage />} />
-              <Route path="/thank-you" element={<ThankYou />} />
-            </Routes>
-          </div>
-          <div
-            className={css`
-              padding-bottom: 1rem;
-              padding-right: 1rem;
-              display: flex;
-              flex-direction: row;
-              align-items: flex-end;
-              gap: 1rem;
-            `}
-          >
-            <MenuTab
-              tabName="ABOUT"
-              onClick={() => {
-                navigate("/about");
-              }}
-            />
-
-            <MenuTab
-              tabName="PROJECTS"
-              onClick={() => {
-                navigate("/projects");
-              }}
-            />
-            <MenuTab
-              tabName="CONTACT"
-              onClick={() => {
-                navigate("/contact");
-              }}
-            />
-          </div>
+        <div ref={aboutRef}>
+          <About />
+        </div>
+        <div ref={projectsRef}>
+          <Projects />
+        </div>
+        <div ref={contactRef}>
+          <Contact />
         </div>
       </div>
-    </>
+
+      <div
+        className={css`
+          position: fixed;
+          bottom: 1rem;
+          right: 1rem;
+          display: flex;
+          gap: 1rem;
+          z-index: 10;
+          flex-wrap: wrap;
+
+          @media (max-width: 768px) {
+            flex-direction: column;
+            right: 0.5rem;
+            bottom: 0.5rem;
+          }
+        `}
+      >
+        <MenuTab tabName="HOME" onClick={() => scrollToSection(homeRef)} />
+        <MenuTab tabName="ABOUT" onClick={() => scrollToSection(aboutRef)} />
+        <MenuTab tabName="PROJECTS" onClick={() => scrollToSection(projectsRef)} />
+        <MenuTab tabName="CONTACT" onClick={() => scrollToSection(contactRef)} />
+      </div>
+    </div>
   );
 };
 
