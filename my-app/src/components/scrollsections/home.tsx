@@ -13,7 +13,7 @@ const HomeSection = () => {
         min-height: 100vh;
         box-sizing: border-box;
         width: 100%;
-        background-color: #ffffff;
+
         gap: 3rem;
 
         @media (max-width: 768px) {
@@ -29,17 +29,19 @@ const HomeSection = () => {
           display: flex;
           flex-direction: column;
           gap: 1rem;
+          padding: 2rem;
         `}
       >
         <h1
           className={css`
-            font-size: 2.5rem;
+            font-size: 3rem;
             font-weight: bold;
             margin: 0;
+
             color: #333;
           `}
         >
-          Margot Gradina
+          Hi, my name is Margot.
         </h1>
         <h2
           className={css`
@@ -49,7 +51,7 @@ const HomeSection = () => {
             margin: 0;
           `}
         >
-          Software Developer
+          I'm a Software Developer
         </h2>
         <p
           className={css`
@@ -58,10 +60,7 @@ const HomeSection = () => {
             color: #555;
             line-height: 1.6;
           `}
-        >
-          Passionate about clean design, efficient code, and building meaningful digital experiences. I specialize in React, TypeScript, and
-          full-stack development with a creative mindset.
-        </p>
+        ></p>
       </div>
 
       {/* Right - Image */}

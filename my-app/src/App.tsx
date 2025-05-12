@@ -7,6 +7,11 @@ import Projects from "./components/scrollsections/projects";
 import Contact from "./components/scrollsections/contact";
 import HomeSection from "./components/scrollsections/home";
 import Header from "./components/general/Header_v2";
+import SectionWrapper from "./components/scrollsections/sectionWrapper";
+
+const fadeInVisibleClass = css`
+  opacity: 1;
+`;
 
 const App = () => {
   const homeRef = useRef<HTMLDivElement>(null);
@@ -14,11 +19,13 @@ const App = () => {
   const projectsRef = useRef<HTMLDivElement>(null);
   const contactRef = useRef<HTMLDivElement>(null);
   const [currentSection, setCurrentSection] = useState<string>("home");
+  const [upcomingSection, setUpcomingSection] = useState<string>("home");
 
+  //these are the observers for the fading effects for header +sections
   useEffect(() => {
     const sections = document.querySelectorAll("section");
 
-    const observer = new IntersectionObserver(
+    const observerCurrent = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
@@ -29,8 +36,25 @@ const App = () => {
       {threshold: 0.6} // 60% visible = active
     );
 
-    sections.forEach((section) => observer.observe(section));
-    return () => observer.disconnect();
+    const observerUpcoming = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setUpcomingSection(entry.target.id);
+          }
+        });
+      },
+      {threshold: 0.1} // 60% visible = active
+    );
+
+    sections.forEach((section) => {
+      observerCurrent.observe(section);
+      observerUpcoming.observe(section);
+    });
+    return () => {
+      observerCurrent.disconnect();
+      observerUpcoming.disconnect();
+    };
   }, []);
 
   useEffect(() => {
@@ -38,6 +62,8 @@ const App = () => {
   }, []);
 
   const scrollToSection = (ref: React.RefObject<HTMLDivElement>) => {
+    setCurrentSection(ref?.current?.id as string);
+    setUpcomingSection(ref?.current?.id as string);
     ref.current?.scrollIntoView({behavior: "smooth"});
   };
 
@@ -70,15 +96,19 @@ const App = () => {
           flex-direction: column;
           overflow-y: auto;
           scroll-behavior: smooth;
-          padding-top: 5vh;
-          height: 100vh;
+          ::-webkit-scrollbar {
+            display: none;
+          }
         `}
       >
         <div ref={homeRef}>
           <HomeSection />
         </div>
         <div ref={aboutRef}>
-          <About />
+          {/* <About /> */}
+          <SectionWrapper id="about" title="test" upcomingSection={upcomingSection} currentSection={currentSection}>
+            <></>
+          </SectionWrapper>
         </div>
         <div ref={projectsRef}>
           <Projects />
@@ -92,6 +122,8 @@ const App = () => {
         className={css`
           position: fixed;
           bottom: 1rem;
+          width: 15rem;
+
           right: 1rem;
           display: flex;
           gap: 1rem;

@@ -12,7 +12,6 @@ const About = () => {
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: #f7f7f7;
 
         @media (max-width: 768px) {
           padding: 3rem 1rem;

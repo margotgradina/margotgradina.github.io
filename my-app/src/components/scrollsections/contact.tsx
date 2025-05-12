@@ -19,7 +19,7 @@ const ContactForm = () => {
         padding: 4rem 1rem;
         width: 100%;
         min-height: 100vh;
-        background-color: #f8f9fa;
+        /* background-color: #f8f9fa; */
         box-sizing: border-box;
       `}
     >
