@@ -22,7 +22,7 @@ const SectionWrapper = ({
       className={css`
         /* height: 100vh; */
 
-        width: 100vw;
+        width: 100;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -51,7 +51,7 @@ const SectionWrapper = ({
         className={css`
           /* width: 100%; */
           height: 100%;
-          margin-right: 15rem;
+          margin-right: 20rem;
           margin-left: 15rem;
           /* background-color: aqua; */
           overflow-y: auto;

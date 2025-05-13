@@ -1,4 +1,5 @@
 import {css} from "@emotion/css";
+import "../../styling/rgb-img.css";
 
 const HomeSection = () => {
   return (
@@ -9,11 +10,12 @@ const HomeSection = () => {
         align-items: center;
         justify-content: center;
         flex-direction: row;
-        padding: 4rem 2rem;
+        padding: 4rem 15rem 2rem 4rem;
         min-height: 100vh;
         box-sizing: border-box;
         width: 100%;
-        gap: 3rem;
+        /* background-color: aquamarine; */
+        /* gap: rem; */
 
         @media (max-width: 768px) {
           flex-direction: column;
@@ -27,30 +29,43 @@ const HomeSection = () => {
           flex: 1;
           display: flex;
           flex-direction: column;
+          align-items: center;
           gap: 1rem;
           padding: 2rem;
         `}
       >
         <h1
           className={css`
-            font-size: 3rem;
+            font-size: 4.5rem;
             font-weight: bold;
+
+            align-self: flex-start;
             margin: 0;
 
+            /* color: #ebc417; */
             color: #333;
           `}
         >
-          Hi, my name is Margot.
+          Hello, my name is{" "}
+          <label
+            className={css`
+              color: #7cc0a0;
+            `}
+          >
+            Margot
+          </label>
+          .
         </h1>
         <h2
           className={css`
             font-size: 1.5rem;
             font-weight: 500;
-            color: #7cc0a0;
+            align-self: flex-start;
+            color: #333;
             margin: 0;
           `}
         >
-          I'm a Full-stack Software Developer.
+          I'm a Full-stack developer
         </h2>
         <p
           className={css`
@@ -71,19 +86,24 @@ const HomeSection = () => {
           align-items: center;
         `}
       >
+        {/* <div id="div-img" className="container">
+          <img id="animated-image-red" className="imgPart" width="80%" src="/Images/glitch-red.png" alt="Image of Designer" />
+          <img className="imgPart" width="80%" src="/Images/glitch-green.png" alt="Image of Designer" />
+          <img id="animated-image-blue" className="imgPart" width="80%" src="/Images/glitch-blue.png" alt="Image of Designer" />
+          {/* <!-- <img width="80%" src="/Images/Glitch.png" alt="Image of Designer" /> --> */}
+        {/* </div> */}
         <img
           src={"/images/profilepic.jpg"}
           alt="Margot Gradina"
           className={css`
-            width: 250px;
-            height: 250px;
+            width: 20rem;
+            height: 20rem;
             border-radius: 50%;
             object-fit: cover;
-            border: 4px solid #7cc0a0;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            /* box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1); */
 
             @media (max-width: 768px) {
-              width: 180px;
+              width: 0px;
               height: 180px;
             }
           `}
