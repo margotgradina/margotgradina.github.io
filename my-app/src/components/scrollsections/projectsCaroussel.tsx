@@ -40,6 +40,14 @@ const projects: Project[] = [
     longDescription:
       "T-Box by Acconet is a flexible automation solution that helps businesses streamline operations and enable smooth data exchange. Its companion, T-Portal, is a web interface that allows clients to easily manage and customize their data. I’m involved in the full development process of T-Portal—from front-end to back-end—ensuring both client-specific features and core functionality are tailored to meet each customer’s unique needs.",
   },
+  {
+    title: "HabitHare",
+    type: "Personal project | Work in progress",
+    image: "/Images/Habithare.png",
+    tags: ["Typescript", "React", "React-native", "Git", "CSS"],
+    shortDescription: "",
+    longDescription: "HabitHare is a simple habittracker to help users build and maintain positive habits. It's a work in progress.",
+  },
 ];
 
 const ProjectsCaroussel = () => {

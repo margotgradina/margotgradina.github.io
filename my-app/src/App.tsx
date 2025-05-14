@@ -3,8 +3,6 @@ import "./App.css";
 import {css} from "@emotion/css";
 import MenuTab from "./components/general/MenuTab";
 import About from "./components/scrollsections/about";
-import Projects from "./components/scrollsections/projects";
-import Contact from "./components/scrollsections/contact";
 import HomeSection from "./components/scrollsections/home";
 import Header from "./components/general/Header_v2";
 import SectionWrapper from "./components/scrollsections/sectionWrapper";
