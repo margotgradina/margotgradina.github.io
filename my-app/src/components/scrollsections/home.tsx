@@ -1,5 +1,6 @@
 import {css} from "@emotion/css";
 import "../../styling/rgb-img.css";
+import AlphabetIcon from "../alphabetIcons/AlphabetIcon";
 
 const HomeSection = () => {
   return (
@@ -10,7 +11,7 @@ const HomeSection = () => {
         align-items: center;
         justify-content: center;
         flex-direction: row;
-        padding: 4rem 15rem 2rem 4rem;
+        padding: 4rem 15rem 2rem 10rem;
         min-height: 100vh;
         box-sizing: border-box;
         width: 100%;
@@ -34,6 +35,20 @@ const HomeSection = () => {
           padding: 2rem;
         `}
       >
+        {/* <div
+          className={css`
+            display: flex;
+            flex-direction: row;
+            gap: 0.5rem;
+          `}
+        >
+          <AlphabetIcon letter={"H"} width="7rem" height="7rem" />
+          <AlphabetIcon letter={"E"} width="7rem" height="7rem" />
+          <AlphabetIcon letter={"L"} width="7rem" height="7rem" />
+          <AlphabetIcon letter={"L"} width="7rem" height="7rem" />
+          <AlphabetIcon letter={"O"} width="7rem" height="7rem" />
+        </div> */}
+
         <h1
           className={css`
             font-size: 4.5rem;
@@ -46,7 +61,7 @@ const HomeSection = () => {
             color: #333;
           `}
         >
-          Hello, my name is{" "}
+          Hi, i'm{" "}
           <label
             className={css`
               color: #7cc0a0;

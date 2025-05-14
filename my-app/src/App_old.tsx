@@ -8,7 +8,7 @@ import ThankYou from "./components/pages/contact/ThankYou";
 import {css} from "@emotion/css";
 import Header from "./components/general/Header";
 import MenuTab from "./components/general/MenuTab";
-import Projects from "./components/pages/projects/Projects";
+// import Projects from "./components/pages/projects/Projects";
 import SBlocksPage from "./components/sBlocks/SBlocksPage";
 
 const App = () => {
@@ -85,7 +85,7 @@ const App = () => {
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
-              <Route path="/projects" element={<Projects />} />
+              {/* <Route path="/projects" element={<Projects />} /> */}
               <Route path="/projects/sBlocks" element={<SBlocksPage />} />
               <Route path="/thank-you" element={<ThankYou />} />
             </Routes>

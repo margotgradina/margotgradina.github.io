@@ -1,4 +1,5 @@
 import {css} from "@emotion/css";
+import AlphabetIcon from "../alphabetIcons/AlphabetIcon";
 
 const About = () => {
   return (
@@ -50,23 +51,28 @@ const About = () => {
         }
       `}
     >
-      I’m a software developer with 3 years experience with a less-than-average background. You see, before I discovered my true love for code, I
-      spent a 7 years working in the cultural field as a program manager. During the global pandemic, I realised that staring at design chairs for a
-      living just wasn't cutting it for me anymore. So, I traded those design chairs for a shiny new keyboard, and have been loving every minute of
-      it.
+      I’m a software developer with a less-than-average background. You see, before I discovered my true love for code, I spent a 7 years working in
+      the cultural field as a program manager. During the global pandemic, I realised that staring at design chairs for a living just wasn't cutting
+      it for me anymore - So, I traded those design chairs for a shiny new keyboard, and I haven't looked back since.
       <br />
       <br />
-      ///write something about coding
+      Now I build apps instead of exhibitions, write code instead of cryptic text signs, and solve bugs instead of budget crises. I'm a quick study
+      with a sharp mind, and years of wrangling creatives and people from all backgrounds have given me a knack for speaking 'human'. I come with
+      strong project management chops, a hands-on mentality, and a slightly unhealthy obsession with todo lists. Tight deadlines don't scare me -
+      after all, I'm used to organising art shows where the artist is always late and the opening night is always tonight.
       <br />
       <br />
-      I consider myself a critical thinker and a fast learner. I am used to working together with people in diverse positions and from diverse
-      backgrounds. It has provided me with a knack for speaking ‘human’.
-      <br />
-      I am an experienced project manager, have a slightly unhealthy obsession with todo lists and a hands-on mentality and I'm not afraid of a tight
-      deadline. After all, I'm used to organising art shows where the artist is always late and the opening night is always tonight.
-      <br />
-      <br />
-      I'm excited to continue growing and to explore the world of code. Don’t hesitate to connect and drop me a line!
+      Let’s connect! Whether it’s about code, culture, or just comparing todo list apps. Drop me a line!{" "}
+      {/* <div
+        className={css`
+          display: flex;
+          flex-direction: row;
+          gap: 0.2rem;
+        `}
+        onClick={() => {}}
+      >
+        <AlphabetIcon letter="V" width="2rem" height="2rem" />
+      </div> */}
     </p>
     //   </div>
     // </section>

@@ -8,6 +8,8 @@ import Contact from "./components/scrollsections/contact";
 import HomeSection from "./components/scrollsections/home";
 import Header from "./components/general/Header_v2";
 import SectionWrapper from "./components/scrollsections/sectionWrapper";
+import ProjectsCaroussel from "./components/scrollsections/projectsCaroussel";
+import ContactForm from "./components/scrollsections/contactForm";
 
 const fadeInVisibleClass = css`
   opacity: 1;
@@ -103,15 +105,20 @@ const App = () => {
           <HomeSection />
         </div>
         <div ref={aboutRef}>
-          <SectionWrapper id="about" title="About me" upcomingSection={upcomingSection} currentSection={currentSection}>
+          <SectionWrapper id="about" title="About me" upcomingSection={upcomingSection} currentSection={currentSection} minHeight={"100vh"}>
             <About />
           </SectionWrapper>
         </div>
         <div ref={projectsRef}>
-          <Projects />
+          <SectionWrapper id="projects" title="Projects" upcomingSection={upcomingSection} currentSection={currentSection} minHeight={"100vh"}>
+            <ProjectsCaroussel />
+          </SectionWrapper>
         </div>
         <div ref={contactRef}>
-          <Contact />
+          {/* <Contact /> */}
+          <SectionWrapper id="contact" title="Contact" upcomingSection={upcomingSection} currentSection={currentSection} minHeight={"100vh"}>
+            <ContactForm />
+          </SectionWrapper>
         </div>
       </div>
 

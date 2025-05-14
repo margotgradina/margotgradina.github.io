@@ -1,19 +1,16 @@
 import {css} from "@emotion/css";
 import {useEffect} from "react";
 
-const SectionWrapper = ({
-  id,
-  title,
-  upcomingSection,
-  currentSection,
-  children,
-}: {
+interface Props {
   id: string;
   title: string;
   upcomingSection: string;
   currentSection: string;
   children: React.ReactNode;
-}) => {
+  minHeight?: string;
+}
+
+const SectionWrapper = ({id, title, upcomingSection, currentSection, children, minHeight}: Props) => {
   useEffect(() => {}, [upcomingSection]);
 
   return (
@@ -21,14 +18,14 @@ const SectionWrapper = ({
       id={id}
       className={css`
         /* height: 100vh; */
-
+        min-height: ${minHeight};
         width: 100;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         /* background-color: #434343; */
-        padding: 0 3rem 2rem 2rem;
+        padding: 1rem 3rem 2rem 2rem;
         box-sizing: border-box;
 
         transition: opacity 1.8s ease;
