@@ -43,7 +43,8 @@ const projects: Project[] = [
   {
     title: "HabitHare",
     type: "Personal project | Work in progress",
-    image: "/Images/Habithare.png",
+    image: "/images/Habithare.png",
+    imageThumb: "/images/Habithare.png",
     tags: ["Typescript", "React", "React-native", "Git", "CSS"],
     shortDescription: "",
     longDescription: "HabitHare is a simple habittracker to help users build and maintain positive habits. It's a work in progress.",
