@@ -8,8 +8,8 @@ const projects: Project[] = [
   {
     title: "QOOOB",
     type: "Personal project",
-    image: "/Images/sBlocks.png",
-    imageThumb: "/Images/qooobSquare.png",
+    image: "/images/sBlocks.png",
+    imageThumb: "/images/qooobSquare.png",
     url: "https://qooob.netlify.app/",
     urlDescription: "Try QOOOB",
     tags: ["Typescript", "React", "Netlify", "Git", "CSS"],
@@ -20,8 +20,8 @@ const projects: Project[] = [
   {
     title: "Llamabank",
     type: "Study project",
-    imageThumb: "/Images/llamasquare.png",
-    image: "/Images/Llamabank.png",
+    imageThumb: "/images/llamasquare.png",
+    image: "/images/Llamabank.png",
     url: "https://github.com/margotgradina/Llamabank",
     urlDescription: "Github repo",
     tags: ["CSS", "HTML", "Javascript", "Java", "Springboot", "MyQL", "Git"],
@@ -32,7 +32,7 @@ const projects: Project[] = [
   {
     title: "T-Box",
     type: "Current employer",
-    image: "/Images/T-portal.png",
+    image: "/images/T-portal.png",
     url: "https://t-box.nl",
     urlDescription: "T-Box website",
     tags: ["Typescript", "React", "Wlanguage", "Git", "CSS", "MSSQL", "React Native"],

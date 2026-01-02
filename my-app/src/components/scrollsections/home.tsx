@@ -103,9 +103,9 @@ const HomeSection = () => {
       >
         {/* <div id="div-img" className="container">
           <img id="animated-image-red" className="imgPart" width="80%" src="/Images/glitch-red.png" alt="Image of Designer" />
-          <img className="imgPart" width="80%" src="/Images/glitch-green.png" alt="Image of Designer" />
-          <img id="animated-image-blue" className="imgPart" width="80%" src="/Images/glitch-blue.png" alt="Image of Designer" />
-          {/* <!-- <img width="80%" src="/Images/Glitch.png" alt="Image of Designer" /> --> */}
+          <img className="imgPart" width="80%" src="/images/glitch-green.png" alt="Image of Designer" />
+          <img id="animated-image-blue" className="imgPart" width="80%" src="/images/glitch-blue.png" alt="Image of Designer" />
+          {/* <!-- <img width="80%" src="/images/Glitch.png" alt="Image of Designer" /> --> */}
         {/* </div> */}
         <img
           src={"/images/profilepic.jpg"}
