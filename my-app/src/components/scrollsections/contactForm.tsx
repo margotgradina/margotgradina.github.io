@@ -2,16 +2,7 @@ import {css, keyframes} from "@emotion/css";
 import {useRef, useState} from "react";
 import {useNavigate} from "react-router-dom";
 import {Button} from "@material-ui/core";
-
-const wiggle = keyframes`
-  0% { transform: rotate(0deg); }
-  15% { transform: rotate(4deg); }
-  30% { transform: rotate(-4deg); }
-  45% { transform: rotate(4deg); }
-  60% { transform: rotate(-4deg); }
-  75% { transform: rotate(2deg); }
-  100% { transform: rotate(0deg); }
-`;
+import BasicButton from "../general/BasicButton";
 
 const ContactForm = () => {
   const [submitted, setSubmitted] = useState(false);
@@ -70,32 +61,7 @@ const ContactForm = () => {
           `}
         />
 
-        <div
-          onClick={() => hiddenButtonRef.current?.click()}
-          className={css`
-            cursor: pointer;
-            background-color: #7cc0a0;
-            color: white;
-            padding: 0.5rem 1.5rem;
-            border-radius: 1.5rem;
-            font-weight: 600;
-            font-family: "Raleway";
-            text-align: center;
-            align-self: flex-start;
-            transition: background-color 0.2s ease;
-
-            transform-origin: center;
-            will-change: transform;
-
-            &:hover {
-              background-color: #68ab8e;
-              animation: ${wiggle} 0.45s ease-in-out;
-            }
-          `}
-        >
-          Send
-        </div>
-
+        <BasicButton onClick={() => hiddenButtonRef.current?.click()} label={"Send"} minWidth="4.5rem" />
         <Button
           ref={hiddenButtonRef}
           type="submit"

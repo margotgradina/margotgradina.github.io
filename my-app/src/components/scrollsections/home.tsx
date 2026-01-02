@@ -2,6 +2,7 @@ import {css} from "@emotion/css";
 import "../../styling/rgb-img.css";
 import AlphabetIcon from "../alphabetIcons/AlphabetIcon";
 import {RefObject} from "react";
+import BasicButton from "../general/BasicButton";
 
 interface Props {
   projectsRef?: RefObject<HTMLDivElement>;
@@ -97,31 +98,8 @@ const HomeSection = (props: Props) => {
             gap: 1rem;
           `}
         >
-          <h3
-            onClick={() => props.scrollToSection(props.projectsRef as React.RefObject<HTMLDivElement>)}
-            className={css`
-              font-size: 1.2rem;
-              font-weight: 300;
-
-              align-self: flex-start;
-              color: #333;
-              margin: 0;
-            `}
-          >
-            <u>Projects</u>
-          </h3>
-          <h3
-            onClick={() => props.scrollToSection(props.contactRef as React.RefObject<HTMLDivElement>)}
-            className={css`
-              font-size: 1.2rem;
-              font-weight: 300;
-              align-self: flex-start;
-              color: #333;
-              margin: 0;
-            `}
-          >
-            <u> Say hello</u>
-          </h3>
+          <BasicButton label="Projects" onClick={() => props.scrollToSection(props.projectsRef as React.RefObject<HTMLDivElement>)} />
+          <BasicButton label="Say hello" onClick={() => props.scrollToSection(props.contactRef as React.RefObject<HTMLDivElement>)} />
         </div>
       </div>
 

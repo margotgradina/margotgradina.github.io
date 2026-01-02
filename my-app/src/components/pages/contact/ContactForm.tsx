@@ -2,6 +2,7 @@ import {css, keyframes} from "@emotion/css";
 import {Component, useEffect, useRef, useState} from "react";
 import {useNavigate} from "react-router-dom";
 import {Button} from "@material-ui/core";
+import BasicButton from "../../general/BasicButton";
 
 const wiggle = keyframes`
   0% { transform: rotate(0deg); }
@@ -140,6 +141,7 @@ const ContactForm = () => {
         >
           Send
         </div>
+
         <Button
           ref={hiddenButtonRef}
           onClick={() => {}}

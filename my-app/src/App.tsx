@@ -69,8 +69,8 @@ const App = () => {
     <div
       className={css`
         font-family: "Raleway", sans-serif;
-        height: 100vh;
-        width: 100vw;
+        height: 99vh;
+        width: 99vw;
         overflow: hidden;
         position: relative;
         display: flex;
