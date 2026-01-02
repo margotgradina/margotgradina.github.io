@@ -91,7 +91,12 @@ export type Interest = {
 
 export type Project = {
   title: string;
+  type: string;
+  imageThumb?: string;
   image: string;
-  text: string;
-  tools: string[];
+  url?: string;
+  urlDescription?: string;
+  tags: string[];
+  shortDescription: string;
+  longDescription?: string;
 };

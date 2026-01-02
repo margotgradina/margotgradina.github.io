@@ -1,6 +1,8 @@
 import {css} from "@emotion/css";
+import {getRandomNumber} from "../../helpers/GetRandomNumber";
 
 interface AlphabetIconProps {
+  label?: string;
   letter: string;
   width?: string;
   height?: string;
@@ -17,6 +19,7 @@ const AlphabetIcon = (props: AlphabetIconProps) => {
     <>
       <img
         src={"/alphabetIcons/" + props.letter + ".png"}
+        key={props.label + props.letter + getRandomNumber(0, 1000)}
         className={css`
           display: flex;
           transform: rotate(${props.rotate ? props.rotate + "deg" : "0deg"});

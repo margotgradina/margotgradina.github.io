@@ -1,0 +1,61 @@
+/* IMAGE RGB sPLIT*/
+
+.imgPart {
+  position: absolute;
+  height: 50vh;
+  width: 50%;
+  top: 0;
+  left: 0;
+  mix-blend-mode: lighten;
+}
+
+.imgPart:nth-child(1) {
+  left: -40px;
+  /* animation: ANIMATE-IMG-RED 8000ms infinite; */
+}
+
+.imgPart:nth-child(2) {
+  /* animation: ANIMATE-IMG-GREEN 8000ms infinite; */
+}
+
+.imgPart:nth-child(3) {
+  left: 40px;
+  /* animation: ANIMATE-IMG-BLUE 8000ms infinite; */
+}
+
+/* @keyframes ANIMATE-IMG-RED {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(20px, 0px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes ANIMATE-IMG-BLUE {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(0, 20px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+} */
+
+#animated-image-red,
+#animated-image-blue {
+  transition: transform 2s ease;
+}
+
+.container:hover #animated-image-red {
+  transform: translateX(40px);
+}
+
+.container:hover #animated-image-blue {
+  transform: translateX(-40px);
+}

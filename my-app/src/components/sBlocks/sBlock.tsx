@@ -1,16 +1,24 @@
 import {useEffect, useState} from "react";
 import SBlockUnit from "./sBlockUnit";
+import {css} from "@emotion/css";
+import SBlockRectangle from "./shapes/sBlockRectangle";
+import SBlockTriangle from "./shapes/sBlockTriangle";
+import SBlockRoundCorner from "./shapes/sBlockRoundCorner";
+import SBlockHalfCircleOutwards from "./shapes/sBlockHalfCircleOutwards";
+import SBlockHalfTriangle from "./shapes/sBlockHalfTriangle";
 
 interface Props {
-  type: "FULL" | "QUARTERCIRCLE" | "HALFSTADIUM" | "ELLIPS" | "DROP" | "CIRCLE";
+  type: string;
   rotate: 0 | 90 | 180 | 270;
   colour: string;
   size: number;
   sizeUnit: string;
+  onClick?: Function;
 }
 
 const SBlock = (props: Props) => {
   const [rotate, setRotate] = useState<"0deg" | "90deg" | "180deg" | "270deg" | null | undefined>(null);
+  const [bR, setBR] = useState<string>(props?.size && props?.sizeUnit ? props.size * 0.75 + props.sizeUnit : "7.5em"); //the size of the border radius
 
   useEffect(() => {
     switch (props.rotate) {
@@ -31,27 +39,127 @@ const SBlock = (props: Props) => {
     }
   }, [props.rotate]);
 
+  //handles the given function for Onclick
+  const handleClick = () => {
+    if (props?.onClick) {
+      props.onClick();
+    }
+  };
+
+  //adjusts the borderRadius based on its shape. The borderRadius is calculated based on the given size *0.75
+  const calculateBorderRadius = (): string => {
+    switch (props.type) {
+      case "FULL":
+        return `0px 0px 0px 0px`;
+      case "QUARTERCIRCLE":
+        return `${bR} 0px 0px 0px`;
+      case "HALFSTADIUM":
+        return `${bR} ${bR} 0px 0px`;
+      case "ELLIPS":
+        return `${bR} 0px ${bR} 0px`;
+      case "DROP":
+        return `0px ${bR} ${bR} ${bR}`;
+      case "CIRCLE":
+        return `${bR} ${bR} ${bR} ${bR}`;
+      case "RECTANGLE":
+        return `0px 0px 0px 0px`;
+      case "TRIANGLE":
+        return `0px 0px 0px 0px`;
+      case "ROUNDCORNER":
+        return `0px 0px 0px 0px`;
+      case "HALFCIRCLEOUTWARDS":
+        return `0px 0px 0px 0px`;
+      case "HALFTRIANGLE":
+        return `0px 0px 0px 0px`;
+      default:
+        return "0px 0px 0px 0px";
+    }
+  };
+
   return (
-    <>
+    <div onClick={() => handleClick()}>
       {props.type == "FULL" && (
-        <SBlockUnit topLeftBR={false} topRightBR={false} bottomRightBR={false} bottomLeftBR={false} colour={props.colour} rotate={rotate} />
+        <SBlockUnit
+          colour={props?.colour || "#000"}
+          rotate={rotate || "0deg"}
+          size={props.size || 10}
+          sizeUnit={props.sizeUnit || "em"}
+          borderRadius={calculateBorderRadius()}
+        />
       )}
       {props.type == "QUARTERCIRCLE" && (
-        <SBlockUnit topLeftBR={true} topRightBR={false} bottomRightBR={false} bottomLeftBR={false} colour={props.colour} rotate={rotate} />
+        <SBlockUnit
+          colour={props?.colour || "#000"}
+          rotate={rotate || "0deg"}
+          size={props.size || 10}
+          sizeUnit={props.sizeUnit || "em"}
+          borderRadius={calculateBorderRadius()}
+        />
       )}
       {props.type == "HALFSTADIUM" && (
-        <SBlockUnit topLeftBR={true} topRightBR={true} bottomRightBR={false} bottomLeftBR={false} colour={props.colour} rotate={rotate} />
+        <SBlockUnit
+          colour={props?.colour || "#000"}
+          rotate={rotate || "0deg"}
+          size={props.size || 10}
+          sizeUnit={props.sizeUnit || "em"}
+          borderRadius={calculateBorderRadius()}
+        />
       )}
       {props.type == "ELLIPS" && (
-        <SBlockUnit topLeftBR={true} topRightBR={false} bottomRightBR={true} bottomLeftBR={false} colour={props.colour} rotate={rotate} />
+        <SBlockUnit
+          colour={props?.colour || "#000"}
+          rotate={rotate || "0deg"}
+          size={props.size || 10}
+          sizeUnit={props.sizeUnit || "em"}
+          borderRadius={calculateBorderRadius()}
+        />
       )}
       {props.type == "DROP" && (
-        <SBlockUnit topLeftBR={false} topRightBR={true} bottomRightBR={true} bottomLeftBR={true} colour={props.colour} rotate={rotate} />
+        <SBlockUnit
+          colour={props?.colour || "#000"}
+          rotate={rotate || "0deg"}
+          size={props.size || 10}
+          sizeUnit={props.sizeUnit || "em"}
+          borderRadius={calculateBorderRadius()}
+        />
       )}
       {props.type == "CIRCLE" && (
-        <SBlockUnit topLeftBR={true} topRightBR={true} bottomRightBR={true} bottomLeftBR={true} colour={props.colour} rotate={rotate} />
+        <SBlockUnit
+          colour={props?.colour || "#000"}
+          size={props.size || 10}
+          sizeUnit={props.sizeUnit || "em"}
+          borderRadius={calculateBorderRadius()}
+          rotate={rotate || "0deg"}
+        />
       )}
-    </>
+      {props.type == "RECTANGLE" && (
+        <SBlockRectangle size={props.size || 10} sizeUnit={props.sizeUnit || "em"} colour={props?.colour || "#000"} rotate={rotate || "0deg"} />
+      )}
+      {props.type == "TRIANGLE" && (
+        <SBlockTriangle size={props.size || 10} sizeUnit={props.sizeUnit || "em"} colour={props?.colour || "#000"} rotate={rotate || "0deg"} />
+      )}
+      {props.type == "HALFTRIANGLE" && (
+        <SBlockHalfTriangle size={props.size || 10} sizeUnit={props.sizeUnit || "em"} colour={props?.colour || "#000"} rotate={rotate || "0deg"} />
+      )}
+      {props.type == "ROUNDCORNER" && (
+        <SBlockRoundCorner
+          size={props.size || 10}
+          sizeUnit={props.sizeUnit || "em"}
+          colour={props?.colour || "#000"}
+          rotate={rotate || "0deg"}
+          bR={bR}
+        />
+      )}
+      {props.type == "HALFCIRCLEOUTWARDS" && (
+        <SBlockHalfCircleOutwards
+          size={props.size || 10}
+          sizeUnit={props.sizeUnit || "em"}
+          colour={props?.colour || "#000"}
+          rotate={rotate || "0deg"}
+          bR={bR}
+        />
+      )}
+    </div>
   );
 };
 
