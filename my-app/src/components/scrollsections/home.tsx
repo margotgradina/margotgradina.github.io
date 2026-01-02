@@ -1,8 +1,14 @@
 import {css} from "@emotion/css";
 import "../../styling/rgb-img.css";
 import AlphabetIcon from "../alphabetIcons/AlphabetIcon";
+import {RefObject} from "react";
 
-const HomeSection = () => {
+interface Props {
+  projectsRef?: RefObject<HTMLDivElement>;
+  contactRef?: RefObject<HTMLDivElement>;
+  scrollToSection: (ref: React.RefObject<HTMLDivElement>) => void;
+}
+const HomeSection = (props: Props) => {
   return (
     <section
       id="home"
@@ -82,14 +88,41 @@ const HomeSection = () => {
         >
           I'm a Full-stack developer
         </h2>
-        <p
+        <div
           className={css`
-            font-size: 1rem;
-            max-width: 600px;
-            color: #555;
-            line-height: 1.6;
+            display: flex;
+            flex-direction: row;
+            align-self: flex-start;
+            color: #333;
+            gap: 1rem;
           `}
-        ></p>
+        >
+          <h3
+            onClick={() => props.scrollToSection(props.projectsRef as React.RefObject<HTMLDivElement>)}
+            className={css`
+              font-size: 1.2rem;
+              font-weight: 300;
+
+              align-self: flex-start;
+              color: #333;
+              margin: 0;
+            `}
+          >
+            <u>Projects</u>
+          </h3>
+          <h3
+            onClick={() => props.scrollToSection(props.contactRef as React.RefObject<HTMLDivElement>)}
+            className={css`
+              font-size: 1.2rem;
+              font-weight: 300;
+              align-self: flex-start;
+              color: #333;
+              margin: 0;
+            `}
+          >
+            <u> Say hello</u>
+          </h3>
+        </div>
       </div>
 
       {/* Right - Image */}
@@ -101,12 +134,6 @@ const HomeSection = () => {
           align-items: center;
         `}
       >
-        {/* <div id="div-img" className="container">
-          <img id="animated-image-red" className="imgPart" width="80%" src="/Images/glitch-red.png" alt="Image of Designer" />
-          <img className="imgPart" width="80%" src="/images/glitch-green.png" alt="Image of Designer" />
-          <img id="animated-image-blue" className="imgPart" width="80%" src="/images/glitch-blue.png" alt="Image of Designer" />
-          {/* <!-- <img width="80%" src="/images/Glitch.png" alt="Image of Designer" /> --> */}
-        {/* </div> */}
         <img
           src={"/images/profilepic.jpg"}
           alt="Margot Gradina"

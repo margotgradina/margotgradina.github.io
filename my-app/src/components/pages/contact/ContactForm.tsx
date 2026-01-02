@@ -1,7 +1,17 @@
-import {css} from "@emotion/css";
+import {css, keyframes} from "@emotion/css";
 import {Component, useEffect, useRef, useState} from "react";
 import {useNavigate} from "react-router-dom";
 import {Button} from "@material-ui/core";
+
+const wiggle = keyframes`
+  0% { transform: rotate(0deg); }
+  15% { transform: rotate(4deg); }
+  30% { transform: rotate(-4deg); }
+  45% { transform: rotate(4deg); }
+  60% { transform: rotate(-4deg); }
+  75% { transform: rotate(2deg); }
+  100% { transform: rotate(0deg); }
+`;
 
 const ContactForm = () => {
   const [submitted, setSubmitted] = useState<boolean>(false);
@@ -106,8 +116,7 @@ const ContactForm = () => {
         <div
           onClick={() => hiddenButtonRef.current?.click()}
           className={css`
-            display: flex;
-
+            display: inline-flex;
             justify-content: center;
             align-items: center;
             font-family: "Raleway";
@@ -115,25 +124,22 @@ const ContactForm = () => {
             font-weight: 600;
             border-radius: 1.5625rem;
             background: #7cc0a0;
-            width: 15%;
             min-width: 50px;
             height: 2rem;
+            padding: 0 12px;
+            cursor: pointer;
+            color: white;
+
+            transform-origin: center;
+            will-change: transform;
+
+            &:hover {
+              animation: ${wiggle} 0.45s ease-in-out;
+            }
           `}
         >
-          <label
-            className={css`
-              display: flex;
-              font-family: "Raleway";
-              flex-direction: column;
-              text-align: center;
-              align-content: center;
-              color: white;
-            `}
-          >
-            Send
-          </label>
+          Send
         </div>
-
         <Button
           ref={hiddenButtonRef}
           onClick={() => {}}
@@ -143,16 +149,6 @@ const ContactForm = () => {
           `}
           type={"submit"}
         ></Button>
-
-        {/* <input
-          className={css`
-            margin: 10px;
-            align-self: center;
-            width: 100px;
-          `}
-          type="submit"
-          value="SEND"
-        /> */}
       </form>
     </div>
   );

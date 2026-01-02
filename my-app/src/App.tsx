@@ -100,7 +100,11 @@ const App = () => {
         `}
       >
         <div ref={homeRef}>
-          <HomeSection />
+          <HomeSection
+            projectsRef={projectsRef}
+            contactRef={contactRef}
+            scrollToSection={(ref: React.RefObject<HTMLDivElement>) => scrollToSection(ref)}
+          />
         </div>
         <div ref={aboutRef}>
           <SectionWrapper id="about" title="About me" upcomingSection={upcomingSection} currentSection={currentSection} minHeight={"100vh"}>

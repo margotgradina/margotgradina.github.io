@@ -1,7 +1,17 @@
-import {css} from "@emotion/css";
+import {css, keyframes} from "@emotion/css";
 import {useRef, useState} from "react";
 import {useNavigate} from "react-router-dom";
 import {Button} from "@material-ui/core";
+
+const wiggle = keyframes`
+  0% { transform: rotate(0deg); }
+  15% { transform: rotate(4deg); }
+  30% { transform: rotate(-4deg); }
+  45% { transform: rotate(4deg); }
+  60% { transform: rotate(-4deg); }
+  75% { transform: rotate(2deg); }
+  100% { transform: rotate(0deg); }
+`;
 
 const ContactForm = () => {
   const [submitted, setSubmitted] = useState(false);
@@ -73,8 +83,13 @@ const ContactForm = () => {
             text-align: center;
             align-self: flex-start;
             transition: background-color 0.2s ease;
+
+            transform-origin: center;
+            will-change: transform;
+
             &:hover {
               background-color: #68ab8e;
+              animation: ${wiggle} 0.45s ease-in-out;
             }
           `}
         >

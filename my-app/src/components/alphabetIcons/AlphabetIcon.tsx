@@ -1,4 +1,4 @@
-import {css} from "@emotion/css";
+import {css, keyframes} from "@emotion/css";
 import {getRandomNumber} from "../../helpers/GetRandomNumber";
 
 interface AlphabetIconProps {
@@ -10,8 +10,18 @@ interface AlphabetIconProps {
   padding?: string;
   fade?: boolean;
   rotate?: 0 | 90 | 180 | 270;
+  wiggle?: boolean;
 }
 
+const wiggle = keyframes`
+  0% { transform: rotate(0deg); }
+  15% { transform: rotate(4deg); }
+  30% { transform: rotate(-4deg); }
+  45% { transform: rotate(4deg); }
+  60% { transform: rotate(-4deg); }
+  75% { transform: rotate(2deg); }
+  100% { transform: rotate(0deg); }
+`;
 /* TODO scale width but keep proportions */
 
 const AlphabetIcon = (props: AlphabetIconProps) => {
@@ -35,9 +45,15 @@ const AlphabetIcon = (props: AlphabetIconProps) => {
           -ms-user-select: none;
 
           transition: opacity 4s;
+          transform-origin: center;
+          will-change: transform;
           :hover {
             opacity: 0.2;
             transition: opacity 0.5s;
+            animation: ${wiggle} 0.45s ease-in-out;
+          }
+
+          &:hover {
           }
         `}
       />
