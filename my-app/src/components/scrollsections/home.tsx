@@ -1,8 +1,15 @@
 import {css} from "@emotion/css";
 import "../../styling/rgb-img.css";
 import AlphabetIcon from "../alphabetIcons/AlphabetIcon";
+import {RefObject} from "react";
+import BasicButton from "../general/BasicButton";
 
-const HomeSection = () => {
+interface Props {
+  projectsRef?: RefObject<HTMLDivElement>;
+  contactRef?: RefObject<HTMLDivElement>;
+  scrollToSection: (ref: React.RefObject<HTMLDivElement>) => void;
+}
+const HomeSection = (props: Props) => {
   return (
     <section
       id="home"
@@ -80,16 +87,21 @@ const HomeSection = () => {
             margin: 0;
           `}
         >
-          I'm a Full-stack developer
+          I'm a Full-stack developer.
+          <br />I like thinking along to find practical solutions.
         </h2>
-        <p
+        <div
           className={css`
-            font-size: 1rem;
-            max-width: 600px;
-            color: #555;
-            line-height: 1.6;
+            display: flex;
+            flex-direction: row;
+            align-self: flex-start;
+            color: #333;
+            gap: 1rem;
           `}
-        ></p>
+        >
+          <BasicButton label="Projects" onClick={() => props.scrollToSection(props.projectsRef as React.RefObject<HTMLDivElement>)} />
+          <BasicButton label="Say hello" onClick={() => props.scrollToSection(props.contactRef as React.RefObject<HTMLDivElement>)} />
+        </div>
       </div>
 
       {/* Right - Image */}
@@ -101,14 +113,8 @@ const HomeSection = () => {
           align-items: center;
         `}
       >
-        {/* <div id="div-img" className="container">
-          <img id="animated-image-red" className="imgPart" width="80%" src="/Images/glitch-red.png" alt="Image of Designer" />
-          <img className="imgPart" width="80%" src="/images/glitch-green.png" alt="Image of Designer" />
-          <img id="animated-image-blue" className="imgPart" width="80%" src="/images/glitch-blue.png" alt="Image of Designer" />
-          {/* <!-- <img width="80%" src="/images/Glitch.png" alt="Image of Designer" /> --> */}
-        {/* </div> */}
         <img
-          src={"/images/profilepic.jpg"}
+          src={"/images/profilepic2.png"}
           alt="Margot Gradina"
           className={css`
             width: 20rem;

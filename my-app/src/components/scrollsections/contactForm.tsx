@@ -1,12 +1,27 @@
-import {css} from "@emotion/css";
+import {css, keyframes} from "@emotion/css";
 import {useRef, useState} from "react";
 import {useNavigate} from "react-router-dom";
 import {Button} from "@material-ui/core";
+import BasicButton from "../general/BasicButton";
+import Snackbar from "@mui/material/Snackbar";
+import Fade from "@mui/material/Fade";
+
+const inputStyle = css`
+  font-family: "Raleway";
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  border: 2px solid #7cc0a0;
+  border-radius: 1rem;
+  background: rgba(238, 165, 128, 0);
+  width: 100%;
+  box-sizing: border-box;
+`;
 
 const ContactForm = () => {
   const [submitted, setSubmitted] = useState(false);
   const navigate = useNavigate();
   const hiddenButtonRef = useRef<HTMLButtonElement | null>(null);
+  const [showToast, setShowToast] = useState(false);
 
   return (
     <div
@@ -26,7 +41,7 @@ const ContactForm = () => {
         `}
         onLoad={() => {
           if (submitted) {
-            navigate("/thank-you");
+            setShowToast(true);
           }
         }}
       />
@@ -60,27 +75,7 @@ const ContactForm = () => {
           `}
         />
 
-        <div
-          onClick={() => hiddenButtonRef.current?.click()}
-          className={css`
-            cursor: pointer;
-            background-color: #7cc0a0;
-            color: white;
-            padding: 0.5rem 1.5rem;
-            border-radius: 1.5rem;
-            font-weight: 600;
-            font-family: "Raleway";
-            text-align: center;
-            align-self: flex-start;
-            transition: background-color 0.2s ease;
-            &:hover {
-              background-color: #68ab8e;
-            }
-          `}
-        >
-          Send
-        </div>
-
+        <BasicButton onClick={() => hiddenButtonRef.current?.click()} label={"Send"} minWidth="4.5rem" />
         <Button
           ref={hiddenButtonRef}
           type="submit"
@@ -89,19 +84,29 @@ const ContactForm = () => {
           `}
         />
       </form>
+      {showToast && (
+        <Snackbar
+          anchorOrigin={{vertical: "bottom", horizontal: "center"}}
+          open={showToast}
+          TransitionComponent={Fade}
+          autoHideDuration={4000}
+          onClose={() => setShowToast(false)}
+          message="Thanks for your message! I will get in touch as soon as possible :)"
+          sx={{
+            "& .MuiSnackbarContent-root": {
+              backgroundColor: "#7cc0a0",
+              color: "white",
+              fontFamily: "Raleway",
+              fontSize: "0.9rem",
+              borderRadius: "1rem",
+              boxShadow: "0 8px 20px rgba(0,0,0,0.15)",
+              padding: "0.75rem 1.25rem",
+            },
+          }}
+        />
+      )}
     </div>
   );
 };
-
-const inputStyle = css`
-  font-family: "Raleway";
-  font-size: 1rem;
-  padding: 0.5rem 1rem;
-  border: 2px solid #7cc0a0;
-  border-radius: 1rem;
-  background: rgba(238, 165, 128, 0);
-  width: 100%;
-  box-sizing: border-box;
-`;
 
 export default ContactForm;

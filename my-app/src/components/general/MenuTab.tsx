@@ -34,6 +34,35 @@ const MenuTab = (props: TabProps) => {
           height: auto;
           width: auto;
           gap: 0.01rem;
+          cursor: pointer;
+
+          @keyframes wiggle {
+            0% {
+              transform: rotate(0deg);
+            }
+            15% {
+              transform: rotate(2deg);
+            }
+            30% {
+              transform: rotate(-2deg);
+            }
+            45% {
+              transform: rotate(2deg);
+            }
+            60% {
+              transform: rotate(-2deg);
+            }
+            75% {
+              transform: rotate(1deg);
+            }
+            100% {
+              transform: rotate(0deg);
+            }
+          }
+
+          &:hover {
+            animation: wiggle 0.4s ease-in-out;
+          }
         `}
       >
         {array?.map((item) => (

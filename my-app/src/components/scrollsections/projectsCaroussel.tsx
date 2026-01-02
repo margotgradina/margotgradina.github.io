@@ -3,6 +3,7 @@ import AlphabetIcon from "../alphabetIcons/AlphabetIcon";
 import {useState} from "react";
 import ProjectsCarousselTile from "./projectsCarousseTile";
 import {Project} from "../../types/types";
+import BasicButton from "../general/BasicButton";
 
 const projects: Project[] = [
   {
@@ -68,6 +69,13 @@ const ProjectsCaroussel = () => {
     projects[(currentIndex + 1) % projects.length],
     projects[(currentIndex + 2) % projects.length],
   ];
+
+  const handleOpenUrl = (url: string | null) => {
+    if (url) {
+      window.open(url, "_blank", "noopener,noreferrer");
+      //open the url in a new browsertab
+    }
+  };
 
   return (
     <>
@@ -183,22 +191,26 @@ const ProjectsCaroussel = () => {
               ))}
             </div>
             <p>{activeProject.longDescription}</p>
-            <a
-              href={activeProject.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={css`
-                display: inline-block;
-                margin-top: 1rem;
-                background-color: #7cc0a0;
-                color: white;
-                padding: 0.5rem 1rem;
-                border-radius: 6px;
-                text-decoration: none;
-              `}
-            >
-              {activeProject.urlDescription}
-            </a>
+            {activeProject?.url && (
+              <BasicButton label={activeProject.urlDescription || "Go to project"} onClick={() => handleOpenUrl(activeProject.url || null)} />
+            )}
+
+            {/* // <a
+            //   href={activeProject.url}
+            //   target="_blank"
+            //   rel="noopener noreferrer"
+            //   className={css`
+            //     display: inline-block;
+            //     margin-top: 1rem;
+            //     background-color: #7cc0a0;
+            //     color: white;
+            //     padding: 0.5rem 1rem;
+            //     border-radius: 6px;
+            //     text-decoration: none;
+            //   `}
+            // >
+            //   {activeProject.urlDescription}
+            // </a> */}
             <button
               onClick={() => setActiveProject(null)}
               className={css`

@@ -58,11 +58,11 @@ const About = () => {
       <br />
       Now I build apps instead of exhibitions, write code instead of cryptic text signs, and solve bugs instead of budget crises. I'm a quick study
       with a sharp mind, and years of wrangling creatives and people from all backgrounds have given me a knack for speaking 'human'. I come with
-      strong project management chops, a hands-on mentality, and a slightly unhealthy obsession with todo lists. Tight deadlines don't scare me -
+      strong project management skills, a hands-on mentality, and a slightly unhealthy obsession with todo lists. Tight deadlines don't scare me -
       after all, I'm used to organising art shows where the artist is always late and the opening night is always tonight.
       <br />
       <br />
-      Let’s connect! Whether it’s about code, culture, or just comparing todo list apps. Drop me a line!{" "}
+      Let’s connect! Whether it’s about code, culture, or just to say hello. Drop me a line!{" "}
       {/* <div
         className={css`
           display: flex;
