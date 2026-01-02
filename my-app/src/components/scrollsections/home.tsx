@@ -87,7 +87,8 @@ const HomeSection = (props: Props) => {
             margin: 0;
           `}
         >
-          I'm a Full-stack developer
+          I'm a Full-stack developer.
+          <br />I like thinking along to find practical solutions.
         </h2>
         <div
           className={css`
