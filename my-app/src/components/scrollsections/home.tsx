@@ -113,7 +113,7 @@ const HomeSection = (props: Props) => {
         `}
       >
         <img
-          src={"/images/profilepic.jpg"}
+          src={"/images/profilepic2.png"}
           alt="Margot Gradina"
           className={css`
             width: 20rem;

@@ -28,7 +28,7 @@ const About = () => {
         `}
       >
         <img
-          src="/images/profilepic.jpg"
+          src="/images/profilepic2.png"
           className={css`
             width: 15vw;
             border-radius: 30vw;
