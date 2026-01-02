@@ -20,7 +20,7 @@ const projects: Project[] = [
   {
     title: "Llamabank",
     type: "Study project",
-    imageThumb: "/images/llamasquare.png",
+    imageThumb: "/images/llamaSquare.png",
     image: "/images/Llamabank.png",
     url: "https://github.com/margotgradina/Llamabank",
     urlDescription: "Github repo",
