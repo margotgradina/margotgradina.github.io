@@ -1,4 +1,4 @@
-import {useEffect, useRef, useState} from "react";
+import {SyntheticEvent, useEffect, useRef, useState} from "react";
 import "./App.css";
 import {css} from "@emotion/css";
 import MenuTab from "./components/general/MenuTab";
@@ -8,6 +8,8 @@ import Header from "./components/general/Header_v2";
 import SectionWrapper from "./components/scrollsections/sectionWrapper";
 import ProjectsCaroussel from "./components/scrollsections/projectsCaroussel";
 import ContactForm from "./components/scrollsections/contactForm";
+// import Toast from "./components/general/Toast/Toast";
+import {SnackbarCloseReason} from "@mui/material";
 
 const fadeInVisibleClass = css`
   opacity: 1;
